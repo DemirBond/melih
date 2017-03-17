@@ -1,14 +1,12 @@
 package com.szg_tech.cvdevaluator.rest;
 
-import com.szg_tech.cvdevaluator.rest.response.EvaluationResponse;
+import com.szg_tech.cvdevaluator.rest.requests.LoginRequest;
 
 import java.util.Map;
-import java.util.Objects;
 
 import retrofit2.Call;
-import retrofit2.Callback;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.QueryMap;
 
 /**

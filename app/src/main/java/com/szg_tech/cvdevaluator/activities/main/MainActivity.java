@@ -9,12 +9,14 @@ import android.view.MenuItem;
 
 import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.fragments.home.HomeFragment;
+import com.szg_tech.cvdevaluator.rest.LoginClient;
 import com.szg_tech.cvdevaluator.rest.RestClient;
-import com.szg_tech.cvdevaluator.rest.response.EvaluationResponse;
+import com.szg_tech.cvdevaluator.rest.RestClientProvider;
+import com.szg_tech.cvdevaluator.rest.requests.LoginRequest;
+import com.szg_tech.cvdevaluator.rest.responses.LoginResponse;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,17 +45,27 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         query.put("DBP", 65);
         query.put("inputs", "chkNYHA1%7CchkDOE");
 
-        RestClient.get().computeEvaluation(query).enqueue(new Callback<String>() {
+        new LoginClient().getLoginService().login(new LoginRequest("password", "demo", "demo1")).enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                System.out.println(response.body());
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if(response.isSuccessful()) {
+                    try {
+                        String body = RestClientProvider.get(response.body().getAccessToken()).getApi().computeEvaluation().execute().body();
+                        System.out.println(body);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                } else {
+                    System.out.println("Not successful" + response);
+                }
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
 
             }
         });
+
     }
 
     @Override

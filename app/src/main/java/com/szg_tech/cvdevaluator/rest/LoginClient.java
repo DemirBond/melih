@@ -2,37 +2,30 @@ package com.szg_tech.cvdevaluator.rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.szg_tech.cvdevaluator.rest.requests.LoginRequest;
 
-import java.io.IOException;
-
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
- * Created by ahmetkucuk on 3/16/17.
+ * Created by ahmetkucuk on 3/17/17.
  */
 
-public class RestClient
-{
-    private static final String BASE_URL = "http://www.cvdevaluator.com/";
-    private static ApiService apiService;
+public class LoginClient {
 
-    public RestClient(String token) {
+    private static final String BASE_URL = "http://www.cvdevaluator.com/";
+    private LoginService loginService;
+
+    public LoginClient() {
         Gson gson = new GsonBuilder()
                 .create();
 
+
         // Add the interceptor to OkHttpClient
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.interceptors().add(new AuthenticationInterceptor(token));
         OkHttpClient client = builder.build();
+
 
         Retrofit restAdapter = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -40,12 +33,10 @@ public class RestClient
                 .client(client)
                 .build();
 
-        apiService = restAdapter.create(ApiService.class);
-
+        loginService = restAdapter.create(LoginService.class);
     }
 
-    public ApiService getApi() {
-        return apiService;
+    public LoginService getLoginService() {
+        return loginService;
     }
-
 }
