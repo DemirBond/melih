@@ -9,6 +9,16 @@ import android.view.MenuItem;
 
 import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.fragments.home.HomeFragment;
+import com.szg_tech.cvdevaluator.rest.RestClient;
+import com.szg_tech.cvdevaluator.rest.response.EvaluationResponse;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
     private MainActivityPresenter presenter = createPresenter();
@@ -24,6 +34,26 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 .addToBackStack(HomeFragment.class.getSimpleName())
                 .commit();
         presenter.onCreate();
+
+        Map<String, Object> query = new HashMap<>();
+        query.put("isPAH", false);
+        query.put("gender", 1);
+        query.put("age", 25);
+        query.put("SBP", 125);
+        query.put("DBP", 65);
+        query.put("inputs", "chkNYHA1%7CchkDOE");
+
+        RestClient.get().computeEvaluation(query).enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                System.out.println(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
