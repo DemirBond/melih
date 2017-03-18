@@ -1,17 +1,9 @@
-package com.szg_tech.cvdevaluator.rest;
+package com.szg_tech.cvdevaluator.rest.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.szg_tech.cvdevaluator.rest.requests.LoginRequest;
 
-import java.io.IOException;
-
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -36,6 +28,7 @@ public class RestClient
 
         Retrofit restAdapter = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();

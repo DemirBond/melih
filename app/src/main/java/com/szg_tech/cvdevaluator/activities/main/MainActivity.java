@@ -9,10 +9,11 @@ import android.view.MenuItem;
 
 import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.fragments.home.HomeFragment;
-import com.szg_tech.cvdevaluator.rest.LoginClient;
-import com.szg_tech.cvdevaluator.rest.RestClient;
-import com.szg_tech.cvdevaluator.rest.RestClientProvider;
+import com.szg_tech.cvdevaluator.rest.login.LoginClient;
+import com.szg_tech.cvdevaluator.rest.api.RestClientProvider;
+import com.szg_tech.cvdevaluator.rest.requests.EvaluationRequest;
 import com.szg_tech.cvdevaluator.rest.requests.LoginRequest;
+import com.szg_tech.cvdevaluator.rest.responses.EvaluationResponse;
 import com.szg_tech.cvdevaluator.rest.responses.LoginResponse;
 
 import java.util.HashMap;
@@ -45,18 +46,29 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         query.put("DBP", 65);
         query.put("inputs", "chkNYHA1%7CchkDOE");
 
-        new LoginClient().getLoginService().login(new LoginRequest("password", "demo", "demo1")).enqueue(new Callback<LoginResponse>() {
+
+        LoginRequest loginRequest = new LoginRequest("password", "demo", "demo1");
+        System.out.println(loginRequest.getPlainBody());
+        new LoginClient().getLoginService().login(loginRequest.getPlainBody()).enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()) {
-                    try {
-                        String body = RestClientProvider.get(response.body().getAccessToken()).getApi().computeEvaluation().execute().body();
-                        System.out.println(body);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                    RestClientProvider.init(response.body().getAccessToken());
+
+                    RestClientProvider.get().getApi().computeEvaluation(EvaluationRequest.mock().toMap()).enqueue(new Callback<EvaluationResponse>() {
+                        @Override
+                        public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
+                            System.out.println(response.body().toString());
+                        }
+
+                        @Override
+                        public void onFailure(Call<EvaluationResponse> call, Throwable t) {
+
+                        }
+                    });
                 } else {
                     System.out.println("Not successful" + response);
+                    System.out.println("Request body " + call.request().body());
                 }
             }
 

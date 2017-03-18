@@ -1,4 +1,4 @@
-package com.szg_tech.cvdevaluator.rest;
+package com.szg_tech.cvdevaluator.rest.login;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -14,7 +14,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class LoginClient {
 
-    private static final String BASE_URL = "http://www.cvdevaluator.com/";
+    private static final String BASE_URL = "http://www.cvdevaluator.com/api/";
     private LoginService loginService;
 
     public LoginClient() {
@@ -29,6 +29,7 @@ public class LoginClient {
 
         Retrofit restAdapter = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build();

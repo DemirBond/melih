@@ -1,11 +1,13 @@
-package com.szg_tech.cvdevaluator.rest;
+package com.szg_tech.cvdevaluator.rest.login;
 
 import com.szg_tech.cvdevaluator.rest.requests.LoginRequest;
 import com.szg_tech.cvdevaluator.rest.responses.LoginResponse;
 
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
@@ -14,6 +16,6 @@ import retrofit2.http.POST;
 
 public interface LoginService {
 
-    @POST("/api/token")
-    public Call<LoginResponse> login(@Body LoginRequest loginRequest);
+    @POST("token")
+    public Call<LoginResponse> login(@Body String loginBody);
 }

@@ -1,4 +1,4 @@
-package com.szg_tech.cvdevaluator.rest;
+package com.szg_tech.cvdevaluator.rest.api;
 
 import java.io.IOException;
 
