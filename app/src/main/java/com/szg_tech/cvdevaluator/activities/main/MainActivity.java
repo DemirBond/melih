@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         query.put("DBP", 65);
         query.put("inputs", "chkNYHA1%7CchkDOE");
 
-
         LoginRequest loginRequest = new LoginRequest("password", "demo", "demo1");
         System.out.println(loginRequest.getPlainBody());
         new LoginClient().getLoginService().login(loginRequest.getPlainBody()).enqueue(new Callback<LoginResponse>() {
@@ -54,18 +53,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if(response.isSuccessful()) {
                     RestClientProvider.init(response.body().getAccessToken());
-
-                    RestClientProvider.get().getApi().computeEvaluation(EvaluationRequest.mock().toMap()).enqueue(new Callback<EvaluationResponse>() {
-                        @Override
-                        public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
-                            System.out.println(response.body().toString());
-                        }
-
-                        @Override
-                        public void onFailure(Call<EvaluationResponse> call, Throwable t) {
-
-                        }
-                    });
                 } else {
                     System.out.println("Not successful" + response);
                     System.out.println("Request body " + call.request().body());
