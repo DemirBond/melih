@@ -24,6 +24,7 @@ import com.szg_tech.cvdevaluator.rest.api.RestClientProvider;
 import com.szg_tech.cvdevaluator.rest.requests.EvaluationRequest;
 import com.szg_tech.cvdevaluator.rest.responses.EvaluationResponse;
 import com.szg_tech.cvdevaluator.rest.responses.Field;
+import com.szg_tech.cvdevaluator.storage.EvaluationDAO;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -51,23 +52,24 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
     }
 
     public void computeAndShowEvaluations(Activity activity, RecyclerView recyclerView) {
+        recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, getSampleEvaluationList(activity)));
 
-        RestClientProvider.get().getApi().computeEvaluation(EvaluationRequest.mock().toMap()).enqueue(new Callback<EvaluationResponse>() {
-            @Override
-            public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
-                ArrayList evaluationItems = new ArrayList<EvaluationItem>();
-                evaluationItems.add(new BoldEvaluationItem(activity, ConfigurationParams.OVERVIEW, activity.getString(R.string.overview), false));
-                for(Field f: response.body().getOutputs()) {
-                    evaluationItems.add(new TextEvaluationItem(activity, f.getPar(), f.getListView(), false));
-                }
-                recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, getSampleEvaluationList(activity)));
-            }
-
-            @Override
-            public void onFailure(Call<EvaluationResponse> call, Throwable t) {
-
-            }
-        });
+//        RestClientProvider.get().getApi().computeEvaluation(EvaluationRequest.mock().toMap()).enqueue(new Callback<EvaluationResponse>() {
+//            @Override
+//            public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
+//                ArrayList evaluationItems = new ArrayList<EvaluationItem>();
+//                evaluationItems.add(new BoldEvaluationItem(activity, ConfigurationParams.OVERVIEW, activity.getString(R.string.overview), false));
+//                for(Field f: response.body().getOutputs()) {
+//                    evaluationItems.add(new TextEvaluationItem(activity, f.getPar(), f.getListView(), false));
+//                }
+//                recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, getSampleEvaluationList(activity)));
+//            }
+//
+//            @Override
+//            public void onFailure(Call<EvaluationResponse> call, Throwable t) {
+//
+//            }
+//        });
     }
 
     @Override
@@ -79,6 +81,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
     public void onCompleteEvaluationButtonClick() {
         Activity activity = getActivity();
         if (activity != null) {
+            EvaluationDAO.getInstance().clear();
             activity.finish();
         }
     }

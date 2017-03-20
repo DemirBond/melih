@@ -38,32 +38,32 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 .commit();
         presenter.onCreate();
 
-        Map<String, Object> query = new HashMap<>();
-        query.put("isPAH", false);
-        query.put("gender", 1);
-        query.put("age", 25);
-        query.put("SBP", 125);
-        query.put("DBP", 65);
-        query.put("inputs", "chkNYHA1%7CchkDOE");
-
-        LoginRequest loginRequest = new LoginRequest("password", "demo", "demo1");
-        System.out.println(loginRequest.getPlainBody());
-        new LoginClient().getLoginService().login(loginRequest.getPlainBody()).enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if(response.isSuccessful()) {
-                    RestClientProvider.init(response.body().getAccessToken());
-                } else {
-                    System.out.println("Not successful" + response);
-                    System.out.println("Request body " + call.request().body());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-
-            }
-        });
+//        Map<String, Object> query = new HashMap<>();
+//        query.put("isPAH", false);
+//        query.put("gender", 1);
+//        query.put("age", 25);
+//        query.put("SBP", 125);
+//        query.put("DBP", 65);
+//        query.put("inputs", "chkNYHA1%7CchkDOE");
+//
+//        LoginRequest loginRequest = new LoginRequest("password", "demo", "demo1");
+//        System.out.println(loginRequest.getPlainBody());
+//        new LoginClient().getLoginService().login(loginRequest.getPlainBody()).enqueue(new Callback<LoginResponse>() {
+//            @Override
+//            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+//                if(response.isSuccessful()) {
+//                    RestClientProvider.init(response.body().getAccessToken());
+//                } else {
+//                    System.out.println("Not successful" + response);
+//                    System.out.println("Request body " + call.request().body());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<LoginResponse> call, Throwable t) {
+//
+//            }
+//        });
 
     }
 

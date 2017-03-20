@@ -84,4 +84,27 @@ public class EvaluationDAO extends AbstractDao<EvaluationObject> {
         }
         hashMap.put(key, value);
     }
+
+    public void clear() {
+
+        init();
+        try {
+            beginTransaction();
+            for (String key : hashMap.keySet()) {
+                for (EvaluationObject evaluationObject:helper.realm.where(EvaluationObject.class).findAll()) {
+                    System.out.println(evaluationObject);
+                    evaluationObject.deleteFromRealm();
+                }
+            }
+            try {
+                commitTransaction();
+            } catch (Exception e) {
+                e.printStackTrace();
+                cancelTransaction();
+            }
+        } finally {
+            close();
+        }
+        hashMap.clear();
+    }
 }

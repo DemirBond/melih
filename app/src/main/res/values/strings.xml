@@ -29,6 +29,7 @@
     <string name="none">None</string>
     <string name="cancel_evaluation_popup_title">Cancel Evaluation?</string>
     <string name="cancel_evaluation_popup_description">Are you sure you want to cancel this evaluation?</string>
+    <string name="fill_min_entry_in_bio">Please fill minimum required fields in Bio section</string>
     <string name="yes_im_sure">Yes, I\'m sure</string>
     <string name="bio">Bio</string>
     <string name="symptoms">Symptoms</string>
