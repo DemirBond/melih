@@ -3,7 +3,12 @@ package com.szg_tech.cvdevaluator.rest.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.IOException;
+
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -24,6 +29,17 @@ public class RestClient
         // Add the interceptor to OkHttpClient
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.interceptors().add(new AuthenticationInterceptor(token));
+        builder.interceptors().add(new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+
+                Response response = chain.proceed(chain.request());
+
+                System.out.println(response.body().string());
+
+                return response;
+            }
+        });
         OkHttpClient client = builder.build();
 
         Retrofit restAdapter = new Retrofit.Builder()

@@ -16,7 +16,7 @@ public class EvaluationResponse {
     @SerializedName("msg")
     private String message;
 
-    private Field[] outputs;
+    private EvaluationGroup[] outputs;
 
     public String getStatus() {
         return status;
@@ -34,11 +34,11 @@ public class EvaluationResponse {
         this.message = message;
     }
 
-    public Field[] getOutputs() {
+    public EvaluationGroup[] getOutputs() {
         return outputs;
     }
 
-    public void setOutputs(Field[] outputs) {
+    public void setOutputs(EvaluationGroup[] outputs) {
         this.outputs = outputs;
     }
 

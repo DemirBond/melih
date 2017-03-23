@@ -22,11 +22,14 @@ import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.ICOCellEvalua
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.TextEvaluationItem;
 import com.szg_tech.cvdevaluator.rest.api.RestClientProvider;
 import com.szg_tech.cvdevaluator.rest.requests.EvaluationRequest;
+import com.szg_tech.cvdevaluator.rest.responses.EvaluationGroup;
 import com.szg_tech.cvdevaluator.rest.responses.EvaluationResponse;
 import com.szg_tech.cvdevaluator.rest.responses.Field;
 import com.szg_tech.cvdevaluator.storage.EvaluationDAO;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 import retrofit2.Call;
@@ -53,23 +56,33 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
 
     public void computeAndShowEvaluations(Activity activity, RecyclerView recyclerView) {
         recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, getSampleEvaluationList(activity)));
+        HashMap<String, Object> evaluationValueMap = EvaluationDAO.getInstance().loadValues();
 
-//        RestClientProvider.get().getApi().computeEvaluation(EvaluationRequest.mock().toMap()).enqueue(new Callback<EvaluationResponse>() {
-//            @Override
-//            public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
-//                ArrayList evaluationItems = new ArrayList<EvaluationItem>();
-//                evaluationItems.add(new BoldEvaluationItem(activity, ConfigurationParams.OVERVIEW, activity.getString(R.string.overview), false));
-//                for(Field f: response.body().getOutputs()) {
-//                    evaluationItems.add(new TextEvaluationItem(activity, f.getPar(), f.getListView(), false));
-//                }
-//                recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, getSampleEvaluationList(activity)));
-//            }
-//
-//            @Override
-//            public void onFailure(Call<EvaluationResponse> call, Throwable t) {
-//
-//            }
-//        });
+        EvaluationRequest request = new EvaluationRequest(evaluationValueMap);
+        System.out.println(request.toMap());
+
+        RestClientProvider.get().getApi().computeEvaluation(EvaluationRequest.mock().toMap()).enqueue(new Callback<EvaluationResponse>() {
+            @Override
+            public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
+                ArrayList evaluationItems = new ArrayList<EvaluationItem>();
+
+                for(EvaluationGroup group: response.body().getOutputs()) {
+
+                    evaluationItems.add(new BoldEvaluationItem(activity, ConfigurationParams.OVERVIEW, group.getGroupname(), false));
+                    if(group.getFields() != null) {
+                        for(Field f: group.getFields()) {
+                            evaluationItems.add(new TextEvaluationItem(activity, f.getPar(), f.getListView(), false));
+                        }
+                    }
+                }
+                recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, evaluationItems));
+            }
+
+            @Override
+            public void onFailure(Call<EvaluationResponse> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override

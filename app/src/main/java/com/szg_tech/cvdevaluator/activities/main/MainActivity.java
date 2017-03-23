@@ -37,33 +37,25 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 .addToBackStack(HomeFragment.class.getSimpleName())
                 .commit();
         presenter.onCreate();
+//
+        LoginRequest loginRequest = new LoginRequest("password", "demo", "demo1");
+        System.out.println(loginRequest.getPlainBody());
+        new LoginClient().getLoginService().login(loginRequest.getPlainBody()).enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if(response.isSuccessful()) {
+                    RestClientProvider.init(response.body().getAccessToken());
+                } else {
+                    System.out.println("Not successful" + response);
+                    System.out.println("Request body " + call.request().body());
+                }
+            }
 
-//        Map<String, Object> query = new HashMap<>();
-//        query.put("isPAH", false);
-//        query.put("gender", 1);
-//        query.put("age", 25);
-//        query.put("SBP", 125);
-//        query.put("DBP", 65);
-//        query.put("inputs", "chkNYHA1%7CchkDOE");
-//
-//        LoginRequest loginRequest = new LoginRequest("password", "demo", "demo1");
-//        System.out.println(loginRequest.getPlainBody());
-//        new LoginClient().getLoginService().login(loginRequest.getPlainBody()).enqueue(new Callback<LoginResponse>() {
-//            @Override
-//            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-//                if(response.isSuccessful()) {
-//                    RestClientProvider.init(response.body().getAccessToken());
-//                } else {
-//                    System.out.println("Not successful" + response);
-//                    System.out.println("Request body " + call.request().body());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<LoginResponse> call, Throwable t) {
-//
-//            }
-//        });
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+
+            }
+        });
 
     }
 

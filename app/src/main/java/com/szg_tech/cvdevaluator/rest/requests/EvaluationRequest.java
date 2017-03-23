@@ -1,5 +1,6 @@
 package com.szg_tech.cvdevaluator.rest.requests;
 
+import com.szg_tech.cvdevaluator.core.ConfigurationParams;
 import com.szg_tech.cvdevaluator.entities.evaluation_items.Evaluation;
 
 import java.util.HashMap;
@@ -12,7 +13,7 @@ import java.util.Map;
 public class EvaluationRequest {
 
     private int age;
-    private int gender;
+    private int gender = 1;
     private int SBP;
     private int DBP;
     private boolean isPAH;
@@ -26,6 +27,48 @@ public class EvaluationRequest {
         this.DBP = DBP;
         this.isPAH = isPAH;
         this.inputs = inputs;
+    }
+
+    public EvaluationRequest(HashMap<String, Object> evaluationValueMap) {
+        setVariablesFromMap(evaluationValueMap);
+    }
+
+    private void setVariablesFromMap(HashMap<String, Object> evaluationValueMap) {
+
+        age = getIntVal(evaluationValueMap.get(ConfigurationParams.AGE));
+        boolean isMale = (Boolean)evaluationValueMap.get(ConfigurationParams.MALE);
+        gender = isMale?1:0;
+
+        SBP = getIntVal(evaluationValueMap.get(ConfigurationParams.SBP));
+        DBP = getIntVal(evaluationValueMap.get(ConfigurationParams.DBP));
+        isPAH = false;
+
+        evaluationValueMap.remove(ConfigurationParams.AGE);
+        evaluationValueMap.remove(ConfigurationParams.MALE);
+        evaluationValueMap.remove(ConfigurationParams.FEMALE);
+        evaluationValueMap.remove(ConfigurationParams.SBP);
+        evaluationValueMap.remove(ConfigurationParams.DBP);
+
+
+        StringBuilder builder = new StringBuilder();
+        for(Map.Entry<String, Object> entry: evaluationValueMap.entrySet()) {
+            if(entry.getValue() != null) {
+                builder.append(entry.getKey() + "=" + entry.getValue());
+            } else {
+                builder.append(entry.getKey());
+            }
+            builder.append("|");
+        }
+        inputs = builder.toString();
+    }
+
+    private int getIntVal(Object o) {
+        if(o != null && o instanceof Double) {
+            return ((Double)o).intValue();
+        } else {
+            System.err.println("Evaluation Request - getIntVal [there is a serious problem with Data Storage]: " + o);
+        }
+        return -1;
     }
 
     public static EvaluationRequest mock() {
