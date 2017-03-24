@@ -9,6 +9,14 @@ import android.view.MenuItem;
 
 import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.fragments.home.HomeFragment;
+import com.szg_tech.cvdevaluator.rest.api.RestClientProvider;
+import com.szg_tech.cvdevaluator.rest.login.LoginClient;
+import com.szg_tech.cvdevaluator.rest.requests.LoginRequest;
+import com.szg_tech.cvdevaluator.rest.responses.LoginResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
     private MainActivityPresenter presenter = createPresenter();
@@ -24,6 +32,25 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 .addToBackStack(HomeFragment.class.getSimpleName())
                 .commit();
         presenter.onCreate();
+
+        LoginRequest loginRequest = new LoginRequest("password", "demo", "demo1");
+        System.out.println(loginRequest.getPlainBody());
+        new LoginClient().getLoginService().login(loginRequest.getPlainBody()).enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                if(response.isSuccessful()) {
+                    RestClientProvider.init(response.body().getAccessToken());
+                } else {
+                    System.out.println("Not successful" + response);
+                    System.out.println("Request body " + call.request().body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override

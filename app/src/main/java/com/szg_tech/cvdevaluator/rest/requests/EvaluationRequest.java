@@ -36,8 +36,12 @@ public class EvaluationRequest {
     private void setVariablesFromMap(HashMap<String, Object> evaluationValueMap) {
 
         age = getIntVal(evaluationValueMap.get(ConfigurationParams.AGE));
-        boolean isMale = (Boolean)evaluationValueMap.get(ConfigurationParams.MALE);
-        gender = isMale?1:0;
+        if(evaluationValueMap.containsKey(ConfigurationParams.MALE)) {
+            boolean isMale = (Boolean)evaluationValueMap.get(ConfigurationParams.MALE);
+            gender = isMale?1:0;
+        } else {
+            gender = -1;
+        }
 
         SBP = getIntVal(evaluationValueMap.get(ConfigurationParams.SBP));
         DBP = getIntVal(evaluationValueMap.get(ConfigurationParams.DBP));
