@@ -95,6 +95,10 @@ public class StringEditTextCell extends LinearLayout implements CellItem {
         return isCorrect;
     }
 
+    public void setEditable(boolean isEditable) {
+        editText.setEnabled(isEditable);
+    }
+
     public void setCorrect(boolean isCorrect) {
         this.isCorrect = isCorrect;
         if (isCorrect) {

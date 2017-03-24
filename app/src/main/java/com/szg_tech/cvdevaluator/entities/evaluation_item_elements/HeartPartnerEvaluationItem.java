@@ -7,17 +7,14 @@ import com.szg_tech.cvdevaluator.entities.EvaluationItem;
 import java.util.ArrayList;
 
 public class HeartPartnerEvaluationItem extends EvaluationItem {
-    private String hospitalName;
     private String departmentName;
     private String description;
     private String hours;
     private ArrayList<EvaluationItem> evaluationItems;
 
-    public HeartPartnerEvaluationItem(Context context, String id,
-                                      String hospitalName, String departmentName, String description, String hours,
+    public HeartPartnerEvaluationItem(Context context, String id, String departmentName, String description, String hours,
                                       ArrayList<EvaluationItem> evaluationItems) {
         super(context, id, null, null, false);
-        this.hospitalName = hospitalName;
         this.departmentName = departmentName;
         this.description = description;
         this.hours = hours;
@@ -32,10 +29,6 @@ public class HeartPartnerEvaluationItem extends EvaluationItem {
     @Override
     public void setValue(Object value) {
 
-    }
-
-    public String getHospitalName() {
-        return hospitalName;
     }
 
     public String getDepartmentName() {

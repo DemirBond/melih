@@ -2,6 +2,8 @@ package com.szg_tech.cvdevaluator.fragments.home;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,6 +43,9 @@ class HomePresenterImpl extends AbstractPresenter<HomeView> implements HomePrese
             ActionBar actionBar = ((AppCompatActivity) activity).getSupportActionBar();
             if (actionBar != null) {
                 actionBar.setTitle(R.string.heart_check);
+                actionBar.setDisplayHomeAsUpEnabled(false);
+                int actionBarColor = ContextCompat.getColor(activity, R.color.colorPrimary);
+                actionBar.setBackgroundDrawable(new ColorDrawable(actionBarColor));
             }
         }
     }

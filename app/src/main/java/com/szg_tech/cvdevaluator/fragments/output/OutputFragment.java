@@ -11,13 +11,6 @@ import android.view.ViewGroup;
 
 import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.core.ConfigurableFragment;
-import com.szg_tech.cvdevaluator.rest.api.RestClientProvider;
-import com.szg_tech.cvdevaluator.rest.requests.EvaluationRequest;
-import com.szg_tech.cvdevaluator.rest.responses.EvaluationResponse;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class OutputFragment extends ConfigurableFragment implements OutputView {
     OutputPresenter presenter = createPresenter();

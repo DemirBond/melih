@@ -7,6 +7,7 @@ import com.szg_tech.cvdevaluator.entities.EvaluationItem;
 public class StringEvaluationItem extends EvaluationItem {
     private String text;
     private String validationRegexp;
+    private boolean isEditable = true;
 
     public StringEvaluationItem(Context context, String id, String name, String hint, boolean isMandatory, String validationRegexp) {
         super(context, id, name, hint, isMandatory);
@@ -20,6 +21,14 @@ public class StringEvaluationItem extends EvaluationItem {
 
     public String getText() {
         return text;
+    }
+
+    public boolean isEditable() {
+        return isEditable;
+    }
+
+    protected void setEditable(boolean editable) {
+        isEditable = editable;
     }
 
     public void setText(String text) {

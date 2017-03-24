@@ -17,7 +17,6 @@ public class EvaluationActivity extends AppCompatActivity implements EvaluationA
     private Runnable onBackPressedListener;
     private HeartSpecialistManagement heartSpecialistManagement;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -43,12 +43,10 @@ class EvaluationActivityPresenterImpl extends AbstractPresenter<EvaluationActivi
     @Override
     public void createHomeScreen(boolean isAdd) {
         Activity activity = getActivity();
-//        System.out.println("EvaluationActivityPresenter-createHomeScreen activity is null?: " + (activity == null));
         if (activity != null) {
             EvaluationListFragment evaluationListFragment = new EvaluationListFragment();
             Bundle bundle = new Bundle();
             if (evaluation == null) {
-                EvaluationDAO.getInstance().clear();
                 evaluation = new Evaluation(activity);
             }
             valueHashMap = EvaluationDAO.getInstance().loadValues();

@@ -22,6 +22,7 @@ public class Evaluation extends SectionEvaluationItem {
             {
                 add(new Bio(context));
                 add(new Symptoms(context));
+                add(new ReviewOfSystems(context));
                 add(new PhysicalExam(context));
                 add(new CurrentCVProfile(context));
                 add(new MajorCVRisk(context));

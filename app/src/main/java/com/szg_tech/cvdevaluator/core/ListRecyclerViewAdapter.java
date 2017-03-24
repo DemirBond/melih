@@ -29,6 +29,7 @@ import com.szg_tech.cvdevaluator.core.views.cell.SectionCheckboxCell;
 import com.szg_tech.cvdevaluator.core.views.cell.SectionDependsOnManager;
 import com.szg_tech.cvdevaluator.core.views.cell.SectionPlaceholderCell;
 import com.szg_tech.cvdevaluator.core.views.cell.StringEditTextCell;
+import com.szg_tech.cvdevaluator.core.views.cell.TextCell;
 import com.szg_tech.cvdevaluator.core.views.modal.AlertModalManager;
 import com.szg_tech.cvdevaluator.entities.EvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.BoldEvaluationItem;
@@ -44,6 +45,7 @@ import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.SectionEvalua
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.SectionPlaceholderEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.StringEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.TabEvaluationItem;
+import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.TextEvaluationItem;
 import com.szg_tech.cvdevaluator.fragments.evaluation_list.EvaluationListFragment;
 import com.szg_tech.cvdevaluator.fragments.tab_fragment.TabFragment;
 import com.szg_tech.cvdevaluator.storage.EvaluationDAO;
@@ -96,6 +98,8 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
             return 10;
         } else if (evaluationItem instanceof DatePickerEvaluationItem) {
             return 11;
+        } else if (evaluationItem instanceof TextEvaluationItem) {
+            return 12;
         }
         return -1;
     }
@@ -152,6 +156,10 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                 DatePickerCell datePickerCell = new DatePickerCell(activity);
                 datePickerCell.setLayoutParams(layoutParams);
                 return new ListRecyclerViewAdapter.ViewHolder(datePickerCell);
+            case 12:
+                TextCell textCell = new TextCell(activity);
+                textCell.setLayoutParams(layoutParams);
+                return new ListRecyclerViewAdapter.ViewHolder(textCell);
         }
         StringEditTextCell stringEditTextCell = new StringEditTextCell(activity);
         return new ListRecyclerViewAdapter.ViewHolder(stringEditTextCell);
@@ -532,6 +540,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                 }
             } else if (evaluationItem instanceof StringEvaluationItem) {
                 StringEditTextCell stringEditTextCell = (StringEditTextCell) holder.view;
+                stringEditTextCell.setEditable(((StringEvaluationItem) evaluationItem).isEditable());
                 setImeOptionsForLastEditText(stringEditTextCell, position);
                 CustomEditText editText = stringEditTextCell.getEditText();
                 editText.clearTextWatchers();

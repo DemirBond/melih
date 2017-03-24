@@ -219,14 +219,6 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
         }
     }
 
-    private void showMinRequiredFieldSnackbarBottomButtonError(Activity activity) {
-        if (activity != null) {
-            Snackbar snackbar = Snackbar.make(getView().getRecyclerView(), R.string.fill_min_entry_in_bio, Snackbar.LENGTH_LONG);
-            snackbar.getView().setBackgroundColor(ContextCompat.getColor(activity, R.color.snackbar_red));
-            snackbar.show();
-        }
-    }
-
     @Override
     public void onBottomButtonClick() {
         Activity activity = getActivity();
@@ -258,18 +250,11 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                     Fragment nextFragment = new EvaluationListFragment();
                     SectionEvaluationItem nextSectionEvaluationItem = nextSectionEvaluationItemArrayList.get(0);
                     if (ConfigurationParams.COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId())) {
-                        System.out.println("EvaluationListPresenter- nextSectionEvaluationItemArrayList.size() >= 1");
-                        if(!EvaluationDAO.getInstance().isEmpty()) {
-                            fragmentManager.beginTransaction()
-                                    .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                                    .replace(R.id.container, new OutputFragment())
-                                    .addToBackStack(OutputFragment.class.getSimpleName())
-                                    .commit();
-                        } else {
-                            showMinRequiredFieldSnackbarBottomButtonError(activity);
-//                            AlertModalManager.createAndShowModalAlertDialog(activity, R.string.fill_min_entry_in_bio, R.string.cancel_evaluation_popup_description,
-//                                    R.string.yes_im_sure, onClickListener, false);
-                        }
+                        fragmentManager.beginTransaction()
+                                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                                .replace(R.id.container, new OutputFragment())
+                                .addToBackStack(OutputFragment.class.getSimpleName())
+                                .commit();
                     } else {
 //                        if (nextSectionEvaluationItem.getSectionElementState() != SectionEvaluationItem.SectionElementState.FILLED) {
 //                            nextSectionEvaluationItem.setSectionElementState(SectionEvaluationItem.SectionElementState.VIEWED);

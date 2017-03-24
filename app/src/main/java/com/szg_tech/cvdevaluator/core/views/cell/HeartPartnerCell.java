@@ -10,7 +10,6 @@ import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.core.views.CustomTextView;
 
 public class HeartPartnerCell extends LinearLayout implements CellItem {
-    private CustomTextView hospitalName;
     private CustomTextView departmentName;
     private CustomTextView description;
     private CustomTextView hours;
@@ -43,7 +42,6 @@ public class HeartPartnerCell extends LinearLayout implements CellItem {
     }
 
     private void initView() {
-        hospitalName = (CustomTextView) findViewById(R.id.hospital_name);
         departmentName = (CustomTextView) findViewById(R.id.department_name);
         description = (CustomTextView) findViewById(R.id.description);
         hours = (CustomTextView) findViewById(R.id.hours);
@@ -64,10 +62,6 @@ public class HeartPartnerCell extends LinearLayout implements CellItem {
     @Override
     public void setLabelText(String text) {
 
-    }
-
-    public void setHospitalName(String text) {
-        hospitalName.setText(text);
     }
 
     public void setDepartmentName(String text) {

@@ -77,7 +77,6 @@ public class OutputRecyclerViewAdapter extends RecyclerView.Adapter<OutputRecycl
             holder.view.setHintText(evaluationItem.getHint());
             if (evaluationItem instanceof HeartPartnerEvaluationItem) {
                 HeartPartnerCell heartPartnerCell = (HeartPartnerCell) holder.view;
-                heartPartnerCell.setHospitalName(((HeartPartnerEvaluationItem) evaluationItem).getHospitalName());
                 heartPartnerCell.setDepartmentName(((HeartPartnerEvaluationItem) evaluationItem).getDepartmentName());
                 heartPartnerCell.setDescription(((HeartPartnerEvaluationItem) evaluationItem).getDescription());
                 heartPartnerCell.setHours(((HeartPartnerEvaluationItem) evaluationItem).getHours());
