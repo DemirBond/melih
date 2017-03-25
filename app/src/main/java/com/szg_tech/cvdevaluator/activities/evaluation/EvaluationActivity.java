@@ -20,7 +20,7 @@ public class EvaluationActivity extends AppCompatActivity implements EvaluationA
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.evaluation_activity);
+        setContentView(R.layout.activity_evaluation);
         heartSpecialistManagement = new HeartSpecialistManagement(this);
         presenter.onCreate();
     }

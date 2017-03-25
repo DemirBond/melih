@@ -22,6 +22,7 @@
     <string name="designer_name">Alphonso Jordan</string>
     <string name="compute_evaluation">Compute Evaluation</string>
     <string name="heart_check">Heart Check</string>
+    <string name="login">Login</string>
     <string name="bio_required">Bio Required</string>
     <string name="bio_alert_desc">Please complete the bio section before moving forward.</string>
     <string name="go_to_bio">Go to Bio</string>
@@ -516,6 +517,7 @@
     <string name="display_settings">Display Settings</string>
     <string name="reset_field">Reset Field</string>
     <string name="snackbar_bottom_button_error">Please, fill page with valid values before proceeding.</string>
+    <string name="snackbar_bottom_button_error_login">Authentication is not successful. Email or password is not valid.</string>
     <string name="cancel_screen_alert_message">Screen, you\'re trying to leave, is not correctly completed.</string>
     <string name="cancel_screen_alert_cancel_all">Reset all changes and go back</string>
     <string name="atherosclerotic_vascular_disease">Atherosclerotic Vascular Disease</string>
@@ -852,4 +854,8 @@
         <item>@string/about</item>
         <item>@string/sign_in_up</item>
     </string-array>
+
+
+    <string name="authenticating">Authenticating..</string>
+    <string name="registering">Registering..</string>
 </resources>

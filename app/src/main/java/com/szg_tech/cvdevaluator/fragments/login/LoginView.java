@@ -8,7 +8,7 @@ import com.szg_tech.cvdevaluator.core.MVPView;
  * Created by ahmetkucuk on 3/25/17.
  */
 
-public interface LoginFragmentView extends MVPView {
+public interface LoginView extends MVPView {
 
     RecyclerView getRecyclerView();
 }
