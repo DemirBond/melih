@@ -1,4 +1,4 @@
-package com.szg_tech.cvdevaluator.rest.login;
+package com.szg_tech.cvdevaluator.rest.authentication;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,12 +12,12 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
  * Created by ahmetkucuk on 3/17/17.
  */
 
-public class LoginClient {
+public class AuthenticationClient {
 
     private static final String BASE_URL = "http://www.cvdevaluator.com/api/";
-    private LoginService loginService;
+    private AuthenticationService authenticationService;
 
-    public LoginClient() {
+    public AuthenticationClient() {
         Gson gson = new GsonBuilder()
                 .create();
 
@@ -34,10 +34,10 @@ public class LoginClient {
                 .client(client)
                 .build();
 
-        loginService = restAdapter.create(LoginService.class);
+        authenticationService = restAdapter.create(AuthenticationService.class);
     }
 
-    public LoginService getLoginService() {
-        return loginService;
+    public AuthenticationService getAuthenticationService() {
+        return authenticationService;
     }
 }
