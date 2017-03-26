@@ -11,7 +11,7 @@ public class ConfigurationParams {
     public static final String FEMALE = "female";
     public static final String HEIGHT = "height";
     public static final String WEIGHT = "weight";
-    public static final String HEART_RATE = "heart_rate";
+    public static final String HEART_RATE = "HR";
     public static final String SBP = "sbp";
     public static final String DBP = "dbp";
     public static final String ORTHOSTATIC_SBP = "orthostatic_sbp";
