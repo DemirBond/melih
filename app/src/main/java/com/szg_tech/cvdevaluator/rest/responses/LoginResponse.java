@@ -14,6 +14,9 @@ public class LoginResponse {
     @SerializedName("error")
     public String error;
 
+    @SerializedName("expires_in")
+    public long expiresIn;
+
     public String getAccessToken() {
         return accessToken;
     }
@@ -28,6 +31,14 @@ public class LoginResponse {
 
     public void setError(String error) {
         this.error = error;
+    }
+
+    public long getExpiresIn() {
+        return expiresIn;
+    }
+
+    public void setExpiresIn(long expiresIn) {
+        this.expiresIn = expiresIn;
     }
 
     public boolean isSucceed() {

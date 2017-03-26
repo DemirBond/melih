@@ -29,6 +29,14 @@ public class AuthenticationActivity extends AppCompatActivity implements Authent
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
     public Activity getActivity() {
         return this;
     }

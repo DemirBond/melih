@@ -23,6 +23,7 @@
     <string name="compute_evaluation">Compute Evaluation</string>
     <string name="heart_check">Heart Check</string>
     <string name="login">Login</string>
+    <string name="register">Register</string>
     <string name="bio_required">Bio Required</string>
     <string name="bio_alert_desc">Please complete the bio section before moving forward.</string>
     <string name="go_to_bio">Go to Bio</string>

@@ -20,6 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.main.MainActivity"
+            android:parentActivityName=".activities.authentication.AuthenticationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/EvaluationTheme" />
         <activity
             android:name=".activities.evaluation.EvaluationActivity"
             android:parentActivityName=".activities.main.MainActivity"

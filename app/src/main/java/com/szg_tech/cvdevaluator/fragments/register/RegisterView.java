@@ -1,5 +1,7 @@
 package com.szg_tech.cvdevaluator.fragments.register;
 
+import android.support.v7.widget.RecyclerView;
+
 import com.szg_tech.cvdevaluator.core.MVPView;
 
 /**
@@ -7,4 +9,6 @@ import com.szg_tech.cvdevaluator.core.MVPView;
  */
 
 public interface RegisterView extends MVPView{
+
+    RecyclerView getRecyclerView();
 }

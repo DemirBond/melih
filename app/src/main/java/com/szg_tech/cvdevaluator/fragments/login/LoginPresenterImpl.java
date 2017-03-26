@@ -20,6 +20,8 @@ import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.activities.authentication.AuthenticationActivity;
 import com.szg_tech.cvdevaluator.core.AbstractPresenter;
 import com.szg_tech.cvdevaluator.core.views.modal.ProgressModalManager;
+import com.szg_tech.cvdevaluator.fragments.output.OutputFragment;
+import com.szg_tech.cvdevaluator.fragments.register.RegisterFragment;
 import com.szg_tech.cvdevaluator.rest.api.RestClientProvider;
 import com.szg_tech.cvdevaluator.rest.authentication.AuthenticationClient;
 import com.szg_tech.cvdevaluator.rest.requests.LoginRequest;
@@ -91,66 +93,82 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
 
         @Override
         public void onBindViewHolder(LoginPresenterImpl.RecyclerViewAdapter.ViewHolder holder, int position) {
-                holder.loginButton.setOnClickListener(v -> {
-                    System.out.println("I am in LoginFragment on click");
-                    String email = "demo"; //holder.email.getText().toString();
-                    String password = holder.password.getText().toString();
-                    Activity activity = getActivity();
-                    if(validate(holder.email, holder.password)) {
-                        final ProgressDialog progressDialog = ProgressModalManager.createAndShowLoginProgressDialog(activity);
-
-
-                        new AuthenticationClient().getAuthenticationService().login(new LoginRequest("password", email, password).getPlainBody())
-                                .enqueue(new Callback<LoginResponse>() {
-                            @Override
-                            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                                progressDialog.dismiss();
-                                if(response.isSuccessful()) {
-                                    if(response.body().isSucceed()) {
-                                        RestClientProvider.init(response.body().getAccessToken());
-                                        ((AuthenticationActivity)activity).onLoginSucceed();
-                                    }
-                                } else {
-                                    showSnackbarBottomButtonLoginError(activity);
-                                }
-                            }
-
-                            @Override
-                            public void onFailure(Call<LoginResponse> call, Throwable t) {
-
-                                //TODO There is a serious problem, handle with this
-                                showSnackbarBottomButtonLoginError(activity);
-
-
-                            }
-                        });
-                    }
-
-                    }
-                );
+                holder.loginButton.setOnClickListener(new LoginOnClickLister(holder));
+                holder.linkSignup.setOnClickListener(v -> {
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                            .replace(R.id.container, new RegisterFragment())
+                            .addToBackStack(RegisterFragment.class.getSimpleName())
+                            .commit();
+                });
         }
 
-        public boolean validate(TextView emailEditText, TextView passwordEditText) {
-            boolean valid = true;
+        class LoginOnClickLister implements View.OnClickListener {
 
-            String email = emailEditText.getText().toString();
-            String password = passwordEditText.getText().toString();
-
-            if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                emailEditText.setError("enter a valid email address");
-                valid = false;
-            } else {
-                passwordEditText.setError(null);
+            final ViewHolder holder;
+            public LoginOnClickLister(ViewHolder holder) {
+                this.holder = holder;
             }
 
-            if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-                passwordEditText.setError("between 4 and 10 alphanumeric characters");
-                valid = false;
-            } else {
-                passwordEditText.setError(null);
+            @Override
+            public void onClick(View v) {
+                System.out.println("I am in LoginFragment on click");
+                String email = "demo"; //holder.email.getText().toString();
+                String password = holder.password.getText().toString();
+                Activity activity = getActivity();
+                if(validate(holder.email, holder.password)) {
+                    final ProgressDialog progressDialog = ProgressModalManager.createAndShowLoginProgressDialog(activity);
+
+
+                    new AuthenticationClient().getAuthenticationService().login(new LoginRequest("password", email, password).getPlainBody())
+                            .enqueue(new Callback<LoginResponse>() {
+                                @Override
+                                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                                    progressDialog.dismiss();
+                                    if(response.isSuccessful()) {
+                                        if(response.body().isSucceed()) {
+                                            RestClientProvider.init(response.body().getAccessToken());
+                                            ((AuthenticationActivity)activity).onLoginSucceed();
+                                        }
+                                    } else {
+                                        showSnackbarBottomButtonLoginError(activity);
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<LoginResponse> call, Throwable t) {
+
+                                    //TODO There is a serious problem, handle with this
+                                    showSnackbarBottomButtonLoginError(activity);
+
+
+                                }
+                            });
+                }
             }
 
-            return valid;
+            private boolean validate(TextView emailEditText, TextView passwordEditText) {
+                boolean valid = true;
+
+                String email = emailEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+
+                if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    emailEditText.setError("enter a valid email address");
+                    valid = false;
+                } else {
+                    passwordEditText.setError(null);
+                }
+
+                if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
+                    passwordEditText.setError("between 4 and 10 alphanumeric characters");
+                    valid = false;
+                } else {
+                    passwordEditText.setError(null);
+                }
+
+                return valid;
+            }
         }
 
         @Override
@@ -163,12 +181,14 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
             TextView email;
             TextView password;
             Button loginButton;
+            TextView linkSignup;
 
             ViewHolder(View itemView) {
                 super(itemView);
                 view = itemView;
                 email = (TextView) itemView.findViewById(R.id.input_email);
                 password = (TextView) itemView.findViewById(R.id.input_password);
+                linkSignup = (TextView) itemView.findViewById(R.id.link_signup);
                 loginButton = (Button) itemView.findViewById(R.id.btn_login);
             }
         }
