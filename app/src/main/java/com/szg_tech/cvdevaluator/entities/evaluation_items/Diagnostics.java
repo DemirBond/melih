@@ -109,7 +109,7 @@ class Diagnostics extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_RV, context.getString(R.string.enlarged_rv), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.MIDSYSTOLIC_NOTCH, context.getString(R.string.midsystolic_notch), false));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.LV_LATEREAL_ANNULUS_E_E, context.getString(R.string.lv_latereal_annulus_e_e), context.getString(R.string.value), 1, 30, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF_ECHO, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.TRJ_VELOCITY, context.getString(R.string.trj_velocity), context.getString(R.string.value), 1, 6, false));
                     }
                 }));
@@ -117,7 +117,7 @@ class Diagnostics extends SectionEvaluationItem {
                     {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.RIGHT_PLEURAL_EFFUSION, context.getString(R.string.right_pleural_effusion), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_PLEURAL_EFFUSION, context.getString(R.string.left_pleural_effusion), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.PULMONARY_EDEMA, context.getString(R.string.pulmonary_edema), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PULMONARY_EDEMA_CHEST, context.getString(R.string.pulmonary_edema), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_CARDIAC_SOLHOUETTE, context.getString(R.string.enlarged_cardiac_solhouette), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.WIDENED_MEDIASTENEUM, context.getString(R.string.widened_mediasteneum), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PNEUMOTHORAX, context.getString(R.string.pneumothorax), false));
@@ -132,7 +132,7 @@ class Diagnostics extends SectionEvaluationItem {
                     }
                 });
                 add(new NumericalEvaluationItem(context, ConfigurationParams.CORONARY_CALCIUM_SCORE, context.getString(R.string.coronary_calcium_score), context.getString(R.string.value), 0, 100, false, true));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.TOTAL, context.getString(R.string.total), context.getString(R.string.value), 0, 10000, false, true));
+                add(new NumericalEvaluationItem(context, ConfigurationParams.TOTAL_CCS, context.getString(R.string.total), context.getString(R.string.value), 0, 10000, false, true));
             }
         };
     }

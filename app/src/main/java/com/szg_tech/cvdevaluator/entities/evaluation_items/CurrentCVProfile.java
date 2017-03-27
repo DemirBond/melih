@@ -33,7 +33,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                             {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.MORE_2_ANGINA_24HR, context.getString(R.string.more_2_angina_24hr), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.ANGINA_MORE_20MIN, context.getString(R.string.angina_more_20min), false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.ASA_USE_IN_PAST_1_WEEK, context.getString(R.string.asa_use_in_past_1_week), false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ASA_ACS, context.getString(R.string.asa_use_in_past_1_week), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.POSITIVE_TROP_I_OR_T, context.getString(R.string.positive_trop_i_or_t), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.MORE_2_ANTANGINAL, context.getString(R.string.more_2_antanginal), false));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.STEMI, context.getString(R.string.stemi), false, new ArrayList<EvaluationItem>() {
@@ -85,7 +85,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                             }
                         }));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.VESSEL_MORE_50, context.getString(R.string.vessel_more_50), context.getString(R.string.value), 1, 3, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF_CHD, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
                     }
                 }, SectionEvaluationItem.SectionElementState.OPENED));
                 add(new SectionEvaluationItem(context, ConfigurationParams.HEART_FAILURE, context.getString(R.string.heart_failure), false, new ArrayList<EvaluationItem>() {

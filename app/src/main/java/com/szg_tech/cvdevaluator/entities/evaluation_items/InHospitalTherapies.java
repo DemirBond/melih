@@ -25,10 +25,10 @@ class InHospitalTherapies extends SectionEvaluationItem {
             {
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.FOUR_ANTIARRYTHMIC, context.getString(R.string.four_antiarrythmic), false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS, context.getString(R.string.Continuous), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS, context.getString(R.string.bolus), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION, context.getString(R.string.titration), false));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS_IVAA, context.getString(R.string.Continuous), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS_IVAA, context.getString(R.string.bolus), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION_IVAA, context.getString(R.string.titration), false));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR_IVAA, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.TRANSITION_TO_PO_ANTIARRYTHMIC, context.getString(R.string.transition_to_po_antiarrythmic), false));
                     }
                 }));
@@ -36,18 +36,18 @@ class InHospitalTherapies extends SectionEvaluationItem {
                 add(new BooleanEvaluationItem(context, ConfigurationParams.DEFIBRILLATION_ACLS, context.getString(R.string.defibrillation_acls), false));
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.FOUR_ANTIHYPERTENSIVE, context.getString(R.string.four_antihypertensive), false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS, context.getString(R.string.Continuous), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS, context.getString(R.string.bolus), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION, context.getString(R.string.titration), false));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS_IVHT, context.getString(R.string.Continuous), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS_IVHT, context.getString(R.string.bolus), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION_IVHT, context.getString(R.string.titration), false));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR_IVHT, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
                     }
                 }));
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.FOUR_VASOACTIVE, context.getString(R.string.four_vasoactive), false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS, context.getString(R.string.Continuous), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS, context.getString(R.string.bolus), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION, context.getString(R.string.titration), false));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS_IVVA, context.getString(R.string.Continuous), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS_IVVA, context.getString(R.string.bolus), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION_IVVA, context.getString(R.string.titration), false));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR_IVVA, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.FOUR_NPS, context.getString(R.string.four_nps), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.FOUR_NTG, context.getString(R.string.four_ntg), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.FOUR_MILRINONE, context.getString(R.string.four_milrinone), false));
@@ -55,9 +55,9 @@ class InHospitalTherapies extends SectionEvaluationItem {
                 }));
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.FOUR_DIURETIC, context.getString(R.string.four_diuretic), false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS, context.getString(R.string.Continuous), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS_IVDI, context.getString(R.string.Continuous), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.INTERMITTENT, context.getString(R.string.intermittent), false));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR_IVDI, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
                     }
                 }));
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.MECHANICAL_VENTIALLATION_OR_NIPPV, context.getString(R.string.mechanical_ventiallation_or_nippv), false, new ArrayList<EvaluationItem>() {

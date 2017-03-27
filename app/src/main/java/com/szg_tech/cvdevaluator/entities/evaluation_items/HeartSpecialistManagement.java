@@ -139,7 +139,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                     {
                         add(new SectionEvaluationItem(context, ConfigurationParams.VALVULAR, context.getString(R.string.valvular), false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
+                                add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF_PAH, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.NEW_ONSET_ATRIAL_FIBRILATION, context.getString(R.string.new_onset_atrial_fibrilation), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.PREGNANCY, context.getString(R.string.pregnancy), false));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.AORTIC_STENOSIS, context.getString(R.string.aortic_stenosis), false, new ArrayList<EvaluationItem>() {
@@ -206,7 +206,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                     {
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.MVA_CM_2, context.getString(R.string.mva_cm_2), context.getString(R.string.value), 0.1, 9, false));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.CENTRAL_JET_AREA_CM_2, context.getString(R.string.central_jet_area_cm_2), context.getString(R.string.value), 0.1, 9, false));
-                                        add(new NumericalEvaluationItem(context, ConfigurationParams.VENA_CONTRACTA_WIDTH, context.getString(R.string.vena_contracta_width), context.getString(R.string.value), 0.1, 9, false));
+                                        add(new NumericalEvaluationItem(context, ConfigurationParams.VENA_CONTRACTA_WIDTH_TRI, context.getString(R.string.vena_contracta_width), context.getString(R.string.value), 0.1, 9, false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.HEPATIC_VEIN_FLOW_REVERSAL, context.getString(R.string.hepatic_vein_flow_reversal), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.ABNORMAL_TV_LEAFLETS, context.getString(R.string.abnormal_tv_leaflets), false));
                                     }
@@ -320,7 +320,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                     {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.AV_NODE_DISEASE, context.getString(R.string.av_node_disease), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.SINUS_NODE_DYSFUNCTION, context.getString(R.string.sinus_node_dysfunction), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.VENTRICULAR_TACHYCARDIA, context.getString(R.string.ventricular_tachycardia), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.VENTRICULAR_TACHYCARDIA_PAH, context.getString(R.string.ventricular_tachycardia), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NSVT, context.getString(R.string.nsvt), false));
                                     }
                                 }, SectionElementState.OPENED));
@@ -364,10 +364,10 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                     {
                                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.FOUR_ANTIARRYTHMIC, context.getString(R.string.four_antiarrythmic), false, new ArrayList<EvaluationItem>() {
                                             {
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS, context.getString(R.string.Continuous), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS, context.getString(R.string.bolus), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION, context.getString(R.string.titration), false));
-                                                add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS_IVAA, context.getString(R.string.Continuous), false));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS_IVAA, context.getString(R.string.bolus), false));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION_IVAA, context.getString(R.string.titration), false));
+                                                add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR_IVAA, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.TRANSITION_TO_PO_ANTIARRYTHMIC, context.getString(R.string.transition_to_po_antiarrythmic), false));
                                             }
                                         }));
@@ -375,18 +375,18 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DEFIBRILLATION_ACLS, context.getString(R.string.defibrillation_acls), false));
                                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.FOUR_ANTIHYPERTENSIVE, context.getString(R.string.four_antihypertensive), false, new ArrayList<EvaluationItem>() {
                                             {
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS, context.getString(R.string.Continuous), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS, context.getString(R.string.bolus), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION, context.getString(R.string.titration), false));
-                                                add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS_IVHT, context.getString(R.string.Continuous), false));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS_IVHT, context.getString(R.string.bolus), false));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION_IVHT, context.getString(R.string.titration), false));
+                                                add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR_IVHT, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
                                             }
                                         }));
                                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.FOUR_VASOACTIVE, context.getString(R.string.four_vasoactive), false, new ArrayList<EvaluationItem>() {
                                             {
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS, context.getString(R.string.Continuous), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS, context.getString(R.string.bolus), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION, context.getString(R.string.titration), false));
-                                                add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS_IVVA, context.getString(R.string.Continuous), false));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.BOLUS_IVVA, context.getString(R.string.bolus), false));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.TITRATION_IVVA, context.getString(R.string.titration), false));
+                                                add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR_IVVA, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.FOUR_NPS, context.getString(R.string.four_nps), false));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.FOUR_NTG, context.getString(R.string.four_ntg), false));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.FOUR_MILRINONE, context.getString(R.string.four_milrinone), false));
@@ -394,9 +394,9 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                         }));
                                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.FOUR_DIURETIC, context.getString(R.string.four_diuretic), false, new ArrayList<EvaluationItem>() {
                                             {
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS, context.getString(R.string.Continuous), false));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.CONTINOUS_IVDI, context.getString(R.string.Continuous), false));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.INTERMITTENT, context.getString(R.string.intermittent), false));
-                                                add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
+                                                add(new NumericalEvaluationItem(context, ConfigurationParams.MONITORING_FREQUENCY_Q_HR_IVDI, context.getString(R.string.monitoring_frequency_q_hr), context.getString(R.string.value), 1, 12, false, true));
                                             }
                                         }));
                                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.MECHANICAL_VENTIALLATION_OR_NIPPV, context.getString(R.string.mechanical_ventiallation_or_nippv), false, new ArrayList<EvaluationItem>() {
@@ -434,11 +434,11 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                     {
                         add(new NumericalEvaluationItem(context, ConfigurationParams.GFR_ML_MIN, context.getString(R.string.gfr_ml_min), context.getString(R.string.value), 0, 120, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.CREATININE_MG_DL, context.getString(R.string.creatinine_mg_dl), context.getString(R.string.value), 0.4, 20, false));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.NA_MEQ_L, context.getString(R.string.na_meq_l), context.getString(R.string.value), 99, 170, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.NA, context.getString(R.string.na_meq_l), context.getString(R.string.value), 99, 170, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.K_MEQ_L, context.getString(R.string.k_meq_l), context.getString(R.string.value), 2, 9, false));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.PLATELETS_K_ML, context.getString(R.string.platelets_k_ml), context.getString(R.string.value), 1000, 1000000, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.ALBUMIN_G_DL, context.getString(R.string.albumin_g_dl), context.getString(R.string.value), 0.9, 5, false));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.INR, context.getString(R.string.inr), context.getString(R.string.value), 0.8, 100, false));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.INR_PAH, context.getString(R.string.inr), context.getString(R.string.value), 0.8, 100, false));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.AST_U_ML, context.getString(R.string.ast_u_ml), context.getString(R.string.value), 10, 100000, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.BUN_U_DL, context.getString(R.string.bun_u_dl), context.getString(R.string.value), 6, 200, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.HEMATOCRIT, context.getString(R.string.hematocrit), context.getString(R.string.value), 9, 75, false, true));
