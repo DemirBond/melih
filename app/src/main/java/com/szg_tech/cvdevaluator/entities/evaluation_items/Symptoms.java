@@ -65,7 +65,7 @@ class Symptoms extends SectionEvaluationItem {
                 }, SectionElementState.OPENED));
                 add(new SectionEvaluationItem(context, ConfigurationParams.CHEST_PAIN, context.getString(R.string.chest_pain), false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.EMERGENCY_ROOM, context.getString(R.string.emergency_room), false, new ArrayList<EvaluationItem>() {
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.EMERGENCY_ROOM_CP, context.getString(R.string.emergency_room), false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.TWO_TYPICAL_OR_PROBABLE_ANGINA, context.getString(R.string.two_typical_or_probable_angina), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.TYPICAL_OR_PROBABLE_ANGINA_MORE_20_MIN, context.getString(R.string.typical_or_probable_angina_more_20_min), false));
@@ -144,7 +144,7 @@ class Symptoms extends SectionEvaluationItem {
                                                 setBackgroundHighlighted(true);
                                             }
                                         });
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA, context.getString(R.string.dyspnea), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_CP, context.getString(R.string.dyspnea), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA, context.getString(R.string.nausea), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DIAPHORESIS, context.getString(R.string.diaphoresis), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.FAINTNESS, context.getString(R.string.faintness), false));
@@ -199,7 +199,7 @@ class Symptoms extends SectionEvaluationItem {
                                                 setBackgroundHighlighted(true);
                                             }
                                         });
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA, context.getString(R.string.dyspnea), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_CP, context.getString(R.string.dyspnea), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA, context.getString(R.string.nausea), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DIAPHORESIS, context.getString(R.string.diaphoresis), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.FAINTNESS, context.getString(R.string.faintness), false));
@@ -254,7 +254,7 @@ class Symptoms extends SectionEvaluationItem {
                                                 setBackgroundHighlighted(true);
                                             }
                                         });
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA, context.getString(R.string.dyspnea), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_CP, context.getString(R.string.dyspnea), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA, context.getString(R.string.nausea), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DIAPHORESIS, context.getString(R.string.diaphoresis), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.FAINTNESS, context.getString(R.string.faintness), false));
@@ -287,7 +287,7 @@ class Symptoms extends SectionEvaluationItem {
                                 setBackgroundHighlighted(true);
                             }
                         });
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA, context.getString(R.string.nausea), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA_SYN, context.getString(R.string.nausea), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.DIZZINESS, context.getString(R.string.dizziness), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PALPITATIONS, context.getString(R.string.palpitations), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CHEST_PAIN, context.getString(R.string.chest_pain), false));
@@ -310,7 +310,7 @@ class Symptoms extends SectionEvaluationItem {
                         });
                         add(new BooleanEvaluationItem(context, ConfigurationParams.DISORIENTATION, context.getString(R.string.disorientation), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PARALYSIS, context.getString(R.string.paralysis), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHEST_PAIN, context.getString(R.string.chest_pain), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHEST_PAIN_POS_CP, context.getString(R.string.chest_pain), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PROLONGED_FATIGUE, context.getString(R.string.prolonged_fatigue), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.TRAUMATIC_INJURY, context.getString(R.string.traumatic_injury), false));
                     }

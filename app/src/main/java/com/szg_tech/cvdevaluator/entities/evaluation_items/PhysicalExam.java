@@ -36,30 +36,30 @@ class PhysicalExam extends SectionEvaluationItem {
                         add(new BoldEvaluationItem(context, ConfigurationParams.FOCUS_ON_THE_MOST_ABNORMAL_AUSCULTATION_FOCI, context.getString(R.string.focus_on_the_most_abnormal_auscultation_foci), false));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SI_MITRAL, context.getString(R.string.si_mitral), false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD, context.getString(R.string.loud), ConfigurationParams.SI_MITRAL, false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NORMAL, context.getString(R.string.normal), ConfigurationParams.SI_MITRAL, false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.SOFT, context.getString(R.string.soft), ConfigurationParams.SI_MITRAL, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD_S1_MITRAL, context.getString(R.string.loud), ConfigurationParams.SI_MITRAL, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NORMAL_S1_MITRAL, context.getString(R.string.normal), ConfigurationParams.SI_MITRAL, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.SOFT_SI_MITRAL, context.getString(R.string.soft), ConfigurationParams.SI_MITRAL, false, false));
                             }
                         }));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.S2_AORTIC, context.getString(R.string.s2_aortic), false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD, context.getString(R.string.loud), ConfigurationParams.S2_AORTIC, false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NORMAL, context.getString(R.string.normal), ConfigurationParams.S2_AORTIC, false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.SOFT, context.getString(R.string.soft), ConfigurationParams.S2_AORTIC, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD_S2_AORTIC, context.getString(R.string.loud), ConfigurationParams.S2_AORTIC, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NORMAL_S2_AORTIC, context.getString(R.string.normal), ConfigurationParams.S2_AORTIC, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.SOFT_S2_AORTIC, context.getString(R.string.soft), ConfigurationParams.S2_AORTIC, false, false));
                             }
                         }));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.P2_PULMONIC, context.getString(R.string.p2_pulmonic), false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD, context.getString(R.string.loud), ConfigurationParams.P2_PULMONIC, false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NORMAL, context.getString(R.string.normal), ConfigurationParams.P2_PULMONIC, false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.SOFT, context.getString(R.string.soft), ConfigurationParams.P2_PULMONIC, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD_P2_PULMONIC, context.getString(R.string.loud), ConfigurationParams.P2_PULMONIC, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NORMAL_P2_PULMONIC, context.getString(R.string.normal), ConfigurationParams.P2_PULMONIC, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.SOFT_P2_PULMONIC, context.getString(R.string.soft), ConfigurationParams.P2_PULMONIC, false, false));
                             }
                         }));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.S1_TRICUSPID, context.getString(R.string.s1_tricuspid), false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD, context.getString(R.string.loud), ConfigurationParams.S1_TRICUSPID, false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NORMAL, context.getString(R.string.normal), ConfigurationParams.S1_TRICUSPID, false, false));
-                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.SOFT, context.getString(R.string.soft), ConfigurationParams.S1_TRICUSPID, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD_S1_TRICUSPID, context.getString(R.string.loud), ConfigurationParams.S1_TRICUSPID, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.NORMAL_S1_TRICUSPID, context.getString(R.string.normal), ConfigurationParams.S1_TRICUSPID, false, false));
+                                add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.SOFT_S1_TRICUSPID, context.getString(R.string.soft), ConfigurationParams.S1_TRICUSPID, false, false));
                             }
                         }));
                         add(new SectionEvaluationItem(context, ConfigurationParams.MURMUR, context.getString(R.string.murmur), false, new ArrayList<EvaluationItem>() {
