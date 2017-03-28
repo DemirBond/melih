@@ -13,21 +13,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.activities.authentication.AuthenticationActivity;
+import com.szg_tech.cvdevaluator.activities.main.MainActivity;
 import com.szg_tech.cvdevaluator.core.AbstractPresenter;
 import com.szg_tech.cvdevaluator.core.views.modal.ProgressModalManager;
-import com.szg_tech.cvdevaluator.fragments.output.OutputFragment;
 import com.szg_tech.cvdevaluator.fragments.register.RegisterFragment;
 import com.szg_tech.cvdevaluator.rest.api.RestClientProvider;
 import com.szg_tech.cvdevaluator.rest.authentication.AuthenticationClient;
 import com.szg_tech.cvdevaluator.rest.requests.LoginRequest;
 import com.szg_tech.cvdevaluator.rest.responses.LoginResponse;
-
-import java.io.IOException;
+import com.szg_tech.cvdevaluator.storage.PreferenceHelper;
+import com.szg_tech.cvdevaluator.storage.entities.Credentials;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,6 +51,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(new LoginPresenterImpl.RecyclerViewAdapter(activity));
         }
+        checkCredentials();
     }
 
     @Override
@@ -68,6 +68,55 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
             }
         }
 
+    }
+
+    private void checkCredentials() {
+        Credentials credentials = PreferenceHelper.getCredentials(getActivity());
+        if(!credentials.isExpired()) {
+            RestClientProvider.init(credentials.getToken());
+            ((AuthenticationActivity)getActivity()).onLoginSucceed();
+        }
+
+        if(!credentials.isEmpty()) {
+            tryLogin(credentials.getEmail(), credentials.getPassword());
+        }
+    }
+
+    private void tryLogin(String email, String password) {
+
+        Activity activity = getActivity();
+
+        final ProgressDialog progressDialog = ProgressModalManager.createAndShowLoginProgressDialog(activity);
+        new AuthenticationClient().getAuthenticationService().login(new LoginRequest(email, password).getPlainBody())
+                .enqueue(new Callback<LoginResponse>() {
+                    @Override
+                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                        progressDialog.dismiss();
+                        if(response.isSuccessful()) {
+                            if(response.body().isSucceed()) {
+                                RestClientProvider.init(response.body().getAccessToken());
+
+                                Credentials newCredentials = new Credentials("demo", password, response.body().getAccessTokenWithType(),
+                                        System.currentTimeMillis() + response.body().getExpiresIn());
+
+                                PreferenceHelper.putCredentials(activity, newCredentials);
+                                ((AuthenticationActivity)activity).onLoginSucceed();
+
+                            }
+                        } else {
+                            showSnackbarBottomButtonLoginError(activity);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<LoginResponse> call, Throwable t) {
+
+                        //TODO There is a serious problem, handle with this
+                        progressDialog.dismiss();
+                        showSnackbarBottomButtonLoginError(activity);
+                        t.printStackTrace();
+                    }
+                });
     }
 
     private void showSnackbarBottomButtonLoginError(Activity activity) {
@@ -117,33 +166,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
                 String password = holder.password.getText().toString();
                 Activity activity = getActivity();
                 if(validate(holder.email, holder.password)) {
-                    final ProgressDialog progressDialog = ProgressModalManager.createAndShowLoginProgressDialog(activity);
-
-
-                    new AuthenticationClient().getAuthenticationService().login(new LoginRequest("password", email, password).getPlainBody())
-                            .enqueue(new Callback<LoginResponse>() {
-                                @Override
-                                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                                    progressDialog.dismiss();
-                                    if(response.isSuccessful()) {
-                                        if(response.body().isSucceed()) {
-                                            RestClientProvider.init(response.body().getAccessToken());
-                                            ((AuthenticationActivity)activity).onLoginSucceed();
-                                        }
-                                    } else {
-                                        showSnackbarBottomButtonLoginError(activity);
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<LoginResponse> call, Throwable t) {
-
-                                    //TODO There is a serious problem, handle with this
-                                    showSnackbarBottomButtonLoginError(activity);
-
-
-                                }
-                            });
+                    tryLogin(email, password);
                 }
             }
 
@@ -180,7 +203,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
             View view;
             TextView email;
             TextView password;
-            Button loginButton;
+            TextView loginButton;
             TextView linkSignup;
 
             ViewHolder(View itemView) {
@@ -189,7 +212,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
                 email = (TextView) itemView.findViewById(R.id.input_email);
                 password = (TextView) itemView.findViewById(R.id.input_password);
                 linkSignup = (TextView) itemView.findViewById(R.id.link_signup);
-                loginButton = (Button) itemView.findViewById(R.id.btn_login);
+                loginButton = (TextView) itemView.findViewById(R.id.btn_login);
             }
         }
     }

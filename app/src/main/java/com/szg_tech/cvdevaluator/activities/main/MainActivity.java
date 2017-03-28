@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 .commit();
         presenter.onCreate();
 
-        LoginRequest loginRequest = new LoginRequest("password", "demo", "demo1");
+        LoginRequest loginRequest = new LoginRequest("demo", "demo1");
         System.out.println(loginRequest.getPlainBody());
         new AuthenticationClient().getAuthenticationService().login(loginRequest.getPlainBody()).enqueue(new Callback<LoginResponse>() {
             @Override

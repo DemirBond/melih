@@ -17,8 +17,16 @@ public class LoginResponse {
     @SerializedName("expires_in")
     public long expiresIn;
 
+
+    @SerializedName("token_type")
+    public String tokenType;
+
     public String getAccessToken() {
         return accessToken;
+    }
+
+    public String getAccessTokenWithType() {
+        return tokenType + " " + accessToken;
     }
 
     public void setAccessToken(String accessToken) {
@@ -39,6 +47,14 @@ public class LoginResponse {
 
     public void setExpiresIn(long expiresIn) {
         this.expiresIn = expiresIn;
+    }
+
+    public String getTokenType() {
+        return tokenType;
+    }
+
+    public void setTokenType(String tokenType) {
+        this.tokenType = tokenType;
     }
 
     public boolean isSucceed() {

@@ -52,16 +52,28 @@ public class EvaluationRequest {
         evaluationValueMap.remove(ConfigurationParams.FEMALE);
         evaluationValueMap.remove(ConfigurationParams.SBP);
         evaluationValueMap.remove(ConfigurationParams.DBP);
+        evaluationValueMap.remove(ConfigurationParams.GENDER);
 
 
         StringBuilder builder = new StringBuilder();
         for(Map.Entry<String, Object> entry: evaluationValueMap.entrySet()) {
-            if(entry.getValue() != null) {
-                builder.append(entry.getKey() + "=" + entry.getValue());
+            Object value = entry.getValue();
+            boolean isAdded = false;
+            if(value != null) {
+                if(value instanceof Boolean) {
+                    if(((Boolean)value) == true) {
+                        builder.append(entry.getKey());
+                        isAdded = true;
+                    }
+                } else {
+                    builder.append(entry.getKey() + "=" + entry.getValue());
+                    isAdded = true;
+                }
             } else {
                 builder.append(entry.getKey());
             }
-            builder.append("|");
+            if(isAdded)
+                builder.append("|");
         }
         inputs = builder.toString();
     }

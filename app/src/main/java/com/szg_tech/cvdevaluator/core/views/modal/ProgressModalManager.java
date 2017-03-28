@@ -11,21 +11,24 @@ import com.szg_tech.cvdevaluator.R;
 
 public class ProgressModalManager {
 
-    public static ProgressDialog createAndShowLoginProgressDialog(Activity activity) {
+    private static ProgressDialog createAndShowSimpleProgressDialog(Activity activity, String text) {
         final ProgressDialog progressDialog = new ProgressDialog(activity,
-                R.style.AppTheme);
+                R.style.AuthenticationProgressDialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage(activity.getResources().getString(R.string.authenticating));
+        progressDialog.setMessage(text);
         progressDialog.show();
         return progressDialog;
     }
 
+    public static ProgressDialog createAndShowLoginProgressDialog(Activity activity) {
+        return createAndShowSimpleProgressDialog(activity, activity.getResources().getString(R.string.authenticating_progress_message));
+    }
+
     public static ProgressDialog createAndShowRegisterProgressDialog(Activity activity) {
-        final ProgressDialog progressDialog = new ProgressDialog(activity,
-                R.style.AppTheme);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage(activity.getResources().getString(R.string.registering));
-        progressDialog.show();
-        return progressDialog;
+        return createAndShowSimpleProgressDialog(activity, activity.getResources().getString(R.string.registering_progress_message));
+    }
+
+    public static ProgressDialog createAndShowComputeEvaluaitonProgressDialog(Activity activity) {
+        return createAndShowSimpleProgressDialog(activity, activity.getResources().getString(R.string.compute_evaluation_progress_message));
     }
 }

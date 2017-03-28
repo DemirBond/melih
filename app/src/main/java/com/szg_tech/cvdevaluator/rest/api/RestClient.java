@@ -29,17 +29,6 @@ public class RestClient
         // Add the interceptor to OkHttpClient
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.interceptors().add(new AuthenticationInterceptor(token));
-        builder.interceptors().add(new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-
-                Response response = chain.proceed(chain.request());
-
-                System.out.println(response.body().string());
-
-                return response;
-            }
-        });
         OkHttpClient client = builder.build();
 
         Retrofit restAdapter = new Retrofit.Builder()
