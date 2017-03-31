@@ -91,7 +91,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                         && !ConfigurationParams.PULMONARY_HYPERTENSION.equals(evaluationItem.getId())) {
                     SectionEvaluationItem nextSectionEvaluationItem = nextSectionEvaluationItemArrayList.get(0);
                     if (nextSectionEvaluationItem.getId().equals(ConfigurationParams.PULMONARY_HYPERTENSION)) {
-                        if (!ConfigurationParams.VALVULAR_HEART_DISEASE.equals(evaluationItem.getId())) {
+                        if (!ConfigurationParams.VALVULAR_HEART_DISEASE_SEC.equals(evaluationItem.getId())) {
                             nextSectionEvaluationItemArrayList.remove(0);
                         }
                     }

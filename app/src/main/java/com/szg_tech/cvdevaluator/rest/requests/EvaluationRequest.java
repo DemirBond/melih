@@ -61,24 +61,28 @@ public class EvaluationRequest {
             Object value = entry.getValue();
 
             //TODO why is this coming null, Check
-            if(key == null || key.contains("sec")) continue;
+            if(key == null || key.length() < 3 || key.substring(0, 3).equalsIgnoreCase("sec")) continue;
+            if(value == null) continue;
 
-            if(key.toLowerCase().contains("chk") && value != null && value instanceof Boolean) {
-                if(((Boolean)value) == true) {
+            if(key.substring(0, 3).equalsIgnoreCase("chk")) {
+                if(value instanceof Boolean && ((Boolean)value) == true) {
                     builder.append(key);
                     builder.append('|');
+                } else {
+                    //TODO What to do if value is not boolean but it is a chk?
                 }
-            } else if(value != null) {
+            } else {
                 builder.append(entry.getKey() + '=' + entry.getValue());
                 builder.append('|');
             }
-            //key.toLowerCase().contains("txt") &&
         }
         if(builder.length() != 0 && builder.charAt(builder.length() - 1) == '|') {
             builder.deleteCharAt(builder.length() - 1);
         }
         inputs = builder.toString();
+        if(inputs.isEmpty()) inputs = "empty";
     }
+
 
     private int getIntVal(Object o) {
         if(o != null && o instanceof Double) {

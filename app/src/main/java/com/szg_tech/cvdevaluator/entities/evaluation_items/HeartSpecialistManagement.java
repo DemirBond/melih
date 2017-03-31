@@ -300,7 +300,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.ISCHEMIC, context.getString(R.string.ischemic), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.CARDIOTOXINS, context.getString(R.string.cardiotoxins), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.FAMILIAL_CMP_ASSOCIATED_SUDDEN_DEATH, context.getString(R.string.familial_cmp_associated_sudden_death), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.VALVULAR_HEART_DISEASE, context.getString(R.string.valvular_heart_disease), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.VALVULAR_HEART_DISEASE_SEC, context.getString(R.string.valvular_heart_disease), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.RV_DYSPLASIA, context.getString(R.string.rv_dysplasia), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.MI_MORE_45_DAYS, context.getString(R.string.mi_more_45_days), false));
                                     }

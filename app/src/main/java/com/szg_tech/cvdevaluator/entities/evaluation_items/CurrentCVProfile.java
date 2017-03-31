@@ -151,6 +151,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.ACUTELY, context.getString(R.string.acutely), false));
                             }
                         }));
+
                         add(new EmptyCellEvaluationItem());
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CHRONIC_AF, context.getString(R.string.chronic_af), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PERSISTENT_AF, context.getString(R.string.persistent_af), false));
@@ -338,13 +339,19 @@ class CurrentCVProfile extends SectionEvaluationItem {
 //                        setBottomButtonReferenceSkipped(true);
 //                    }
 //                });
-                add(new SectionEvaluationItem(context, ConfigurationParams.VALVULAR_HEART_DISEASE, context.getString(R.string.valvular_heart_disease), false, new ArrayList<EvaluationItem>() {
+                add(new SectionEvaluationItem(context, ConfigurationParams.VALVULAR_HEART_DISEASE_SEC, context.getString(R.string.valvular_heart_disease), false, new ArrayList<EvaluationItem>() {
                     {
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.VALVULAR_HEART_DISEASE, context.getString(R.string.valvular_heart_disease), false, new ArrayList<EvaluationItem>(){}
+                        ) {
+                            {
+                                setShouldShowAlert(true);
+                            }
+                        });
                     }
                 }, SectionEvaluationItem.SectionElementState.OPENED) {
                     {
                         setBottomButtonReferenceSkipped(true);
-                        setShouldShowAlert(true);
+                        //setShouldShowAlert(true);
                     }
                 });
                 add(new SectionEvaluationItem(context, ConfigurationParams.PULMONARY_HYPERTENSION, context.getString(R.string.pulmonary_hypertension), false, new ArrayList<EvaluationItem>() {
