@@ -54,6 +54,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
         Activity activity = getActivity();
         if (activity != null) {
             recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+            recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, new ArrayList<EvaluationItem>()));
             computeAndShowEvaluations(activity, recyclerView);
         }
     }

@@ -72,10 +72,10 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
 
     private void checkCredentials() {
         Credentials credentials = PreferenceHelper.getCredentials(getActivity());
-        if(!credentials.isExpired()) {
-            RestClientProvider.init(credentials.getToken());
-            ((AuthenticationActivity)getActivity()).onLoginSucceed();
-        }
+//        if(!credentials.isExpired()) {
+//            RestClientProvider.init(credentials.getToken());
+//            ((AuthenticationActivity)getActivity()).onLoginSucceed();
+//        }
 
         if(!credentials.isEmpty()) {
             tryLogin(credentials.getEmail(), credentials.getPassword());
@@ -97,7 +97,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
                                 RestClientProvider.init(response.body().getAccessToken());
 
                                 Credentials newCredentials = new Credentials("demo", password, response.body().getAccessTokenWithType(),
-                                        System.currentTimeMillis() + response.body().getExpiresIn());
+                                        System.currentTimeMillis() + (response.body().getExpiresIn()*1000));
 
                                 PreferenceHelper.putCredentials(activity, newCredentials);
                                 ((AuthenticationActivity)activity).onLoginSucceed();
@@ -164,7 +164,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
                 System.out.println("I am in LoginFragment on click");
                 String email = "demo"; //holder.email.getText().toString();
                 String password = holder.password.getText().toString();
-                Activity activity = getActivity();
+//                Activity activity = getActivity();
                 if(validate(holder.email, holder.password)) {
                     tryLogin(email, password);
                 }

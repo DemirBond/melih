@@ -57,23 +57,25 @@ public class EvaluationRequest {
 
         StringBuilder builder = new StringBuilder();
         for(Map.Entry<String, Object> entry: evaluationValueMap.entrySet()) {
+            String key = entry.getKey();
             Object value = entry.getValue();
-            boolean isAdded = false;
-            if(value != null) {
-                if(value instanceof Boolean) {
-                    if(((Boolean)value) == true) {
-                        builder.append(entry.getKey());
-                        isAdded = true;
-                    }
-                } else {
-                    builder.append(entry.getKey() + "=" + entry.getValue());
-                    isAdded = true;
+
+            //TODO why is this coming null, Check
+            if(key == null || key.contains("sec")) continue;
+
+            if(key.toLowerCase().contains("chk") && value != null && value instanceof Boolean) {
+                if(((Boolean)value) == true) {
+                    builder.append(key);
+                    builder.append('|');
                 }
-            } else {
-                builder.append(entry.getKey());
+            } else if(value != null) {
+                builder.append(entry.getKey() + '=' + entry.getValue());
+                builder.append('|');
             }
-            if(isAdded)
-                builder.append("|");
+            //key.toLowerCase().contains("txt") &&
+        }
+        if(builder.length() != 0 && builder.charAt(builder.length() - 1) == '|') {
+            builder.deleteCharAt(builder.length() - 1);
         }
         inputs = builder.toString();
     }

@@ -54,6 +54,5 @@ public class AuthenticationActivity extends AppCompatActivity implements Authent
     @Override
     public void onLoginSucceed() {
         startActivity(MainActivity.class);
-        System.out.println("on Login Succeed");
     }
 }
