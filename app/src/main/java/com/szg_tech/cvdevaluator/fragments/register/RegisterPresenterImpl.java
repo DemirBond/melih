@@ -93,7 +93,7 @@ public class RegisterPresenterImpl extends AbstractPresenter<RegisterView> imple
             TextView name;
             TextView email;
             TextView password;
-            Button registerButton;
+            TextView registerButton;
             TextView linkLogin;
 
             ViewHolder(View itemView) {
@@ -104,7 +104,7 @@ public class RegisterPresenterImpl extends AbstractPresenter<RegisterView> imple
                 password = (TextView) itemView.findViewById(R.id.input_password);
                 password = (TextView) itemView.findViewById(R.id.input_re_enter_password);
                 linkLogin = (TextView) itemView.findViewById(R.id.link_login);
-                registerButton = (Button) itemView.findViewById(R.id.btn_register);
+                registerButton = (TextView) itemView.findViewById(R.id.btn_register);
             }
         }
     }

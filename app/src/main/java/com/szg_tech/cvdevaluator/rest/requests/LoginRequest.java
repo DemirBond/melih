@@ -12,13 +12,13 @@ import okhttp3.RequestBody;
 
 public class LoginRequest {
 
-    @SerializedName("grantType")
-    public String grantType;
-    public String username;
-    public String password;
+    @SerializedName("grant_type")
+    private String grantType;
+    private String username;
+    private String password;
 
-    public LoginRequest(String grantType, String username, String password) {
-        this.grantType = grantType;
+    public LoginRequest(String username, String password) {
+        this.grantType = "password";
         this.username = username;
         this.password = password;
     }

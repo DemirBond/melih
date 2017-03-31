@@ -10,6 +10,8 @@ import java.util.Arrays;
 
 public class EvaluationResponse {
 
+    private static final String CODE_SUCCEED = "OK";
+
     @SerializedName("stat")
     private String status;
 
@@ -40,6 +42,11 @@ public class EvaluationResponse {
 
     public void setOutputs(EvaluationGroup[] outputs) {
         this.outputs = outputs;
+    }
+
+    public boolean isSuccessful(){
+        if(status.equalsIgnoreCase(CODE_SUCCEED)) return true;
+        return false;
     }
 
     @Override

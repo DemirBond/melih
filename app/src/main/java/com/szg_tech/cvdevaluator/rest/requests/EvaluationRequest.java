@@ -52,16 +52,30 @@ public class EvaluationRequest {
         evaluationValueMap.remove(ConfigurationParams.FEMALE);
         evaluationValueMap.remove(ConfigurationParams.SBP);
         evaluationValueMap.remove(ConfigurationParams.DBP);
+        evaluationValueMap.remove(ConfigurationParams.GENDER);
 
 
         StringBuilder builder = new StringBuilder();
         for(Map.Entry<String, Object> entry: evaluationValueMap.entrySet()) {
-            if(entry.getValue() != null) {
-                builder.append(entry.getKey() + "=" + entry.getValue());
-            } else {
-                builder.append(entry.getKey());
+            String key = entry.getKey();
+            Object value = entry.getValue();
+
+            //TODO why is this coming null, Check
+            if(key == null || key.contains("sec")) continue;
+
+            if(key.toLowerCase().contains("chk") && value != null && value instanceof Boolean) {
+                if(((Boolean)value) == true) {
+                    builder.append(key);
+                    builder.append('|');
+                }
+            } else if(value != null) {
+                builder.append(entry.getKey() + '=' + entry.getValue());
+                builder.append('|');
             }
-            builder.append("|");
+            //key.toLowerCase().contains("txt") &&
+        }
+        if(builder.length() != 0 && builder.charAt(builder.length() - 1) == '|') {
+            builder.deleteCharAt(builder.length() - 1);
         }
         inputs = builder.toString();
     }

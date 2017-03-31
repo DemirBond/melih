@@ -1,7 +1,9 @@
 package com.szg_tech.cvdevaluator.fragments.output;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.graphics.drawable.ColorDrawable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,11 +17,13 @@ import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.core.AbstractPresenter;
 import com.szg_tech.cvdevaluator.core.ConfigurationParams;
 import com.szg_tech.cvdevaluator.core.OutputRecyclerViewAdapter;
+import com.szg_tech.cvdevaluator.core.views.modal.ProgressModalManager;
 import com.szg_tech.cvdevaluator.entities.EvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.BoldEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.HeartPartnerEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.ICOCellEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.TextEvaluationItem;
+import com.szg_tech.cvdevaluator.entities.evaluation_items.Evaluation;
 import com.szg_tech.cvdevaluator.rest.api.RestClientProvider;
 import com.szg_tech.cvdevaluator.rest.requests.EvaluationRequest;
 import com.szg_tech.cvdevaluator.rest.responses.EvaluationGroup;
@@ -50,37 +54,48 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
         Activity activity = getActivity();
         if (activity != null) {
             recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+            recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, new ArrayList<EvaluationItem>()));
             computeAndShowEvaluations(activity, recyclerView);
         }
     }
 
+    private void showSnackbarBottomButtonError(Activity activity) {
+        if (activity != null) {
+            Snackbar snackbar = Snackbar.make(getView().getRecyclerView(), R.string.unexpected_error_in_compute_evaluation, Snackbar.LENGTH_LONG);
+            snackbar.getView().setBackgroundColor(ContextCompat.getColor(activity, R.color.snackbar_red));
+            snackbar.show();
+        }
+    }
+
     public void computeAndShowEvaluations(Activity activity, RecyclerView recyclerView) {
-        recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, getSampleEvaluationList(activity)));
+
+        ProgressDialog progressDialog = ProgressModalManager.createAndShowComputeEvaluaitonProgressDialog(getActivity());
         HashMap<String, Object> evaluationValueMap = EvaluationDAO.getInstance().loadValues();
 
         EvaluationRequest request = new EvaluationRequest(evaluationValueMap);
         System.out.println(request.toMap());
 
-        RestClientProvider.get().getApi().computeEvaluation(EvaluationRequest.mock().toMap()).enqueue(new Callback<EvaluationResponse>() {
+        RestClientProvider.get().getApi().computeEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
             @Override
             public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
-                ArrayList evaluationItems = new ArrayList<EvaluationItem>();
+                if(response.isSuccessful()){
 
-                for(EvaluationGroup group: response.body().getOutputs()) {
-
-                    evaluationItems.add(new BoldEvaluationItem(activity, ConfigurationParams.OVERVIEW, group.getGroupname(), false));
-                    if(group.getFields() != null) {
-                        for(Field f: group.getFields()) {
-                            evaluationItems.add(new TextEvaluationItem(activity, f.getPar(), f.getListView(), false));
-                        }
+                    if(response.body().isSuccessful()) {
+                        List<EvaluationItem> evaluationItems = createEvaluationList(activity, response.body());
+                        recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, evaluationItems));
+                    } else {
+                        System.out.println(call.request().url());
+                        showSnackbarBottomButtonError(activity);
                     }
                 }
-                recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, evaluationItems));
+                progressDialog.dismiss();
             }
 
             @Override
             public void onFailure(Call<EvaluationResponse> call, Throwable t) {
-
+                progressDialog.dismiss();
+                t.printStackTrace();
+                showSnackbarBottomButtonError(activity);
             }
         });
     }
@@ -152,6 +167,29 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
         if (window != null) {
             window.setStatusBarColor(statusBarColor);
         }
+    }
+
+    /**
+     * TODO use special item displays e.g. HeartPartnerEvaluationItem
+     *
+     * @param activity
+     * @param response
+     * @return List of Evaluation Items to be displayed in ListView
+     */
+    public List<EvaluationItem> createEvaluationList(Activity activity, EvaluationResponse response) {
+
+        List<EvaluationItem> evaluationItems = new ArrayList<>();
+
+        for (EvaluationGroup group : response.getOutputs()) {
+
+            evaluationItems.add(new BoldEvaluationItem(activity, ConfigurationParams.OVERVIEW, group.getGroupname(), false));
+            if (group.getFields() != null) {
+                for (Field f : group.getFields()) {
+                    evaluationItems.add(new TextEvaluationItem(activity, f.getPar(), f.getListView(), false));
+                }
+            }
+        }
+        return evaluationItems;
     }
 
     public ArrayList<EvaluationItem> getSampleEvaluationList(Activity activity) {
