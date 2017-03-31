@@ -63,7 +63,7 @@
     <string name="syncope_presyncope">Syncope/Presyncope</string>
     <string name="heart_failure">Heart Failure</string>
     <string name="coronary_heart_disease">Coronary Heart Disease</string>
-    <string name="atrial_fibrilation">Atrial Fibrilation</string>
+    <string name="atrial_fibrilation">Atrial Fibrillation</string>
     <string name="thromboembolic_vka">Thromboembolic/VKA</string>
     <string name="ventricular_tachyarrthymias">Ventricular Tachyarrthymias</string>
     <string name="bradyarrthymia_syncope">Bradyarrthymia/Syncope</string>
@@ -275,6 +275,10 @@
     <string name="ultrafiltration">Ultrafiltration</string>
     <string name="iabp">IABP</string>
     <string name="temporary_pm">Temporary PM</string>
+    <string name="on_max_tolerated_b_blocker">On Maximum Tolerated B Blocker</string>
+    <string name="on_max_tolerated_acei_arb">On Maximum Tolerated or Intolerant AceI/ARB</string>
+    <string name="chronic_inotrope_dependence">Chronic Inotrope Dependence</string>
+    <string name="intermittent_inotrope_dependence">Intermittent Inotrope Dependence</string>
     <string name="b_blocker">B Blocker</string>
     <string name="carvedilol_3125bid">Carvedilol 3.125 bid</string>
     <string name="carvedilol_625bid">Carvedilol 6.25 bid</string>
@@ -292,7 +296,8 @@
     <string name="chlorthalidone_metolazone">Chlorthalidone, Metolazone</string>
     <string name="ccb_other_vasolidators">CCB, Other Vasolidators</string>
     <string name="current_vka_therapy">Current VKA Therapy</string>
-    <string name="direct_thrombin_or_factor_xa_inhibitors">Direct Thrombin or Factor Xa Inhibitors</string>
+    <string name="direct_thrombin_inhibitors">Direct Thrombin Inhibitors</string>
+    <string name="factor_xa_inhibitors">Factor Xa Inhibitors</string>
     <string name="furosemide_40">Furosemide 40</string>
     <string name="furosemide_80">Furosemide 80</string>
     <string name="furosemide_80_plus">Furosemide 80+</string>
@@ -312,6 +317,7 @@
     <string name="lahb">LAHB</string>
     <string name="lvh">LVH</string>
     <string name="atrial_premature_depolarization">Atrial Premature Depolarization</string>
+    <string name="junctional_premature_depolarization">Junctional Premature Depolarization</string>
     <string name="frequent_ventricular_pacing_or_ectopy">Frequent Ventricular Pacing or Ectopy</string>
     <string name="infrequent_ventricular_pacing_or_ectopy">Infrequent Ventricular Pacing or Ectopy</string>
     <string name="wpw">WPW</string>
@@ -344,6 +350,10 @@
     <string name="artifactural_uninterpretable_images">Artifactual/Uninterpretable Images</string>
     <string name="echocardiography">Echocardiography</string>
     <string name="pericardial_effusion">Pericardial Effusion</string>
+    <string name="dlco">DLCO %</string>
+    <string name="fev_lt">FEV1 /lt</string>
+    <string name="fev1_percent">FEV1 %</string>
+    <string name="ic_tlc">IC/TLC %</string>
     <string name="rwma">RWMA</string>
     <string name="enlarged_la_or_lvh">Enlarged LA or LVH</string>
     <string name="e_a_less_05_and_dt_more_280ms"><![CDATA[E/A < 0.5 and DT > 280ms]]></string>
@@ -476,7 +486,7 @@
     <string name="infective_endrocarditis">Infective Endrocarditis</string>
     <string name="left_sided_pv_thrombosis">Left Sided PV Thrombosis</string>
     <string name="right_sided_pv_thrombosis">Right Sided PV Thrombosis</string>
-    <string name="cardiac_source_of_embolism">Other Cardiac Source of Embolism\n(Non Atrial Fibrilation)</string>
+    <string name="cardiac_source_of_embolism">Other Cardiac Source of Embolism\n(Non Atrial Fibrillation)</string>
     <string name="non_acute_arterial_ischemic_stroke">Non Acute Arterial Ischemic Stroke</string>
     <string name="aortic_arch_atherosclerosis">Aortic Arch Atherosclerosis</string>
     <string name="lv_thrombus">LV Thrombus</string>
@@ -622,7 +632,7 @@
     <string name="e_e_8_16">E/E\' 8–16</string>
     <string name="midsys_notch">Midsys Notch</string>
     <string name="e_e_more_16"><![CDATA[E/E\' > 16]]></string>
-    <string name="new_onset_atrial_fibrilation">New Onset Atrial Fibrilation</string>
+    <string name="new_onset_atrial_fibrilation">New Onset Atrial Fibrillation</string>
     <string name="aortic_stenosis">Aortic Stenosis</string>
     <string name="valvular">Valvular</string>
     <string name="calcified_aortic_valve_reduced_systolic_opening">Calcified Aortic Valve w/ Reduced Systolic Opening</string>
@@ -654,10 +664,12 @@
     <string name="aortic_root_diameter">Aortic Root Diameter</string>
     <string name="primary_mitral_regurgitation">Primary Mitral Regurgitation</string>
     <string name="tricuspid_regurgitation">Tricuspid Regurgitation</string>
+    <string name="annular_diameter">Annular Diameter /mm</string>
     <string name="central_jet_area_cm_2">Central Jet Area cm^2</string>
     <string name="hepatic_vein_flow_reversal">Hepatic Vein Flow Reversal</string>
     <string name="abnormal_tv_leaflets">Abnormal TV Leaflet(s)</string>
     <string name="pulmonic_regurgitation">Pulmonic Regurgitation</string>
+    <string name="wide_regurfitant_jet">Wide Regurfitant Jet</string>
     <string name="abnormal_pulmonic_valve_leaflets">Abnormal Pulmonic Valve Leaflets</string>
     <string name="valvular_surgery_risk">Valvular Surgery Risk</string>
     <string name="low">Low</string>
@@ -698,6 +710,7 @@
     <string name="ast_u_ml">AST U/ml</string>
     <string name="bun_u_dl">BUN U/dl</string>
     <string name="hematocrit">Hematocrit %</string>
+    <string name="pr_duration">PR Duration</string>
     <string name="qrs_duration">QRS Duration</string>
     <string name="mean_pap_mmhg">MEAN PAP, mmHg</string>
     <string name="pvr_wu">PVR, WU</string>

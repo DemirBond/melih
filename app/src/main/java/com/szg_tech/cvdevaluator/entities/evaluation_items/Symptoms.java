@@ -70,11 +70,6 @@ class Symptoms extends SectionEvaluationItem {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.TWO_TYPICAL_OR_PROBABLE_ANGINA, context.getString(R.string.two_typical_or_probable_angina), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.TYPICAL_OR_PROBABLE_ANGINA_MORE_20_MIN, context.getString(R.string.typical_or_probable_angina_more_20_min), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.ASA_USE_IN_PAST_1_WEEK, context.getString(R.string.asa_use_in_past_1_week), false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.POSITIVE_TROP_I_OR_T, context.getString(R.string.positive_trop_i_or_t), false) {
-                                    {
-                                        setBackgroundHighlighted(true);
-                                    }
-                                });
                                 add(new SectionEvaluationItem(context, ConfigurationParams.POSITIVE_TROPONIN, context.getString(R.string.positive_troponin), false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.TROPONIN_X_MORE_3_ABOVE_NORMAL, context.getString(R.string.troponin_x_more_3_above_normal), false));

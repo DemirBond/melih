@@ -131,6 +131,14 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.PERICARDIAL_EFFUSION, context.getString(R.string.pericardial_effusion), false));
                                     }
                                 }));
+                                add(new SectionEvaluationItem(context, "tab_pg4", context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
+                                    {
+                                        add(new NumericalEvaluationItem(context, ConfigurationParams.DLCO, context.getString(R.string.dlco), context.getString(R.string.value), 1, 6, false));
+                                        add(new NumericalEvaluationItem(context, ConfigurationParams.FEV1_LT, context.getString(R.string.fev_lt), context.getString(R.string.value), 16, 144, false, true));
+                                        add(new NumericalEvaluationItem(context, ConfigurationParams.FEV1_PERCENT, context.getString(R.string.fev1_percent), context.getString(R.string.value), 1, 6, false));
+                                        add(new NumericalEvaluationItem(context, ConfigurationParams.IC_TLC, context.getString(R.string.ic_tlc), context.getString(R.string.value), 1, 6, false));
+                                    }
+                                }));
                             }
                         }));
                     }
@@ -204,7 +212,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                 }));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.TRICUSPID_REGURGITATION, context.getString(R.string.tricuspid_regurgitation), false, new ArrayList<EvaluationItem>() {
                                     {
-                                        add(new NumericalEvaluationItem(context, ConfigurationParams.MVA_CM_2, context.getString(R.string.mva_cm_2), context.getString(R.string.value), 0.1, 9, false));
+                                        add(new NumericalEvaluationItem(context, ConfigurationParams.ANNULAR_DIAMETER, context.getString(R.string.annular_diameter), context.getString(R.string.value), 0.1, 9, false));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.CENTRAL_JET_AREA_CM_2, context.getString(R.string.central_jet_area_cm_2), context.getString(R.string.value), 0.1, 9, false));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.VENA_CONTRACTA_WIDTH_TRI, context.getString(R.string.vena_contracta_width), context.getString(R.string.value), 0.1, 9, false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.HEPATIC_VEIN_FLOW_REVERSAL, context.getString(R.string.hepatic_vein_flow_reversal), false));
@@ -213,7 +221,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                 }));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PULMONIC_REGURGITATION, context.getString(R.string.pulmonic_regurgitation), false, new ArrayList<EvaluationItem>() {
                                     {
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.FAVORABLE_VALVE_MORPHOLOGY, context.getString(R.string.favorable_valve_morphology), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.WIDE_REGURFITANT_JET, context.getString(R.string.wide_regurfitant_jet), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.ABNORMAL_PULMONIC_VALVE_LEAFLETS, context.getString(R.string.abnormal_pulmonic_valve_leaflets), false));
                                     }
                                 }));
@@ -409,6 +417,10 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.ULTRAFILTRATION, context.getString(R.string.ultrafiltration), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.IABP, context.getString(R.string.iabp), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.TEMPORARY_PM, context.getString(R.string.temporary_pm), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.ON_MAX_TOLERATED_B_BLOCKER, context.getString(R.string.on_max_tolerated_b_blocker), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.ON_MAX_TOLERATED_ACE_IARB, context.getString(R.string.on_max_tolerated_acei_arb), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHRONIC_INOTROPE_DEPENDENCE, context.getString(R.string.chronic_inotrope_dependence), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.INTERMITTENT_INOTROPE_DEPENDENCE, context.getString(R.string.intermittent_inotrope_dependence), false));
                                     }
                                 }, SectionElementState.OPENED));
                             }

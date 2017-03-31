@@ -27,6 +27,8 @@ class Diagnostics extends SectionEvaluationItem {
             {
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.EKG, context.getString(R.string.ekg), false, new ArrayList<EvaluationItem>() {
                     {
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.PR_DURATION, context.getString(R.string.pr_duration), context.getString(R.string.value), -100, 100, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.QRS_DURATION, context.getString(R.string.qrs_duration), context.getString(R.string.value), -100, 100, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ST_DEVIATION_MORE_05_MM, context.getString(R.string.st_deviation_more_05_mm), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.T_WAVE_INVERSION_MORE_1MM, context.getString(R.string.t_wave_inversion_more_1mm), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LOW_VOLTAGE_QRS, context.getString(R.string.low_voltage_qrs), false));
@@ -40,6 +42,7 @@ class Diagnostics extends SectionEvaluationItem {
                         }));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LVH, context.getString(R.string.lvh), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ATRIAL_PREMATURE_DEPOLARIZATION, context.getString(R.string.atrial_premature_depolarization), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.JUNCTIONAL_PREMATURE_DEPOLARIZATION, context.getString(R.string.junctional_premature_depolarization), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.FREQUENT_VENTRICULAR_PACING_OR_ECTOPY, context.getString(R.string.frequent_ventricular_pacing_or_ectopy), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.INFREQUENT_VENTRICULAR_PACING_OR_ECTOPY, context.getString(R.string.infrequent_ventricular_pacing_or_ectopy), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.WPW, context.getString(R.string.wpw), false));

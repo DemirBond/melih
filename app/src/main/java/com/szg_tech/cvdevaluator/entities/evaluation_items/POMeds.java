@@ -54,7 +54,8 @@ class POMeds extends SectionEvaluationItem {
                 }));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.CCB_OTHER_VASOLIDATORS, context.getString(R.string.ccb_other_vasolidators), false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.CURRENT_VKA_THERAPY, context.getString(R.string.current_vka_therapy), false));
-                add(new BooleanEvaluationItem(context, ConfigurationParams.DIRECT_THROMBIN_OR_FACTOR_XA_INHIBITORS, context.getString(R.string.direct_thrombin_or_factor_xa_inhibitors), false));
+                add(new BooleanEvaluationItem(context, ConfigurationParams.DIRECT_THROMBIN_INHIBITORS, context.getString(R.string.direct_thrombin_inhibitors), false));
+                add(new BooleanEvaluationItem(context, ConfigurationParams.FACTOR_XA_INHIBITORS, context.getString(R.string.factor_xa_inhibitors), false));
             }
         };
     }
