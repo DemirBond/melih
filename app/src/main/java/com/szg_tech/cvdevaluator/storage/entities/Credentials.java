@@ -18,6 +18,8 @@ public class Credentials {
 
 
     public Credentials(String email, String password, String token, long expireDate) {
+        this.email = email;
+        this.password = password;
         this.token = token;
         this.expireDate = expireDate;
     }

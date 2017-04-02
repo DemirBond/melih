@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.activities.authentication.AuthenticationActivity;
-import com.szg_tech.cvdevaluator.activities.main.MainActivity;
 import com.szg_tech.cvdevaluator.core.AbstractPresenter;
 import com.szg_tech.cvdevaluator.core.views.modal.ProgressModalManager;
 import com.szg_tech.cvdevaluator.fragments.register.RegisterFragment;
@@ -96,7 +95,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
                             if(response.body().isSucceed()) {
                                 RestClientProvider.init(response.body().getAccessToken());
 
-                                Credentials newCredentials = new Credentials("demo", password, response.body().getAccessTokenWithType(),
+                                Credentials newCredentials = new Credentials(email, password, response.body().getAccessTokenWithType(),
                                         System.currentTimeMillis() + (response.body().getExpiresIn()*1000));
 
                                 PreferenceHelper.putCredentials(activity, newCredentials);
@@ -121,7 +120,7 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
 
     private void showSnackbarBottomButtonLoginError(Activity activity) {
         if (activity != null) {
-            Snackbar snackbar = Snackbar.make(getView().getRecyclerView(), R.string.snackbar_bottom_button_error_login, Snackbar.LENGTH_LONG);
+            Snackbar snackbar = Snackbar.make(getView().getRecyclerView(), R.string.snackbar_bottom_button_login_error, Snackbar.LENGTH_LONG);
             snackbar.getView().setBackgroundColor(ContextCompat.getColor(activity, R.color.snackbar_red));
             snackbar.show();
         }
@@ -162,32 +161,31 @@ public class LoginPresenterImpl extends AbstractPresenter<LoginView> implements 
             @Override
             public void onClick(View v) {
                 System.out.println("I am in LoginFragment on click");
-                String email = "demo"; //holder.email.getText().toString();
+                String email = holder.email.getText().toString();
                 String password = holder.password.getText().toString();
-//                Activity activity = getActivity();
-                if(validate(holder.email, holder.password)) {
+                if(validate()) {
                     tryLogin(email, password);
                 }
             }
 
-            private boolean validate(TextView emailEditText, TextView passwordEditText) {
+            private boolean validate() {
                 boolean valid = true;
 
-                String email = emailEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
+                String email = holder.email.getText().toString();
+                String password = holder.password.getText().toString();
 
                 if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    emailEditText.setError("enter a valid email address");
+                    holder.email.setError("enter a valid email address");
                     valid = false;
                 } else {
-                    passwordEditText.setError(null);
+                    holder.password.setError(null);
                 }
 
                 if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-                    passwordEditText.setError("between 4 and 10 alphanumeric characters");
+                    holder.password.setError("between 4 and 10 alphanumeric characters");
                     valid = false;
                 } else {
-                    passwordEditText.setError(null);
+                    holder.password.setError(null);
                 }
 
                 return valid;

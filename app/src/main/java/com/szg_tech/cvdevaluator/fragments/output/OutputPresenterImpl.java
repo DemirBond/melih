@@ -185,7 +185,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
             evaluationItems.add(new BoldEvaluationItem(activity, ConfigurationParams.OVERVIEW, group.getGroupname(), false));
             if (group.getFields() != null) {
                 for (Field f : group.getFields()) {
-                    evaluationItems.add(new TextEvaluationItem(activity, f.getPar(), f.getListView(), false));
+                    evaluationItems.add(new TextEvaluationItem(activity, f.getPar(), f.getVal(), false));
                 }
             }
         }

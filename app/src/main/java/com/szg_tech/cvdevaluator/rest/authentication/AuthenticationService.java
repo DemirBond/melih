@@ -1,9 +1,12 @@
 package com.szg_tech.cvdevaluator.rest.authentication;
 
 import com.szg_tech.cvdevaluator.rest.responses.LoginResponse;
+import com.szg_tech.cvdevaluator.rest.responses.RegisterResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
@@ -13,5 +16,10 @@ import retrofit2.http.POST;
 public interface AuthenticationService {
 
     @POST("token")
-    public Call<LoginResponse> login(@Body String loginBody);
+    Call<LoginResponse> login(@Body String loginBody);
+
+
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @POST("api/account/register")
+    Call<Void> register(@Body String registerBody);
 }

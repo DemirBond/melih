@@ -37,8 +37,4 @@ public class Field {
                 ", val='" + val + '\'' +
                 '}';
     }
-
-    public String getListView() {
-        return par + "\t" + val;
-    }
 }

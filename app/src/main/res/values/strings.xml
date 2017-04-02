@@ -528,7 +528,9 @@
     <string name="display_settings">Display Settings</string>
     <string name="reset_field">Reset Field</string>
     <string name="snackbar_bottom_button_error">Please, fill page with valid values before proceeding.</string>
-    <string name="snackbar_bottom_button_error_login">Authentication is not successful. Email or password is not valid.</string>
+    <string name="snackbar_bottom_button_login_error">Authentication is not successful. Email or password is not valid.</string>
+    <string name="snackbar_bottom_button_register_error">Sorry! Register is not successful.</string>
+    <string name="snackbar_bottom_button_register_succeed">Register is successful!</string>
     <string name="unexpected_error_in_compute_evaluation">Sorry :(. We encountered an unexpected error while computing evaluations.</string>
     <string name="cancel_screen_alert_message">Screen, you\'re trying to leave, is not correctly completed.</string>
     <string name="cancel_screen_alert_cancel_all">Reset all changes and go back</string>
