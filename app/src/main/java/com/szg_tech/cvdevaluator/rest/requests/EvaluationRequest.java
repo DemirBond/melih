@@ -1,7 +1,10 @@
 package com.szg_tech.cvdevaluator.rest.requests;
 
+import android.provider.ContactsContract;
+
 import com.szg_tech.cvdevaluator.core.ConfigurationParams;
-import com.szg_tech.cvdevaluator.entities.evaluation_items.Evaluation;
+import com.szg_tech.cvdevaluator.rest.requests.mappings.DateInputMapper;
+import com.szg_tech.cvdevaluator.rest.requests.mappings.RadioButtonMapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,26 +36,33 @@ public class EvaluationRequest {
         setVariablesFromMap(evaluationValueMap);
     }
 
-    private void setVariablesFromMap(HashMap<String, Object> evaluationValueMap) {
+
+    private void setVariablesFromMap(Map<String, Object> evaluationValueMap) {
 
         age = getIntVal(evaluationValueMap.get(ConfigurationParams.AGE));
+
+        RadioButtonMapper.genderMapper().map(evaluationValueMap);
+        RadioButtonMapper.anginaIndexMapper().map(evaluationValueMap);
+        DateInputMapper.mapOnSetOfHeartFailure(evaluationValueMap);
+
         if(evaluationValueMap.containsKey(ConfigurationParams.MALE)) {
             boolean isMale = (Boolean)evaluationValueMap.get(ConfigurationParams.MALE);
-            gender = isMale?1:0;
+            gender = isMale?1:2;
         } else {
-            gender = -1;
+            gender = 1;
         }
 
+        gender = (Integer)evaluationValueMap.get(ConfigurationParams.GENDER);
         SBP = getIntVal(evaluationValueMap.get(ConfigurationParams.SBP));
         DBP = getIntVal(evaluationValueMap.get(ConfigurationParams.DBP));
-        isPAH = false;
+        DBP = getIntVal(evaluationValueMap.get(ConfigurationParams.DBP));
+        isPAH = getBoolVal(evaluationValueMap.get(ConfigurationParams.IS_PAH));
 
         evaluationValueMap.remove(ConfigurationParams.AGE);
-        evaluationValueMap.remove(ConfigurationParams.MALE);
-        evaluationValueMap.remove(ConfigurationParams.FEMALE);
         evaluationValueMap.remove(ConfigurationParams.SBP);
         evaluationValueMap.remove(ConfigurationParams.DBP);
         evaluationValueMap.remove(ConfigurationParams.GENDER);
+        evaluationValueMap.remove(ConfigurationParams.IS_PAH);
 
 
         StringBuilder builder = new StringBuilder();
@@ -91,6 +101,15 @@ public class EvaluationRequest {
             System.err.println("Evaluation Request - getIntVal [there is a serious problem with Data Storage]: " + o);
         }
         return -1;
+    }
+
+    private boolean getBoolVal(Object o) {
+        if(o != null && o instanceof Boolean) {
+            return ((Boolean)o);
+        } else {
+            System.err.println("Evaluation Request - getIntVal [there is a serious problem with Data Storage]: " + o);
+        }
+        return false;
     }
 
     public static EvaluationRequest mock() {

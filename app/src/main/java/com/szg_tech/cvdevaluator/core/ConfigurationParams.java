@@ -14,6 +14,7 @@ public class ConfigurationParams {
     public static final String HEART_RATE = "HR";
     public static final String SBP = "sbp";
     public static final String DBP = "dbp";
+    public static final String IS_PAH = "isPAH";
     public static final String ORTHOSTATIC_SBP = "OrthostaticSBP";
     public static final String ORTHOSTATIC_SYMPTOMPS = "chkSymptomatic";
     public static final String WAIST_CIRC = "waist";
@@ -23,7 +24,7 @@ public class ConfigurationParams {
     public static final String SYMPTOMS = "secsymptoms";
     public static final String DYSPNEA = "secdyspnea";
     public static final String CHEST_PAIN = "chkSynProCP";
-    public static final String SYNCOPE_PRESYNCOPE = "secsyncope_presyncope";
+    public static final String SYNCOPE_PRESYNCOPE = "chktestsyncope";
     public static final String CURRENT_PAST_CV_PROFILE = "seccurrent_past_cv_profile";
     public static final String HEART_FAILURE = "chkHF";
     public static final String CORONARY_HEART_DISEASE = "seccoronary_heart_disease";
@@ -562,6 +563,7 @@ public class ConfigurationParams {
     public static final String ABDOMINAL_AORTIC_ANEURYSM = "secabdominal_aortic_aneurysm";
     public static final String AA_DIAMETER_MORE_5 = "chkAADiameter";
     public static final String COMPUTE_EVALUATION = "seccompute_evaluation";
+    public static final String PAH_COMPUTE_EVALUATION = "sec_pah_compute_evaluation";
     public static final String OVERVIEW = "secoverview";
     public static final String THERAPEUTICS = "sectherapeutics";
     public static final String REFERENCES = "secreferences";
@@ -701,7 +703,7 @@ public class ConfigurationParams {
     public static final String SINUS_NODE_DYSFUNCTION = "chkSinusNodeDysfunction";
     public static final String HOME_THERAPEUTICS = "sechome_therapeutics";
     public static final String ENLARGED_LA = "chkEnlargedLA";
-    public static final String ON_SET_OF_HEART_FAILURE = "secon_set_of_heart_failure";
+    public static final String ON_SET_OF_HEART_FAILURE = "date_on_set_of_heart_failure";
     public static final String NEW_ONSET_HEART_FAILURE_INITIAL_EVALUATION = "chknewHF";
     public static final String LABORATORY_EKG = "seclaboratory_ekg";
     public static final String PLATELETS_K_ML = "txtplatelet";
@@ -721,4 +723,7 @@ public class ConfigurationParams {
     public static final String RVEDP_MMGH = "txtRVEDP";
     public static final String SIX_MW_DISTANCE = "txt6MWT";
     public static final String MAX_VO_MG_KG_MIN = "txtVO2";
+
+    public static final String ON_SET_HEART_FAILURE_MONTH = "txtHearthFailureMonth";
+    public static final String ON_SET_HEART_FAILURE_YEAR = "txtHearthFailureYear";
 }

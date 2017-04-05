@@ -32,25 +32,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 .addToBackStack(HomeFragment.class.getSimpleName())
                 .commit();
         presenter.onCreate();
-
-        LoginRequest loginRequest = new LoginRequest("demo", "demo1");
-        System.out.println(loginRequest.getPlainBody());
-        new AuthenticationClient().getAuthenticationService().login(loginRequest.getPlainBody()).enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if(response.isSuccessful()) {
-                    RestClientProvider.init(response.body().getAccessToken());
-                } else {
-                    System.out.println("Not successful" + response);
-                    System.out.println("Request body " + call.request().body());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-
-            }
-        });
     }
 
     @Override

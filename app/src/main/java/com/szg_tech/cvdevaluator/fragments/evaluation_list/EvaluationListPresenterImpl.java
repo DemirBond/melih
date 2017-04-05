@@ -37,6 +37,7 @@ import com.szg_tech.cvdevaluator.fragments.tab_fragment.TabFragment;
 import com.szg_tech.cvdevaluator.storage.EvaluationDAO;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> implements EvaluationListPresenter {
     private ArrayList<SectionEvaluationItem> nextSectionEvaluationItemArrayList;
@@ -74,7 +75,13 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                             HeartSpecialistManagement heartSpecialistManagement = ((EvaluationActivity) activity).getHeartSpecialistManagement();
                             EvaluationListFragment evaluationListFragment = new EvaluationListFragment();
                             Bundle bundle = new Bundle();
+
+                            recursiveFillSection(heartSpecialistManagement, EvaluationDAO.getInstance().loadValues());
+
                             bundle.putSerializable(ConfigurationParams.NEXT_SECTION, heartSpecialistManagement);
+                            bundle.putSerializable(ConfigurationParams.NEXT_SECTION_EVALUATION_ITEMS, new ArrayList<SectionEvaluationItem>() {{
+                                add(new SectionEvaluationItem(activity, ConfigurationParams.PAH_COMPUTE_EVALUATION, activity.getResources().getString(R.string.compute_evaluation), false, new ArrayList<>()));
+                            }});
 
                             evaluationListFragment.setArguments(bundle);
                             getSupportFragmentManager().beginTransaction()
@@ -100,6 +107,19 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                 } else {
                     getView().getBottomButton().setVisibility(View.GONE);
                 }
+            }
+        }
+    }
+
+    private void recursiveFillSection(EvaluationItem tempEvaluationItem, Map<String, Object> valueHashMap) {
+        ArrayList<EvaluationItem> evaluationItems = tempEvaluationItem.getEvaluationItemList();
+        if (evaluationItems != null) {
+            for (EvaluationItem evaluationItem : evaluationItems) {
+                Object value = valueHashMap.get(evaluationItem.getId());
+                if (value != null) {
+                    evaluationItem.setValue(value);
+                }
+                recursiveFillSection(evaluationItem, valueHashMap);
             }
         }
     }
@@ -219,6 +239,14 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
         }
     }
 
+    private void showSnackbarBottomButtonMinimumNotEnteredError(Activity activity) {
+        if (activity != null) {
+            Snackbar snackbar = Snackbar.make(getView().getRecyclerView(), R.string.snackbar_bottom_button_error_minimum_not_entered, Snackbar.LENGTH_LONG);
+            snackbar.getView().setBackgroundColor(ContextCompat.getColor(activity, R.color.snackbar_red));
+            snackbar.show();
+        }
+    }
+
     @Override
     public void onBottomButtonClick() {
         Activity activity = getActivity();
@@ -249,12 +277,21 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                 } else if (nextSectionEvaluationItemArrayList.size() >= 1) {
                     Fragment nextFragment = new EvaluationListFragment();
                     SectionEvaluationItem nextSectionEvaluationItem = nextSectionEvaluationItemArrayList.get(0);
-                    if (ConfigurationParams.COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId())) {
-                        fragmentManager.beginTransaction()
-                                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                                .replace(R.id.container, new OutputFragment())
-                                .addToBackStack(OutputFragment.class.getSimpleName())
-                                .commit();
+                    if (ConfigurationParams.COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId()) || ConfigurationParams.PAH_COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId())) {
+
+                        if(EvaluationDAO.getInstance().isMinimumToSaveEntered()) {
+                            OutputFragment outputFragment = new OutputFragment();
+                            if(ConfigurationParams.PAH_COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId())) {
+                                EvaluationDAO.getInstance().addToHashMap("isPAH", true);
+                            }
+                            fragmentManager.beginTransaction()
+                                    .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                                    .replace(R.id.container, new OutputFragment())
+                                    .addToBackStack(OutputFragment.class.getSimpleName())
+                                    .commit();
+                        } else {
+                            showSnackbarBottomButtonMinimumNotEnteredError(getActivity());
+                        }
                     } else {
 //                        if (nextSectionEvaluationItem.getSectionElementState() != SectionEvaluationItem.SectionElementState.FILLED) {
 //                            nextSectionEvaluationItem.setSectionElementState(SectionEvaluationItem.SectionElementState.VIEWED);

@@ -48,17 +48,13 @@ class Symptoms extends SectionEvaluationItem {
                             }
                         });
                         add(new EmptyCellEvaluationItem());
-                        add(new SectionEvaluationItem(context, ConfigurationParams.DYSPNEA_ON_EXERTION, context.getString(R.string.dyspnea_on_exertion), false, new ArrayList<EvaluationItem>() {
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.DYSPNEA_ON_EXERTION, context.getString(R.string.dyspnea_on_exertion), false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.STRENUOUS_EXERTION, context.getString(R.string.strenuous_exertion), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.MORE_THAN_DAILY_ROUTINE, context.getString(R.string.more_than_daily_routine), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DAILY_ROUTINE_MINIMAL_ACTIVITIES, context.getString(R.string.daily_routine_minimal_activities), false));
                             }
-                        }, SectionElementState.OPENED) {
-                            {
-                                setHasStateIcon(false);
-                            }
-                        });
+                        }));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_AT_REST, context.getString(R.string.dyspnea_at_rest), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.WEIGHT_GAIN, context.getString(R.string.weight_gain), false));
                     }
@@ -70,16 +66,12 @@ class Symptoms extends SectionEvaluationItem {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.TWO_TYPICAL_OR_PROBABLE_ANGINA, context.getString(R.string.two_typical_or_probable_angina), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.TYPICAL_OR_PROBABLE_ANGINA_MORE_20_MIN, context.getString(R.string.typical_or_probable_angina_more_20_min), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.ASA_USE_IN_PAST_1_WEEK, context.getString(R.string.asa_use_in_past_1_week), false));
-                                add(new SectionEvaluationItem(context, ConfigurationParams.POSITIVE_TROPONIN, context.getString(R.string.positive_troponin), false, new ArrayList<EvaluationItem>() {
+                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.POSITIVE_TROPONIN, context.getString(R.string.positive_troponin), false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.TROPONIN_X_MORE_3_ABOVE_NORMAL, context.getString(R.string.troponin_x_more_3_above_normal), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.TROPONIN_1_3_ABOVE_NORMAL, context.getString(R.string.troponin_1_3_above_normal), false));
                                     }
-                                }, SectionElementState.OPENED) {
-                                    {
-                                        setHasStateIcon(false);
-                                    }
-                                });
+                                }));
                             }
                         }));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.TYPICAL_ANGINA_NEW, context.getString(R.string.typical_angina_new), false, new ArrayList<EvaluationItem>() {
@@ -265,7 +257,7 @@ class Symptoms extends SectionEvaluationItem {
                         setBottomButtonReferenceSkipped(true);
                     }
                 });
-                add(new SectionEvaluationItem(context, ConfigurationParams.SYNCOPE_PRESYNCOPE, context.getString(R.string.syncope_presyncope), false, new ArrayList<EvaluationItem>() {
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYNCOPE_PRESYNCOPE, context.getString(R.string.syncope_presyncope), false, new ArrayList<EvaluationItem>() {
                     {
                         add(new BoldEvaluationItem(context, ConfigurationParams.CIRCUMSTANCE, context.getString(R.string.circumstance), false) {
                             {
@@ -309,11 +301,7 @@ class Symptoms extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PROLONGED_FATIGUE, context.getString(R.string.prolonged_fatigue), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.TRAUMATIC_INJURY, context.getString(R.string.traumatic_injury), false));
                     }
-                }, SectionElementState.OPENED) {
-                    {
-                        setBottomButtonReferenceSkipped(true);
-                    }
-                });
+                }));
             }
         };
     }

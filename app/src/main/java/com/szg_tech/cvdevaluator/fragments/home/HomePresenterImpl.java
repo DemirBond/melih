@@ -18,6 +18,7 @@ import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.activities.evaluation.EvaluationActivity;
 import com.szg_tech.cvdevaluator.activities.main.MainActivity;
 import com.szg_tech.cvdevaluator.core.AbstractPresenter;
+import com.szg_tech.cvdevaluator.storage.EvaluationDAO;
 
 class HomePresenterImpl extends AbstractPresenter<HomeView> implements HomePresenter {
 
@@ -69,21 +70,26 @@ class HomePresenterImpl extends AbstractPresenter<HomeView> implements HomePrese
                 holder.image.setImageResource(R.drawable.clipboard);
                 holder.title.setText(R.string.new_evaluation_title);
                 holder.description.setText(R.string.new_evaluation_description);
-                holder.view.setOnClickListener(v -> getView().startActivity(EvaluationActivity.class));
+                holder.view.setOnClickListener(v -> {
+                    EvaluationDAO.getInstance().clearEvaluation();
+                    getView().startActivity(EvaluationActivity.class);
+                });
             } else if (position == 1) {
                 holder.image.setImageResource(R.drawable.locked);
                 holder.title.setText(R.string.saved_evaluation_title);
                 holder.description.setText(R.string.saved_evaluation_desription);
-                Activity activity = getActivity();
-                if (activity instanceof MainActivity) {
-                    ((MainActivity) activity).setOnAuthorizationChangedListener(isAuthorized -> {
-                        if (isAuthorized) {
-                            holder.image.setImageResource(R.drawable.folder);
-                        } else {
-                            holder.image.setImageResource(R.drawable.locked);
-                        }
-                    });
-                }
+                holder.image.setImageResource(R.drawable.folder);
+                holder.view.setOnClickListener(v -> getView().startActivity(EvaluationActivity.class));
+//                Activity activity = getActivity();
+//                if (activity instanceof MainActivity) {
+//                    ((MainActivity) activity).setOnAuthorizationChangedListener(isAuthorized -> {
+//                        if (isAuthorized) {
+//                            holder.image.setImageResource(R.drawable.folder);
+//                        } else {
+//                            holder.image.setImageResource(R.drawable.locked);
+//                        }
+//                    });
+//                }
             }
         }
 

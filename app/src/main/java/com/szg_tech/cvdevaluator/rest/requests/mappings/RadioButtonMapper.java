@@ -1,4 +1,4 @@
-package com.szg_tech.cvdevaluator.rest.requests;
+package com.szg_tech.cvdevaluator.rest.requests.mappings;
 
 import android.util.Pair;
 
@@ -24,6 +24,7 @@ public class RadioButtonMapper {
     private final List<Pair<String, Integer>> radioButtonKeys;
     private final boolean shouldSetDefault;
     private final int defaultValue;
+
     private static final RadioButtonMapper ageMapper = new RadioButtonMapper(ConfigurationParams.GENDER,
             new ArrayList<Pair<String, Integer>>(){
                 {
@@ -31,6 +32,7 @@ public class RadioButtonMapper {
                     add(new Pair<String, Integer>(ConfigurationParams.FEMALE, 2));
                 }
             }, true, 1);
+
     private static final RadioButtonMapper anginaIndexMapper = new RadioButtonMapper(ConfigurationParams.ANGINA_INDEX,
             new ArrayList<Pair<String, Integer>>(){
                 {
@@ -50,8 +52,7 @@ public class RadioButtonMapper {
 
     public void map(Map<String, Object> evaluationValueMap) {
         final int[] value = new int[] {Integer.MAX_VALUE};
-        radioButtonKeys.forEach(p -> {
-
+        for(Pair<String, Integer> p: radioButtonKeys) {
             if(evaluationValueMap.containsKey(p.first)) {
                 if(evaluationValueMap.get(p.first) instanceof Boolean) {
                     if(((Boolean)evaluationValueMap.get(p.first))) {
@@ -62,7 +63,7 @@ public class RadioButtonMapper {
                 }
                 evaluationValueMap.remove(p.first);
             }
-        });
+        }
 
         //Put value for the key
         evaluationValueMap.put(key, value[0]);

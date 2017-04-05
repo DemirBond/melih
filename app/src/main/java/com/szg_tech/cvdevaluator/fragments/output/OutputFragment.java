@@ -58,7 +58,6 @@ public class OutputFragment extends ConfigurableFragment implements OutputView {
         presenter.onResume();
     }
 
-
     @Override
     public RecyclerView getRecyclerView() {
         return recyclerView;

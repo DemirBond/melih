@@ -69,6 +69,7 @@ public class EvaluationDAO extends AbstractDao<EvaluationObject> {
 
     public boolean isMinimumToSaveEntered() {
         boolean isMinimumToSaveEntered = false;
+        loadValues();
         if (hashMap.get(ConfigurationParams.NAME) != null
                 && hashMap.get(ConfigurationParams.AGE) != null
                 && hashMap.get(ConfigurationParams.SBP) != null

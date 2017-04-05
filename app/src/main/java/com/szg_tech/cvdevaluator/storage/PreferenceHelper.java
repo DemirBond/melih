@@ -35,4 +35,13 @@ public class PreferenceHelper {
         long expireDate = sharedPreferences.getLong(Credentials.EXPIRE_DATE, 0);
         return new Credentials(email, password, token, expireDate);
     }
+
+    public static void removeCredentials(Context context) {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        sharedPreferences.edit().remove(Credentials.TOKEN)
+                .remove(Credentials.EMAIL)
+                .remove(Credentials.PASSWORD)
+                .remove(Credentials.EXPIRE_DATE).commit();
+    }
 }

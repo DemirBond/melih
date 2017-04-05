@@ -4,6 +4,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.szg_tech.cvdevaluator.core.Presenter;
+import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.BooleanEvaluationItem;
 
 interface OutputPresenter extends Presenter {
     void onCreate();
@@ -17,4 +18,5 @@ interface OutputPresenter extends Presenter {
     boolean onOptionsItemSelected(MenuItem item);
 
     void onPrepareOptionsMenu(Menu menu);
+
 }

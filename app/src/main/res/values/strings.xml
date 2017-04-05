@@ -528,6 +528,7 @@
     <string name="display_settings">Display Settings</string>
     <string name="reset_field">Reset Field</string>
     <string name="snackbar_bottom_button_error">Please, fill page with valid values before proceeding.</string>
+    <string name="snackbar_bottom_button_error_minimum_not_entered">Please, fill required field in Bio Section before proceed.</string>
     <string name="snackbar_bottom_button_login_error">Authentication is not successful. Email or password is not valid.</string>
     <string name="snackbar_bottom_button_register_error">Sorry! Register is not successful.</string>
     <string name="snackbar_bottom_button_register_succeed">Register is successful!</string>
