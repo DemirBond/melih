@@ -11,7 +11,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 
 import com.szg_tech.cvdevaluator.R;
@@ -25,7 +24,6 @@ import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.BoldEvaluatio
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.HeartPartnerEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.ICOCellEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.TextEvaluationItem;
-import com.szg_tech.cvdevaluator.entities.evaluation_items.Evaluation;
 import com.szg_tech.cvdevaluator.rest.api.RestClientProvider;
 import com.szg_tech.cvdevaluator.rest.requests.EvaluationRequest;
 import com.szg_tech.cvdevaluator.rest.responses.EvaluationGroup;
@@ -71,7 +69,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
 
     public void computeAndShowEvaluations(Activity activity, RecyclerView recyclerView) {
 
-        ProgressDialog progressDialog = ProgressModalManager.createAndShowComputeEvaluaitonProgressDialog(getActivity());
+        ProgressDialog progressDialog = ProgressModalManager.createAndShowComputeEvaluationProgressDialog(getActivity());
         HashMap<String, Object> evaluationValueMap = EvaluationDAO.getInstance().loadValues();
 
         EvaluationRequest request = new EvaluationRequest(evaluationValueMap, false);

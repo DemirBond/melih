@@ -28,7 +28,7 @@ public class ProgressModalManager {
         return createAndShowSimpleProgressDialog(activity, activity.getResources().getString(R.string.registering_progress_message));
     }
 
-    public static ProgressDialog createAndShowComputeEvaluaitonProgressDialog(Activity activity) {
+    public static ProgressDialog createAndShowComputeEvaluationProgressDialog(Activity activity) {
         return createAndShowSimpleProgressDialog(activity, activity.getResources().getString(R.string.compute_evaluation_progress_message));
     }
 
