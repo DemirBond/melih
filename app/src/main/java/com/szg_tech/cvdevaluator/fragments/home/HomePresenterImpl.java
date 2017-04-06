@@ -18,6 +18,7 @@ import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.activities.evaluation.EvaluationActivity;
 import com.szg_tech.cvdevaluator.activities.main.MainActivity;
 import com.szg_tech.cvdevaluator.core.AbstractPresenter;
+import com.szg_tech.cvdevaluator.fragments.saved_evaluation_list.SavedEvaluationFragment;
 import com.szg_tech.cvdevaluator.storage.EvaluationDAO;
 
 class HomePresenterImpl extends AbstractPresenter<HomeView> implements HomePresenter {
@@ -79,7 +80,13 @@ class HomePresenterImpl extends AbstractPresenter<HomeView> implements HomePrese
                 holder.title.setText(R.string.saved_evaluation_title);
                 holder.description.setText(R.string.saved_evaluation_desription);
                 holder.image.setImageResource(R.drawable.folder);
-                holder.view.setOnClickListener(v -> getView().startActivity(EvaluationActivity.class));
+                holder.view.setOnClickListener(v -> {
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                            .replace(R.id.container, new SavedEvaluationFragment())
+                            .addToBackStack(getSupportFragmentManager().getClass().getSimpleName())
+                            .commit();
+                });
 //                Activity activity = getActivity();
 //                if (activity instanceof MainActivity) {
 //                    ((MainActivity) activity).setOnAuthorizationChangedListener(isAuthorized -> {

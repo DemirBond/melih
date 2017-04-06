@@ -2,7 +2,7 @@
     <string name="app_name">CVDevaluator</string>
     <string name="new_evaluation_title">New Evaluation</string>
     <string name="new_evaluation_description">Create new evaluation for a patient</string>
-    <string name="saved_evaluation_title">Saved evaluations</string>
+    <string name="saved_evaluation_title">Saved Evaluations</string>
     <string name="saved_evaluation_desription">View and edit previously saved evaluations</string>
     <string name="sign_out">Sign Out</string>
     <string name="sign_in_up">Sign In/Up</string>
@@ -55,7 +55,9 @@
     <string name="name_hint">Enter Patient Name</string>
     <string name="age_hint">Enter Patient age</string>
     <string name="warning">Warning</string>
+    <string name="info">Info</string>
     <string name="refer_to_heart_failure_spec">Refer to Heart Failure Specialist for management?</string>
+    <string name="ask_if_user_wants_to_saved_evaluation">Do you want to save this evaluation?</string>
     <string name="yes">YES</string>
     <string name="not_now">NOT NOW</string>
     <string name="dyspnea">Dyspnea</string>
@@ -877,4 +879,13 @@
     <string name="authenticating_progress_message">Authenticating..</string>
     <string name="registering_progress_message">Registering..</string>
     <string name="compute_evaluation_progress_message">Computing Evaluations..</string>
+
+    <string name="retrieving_saved_evaluations_error">Sorry. We could not fetch saved evaluations.</string>
+
+    <string name="retrieving_saved_evaluations">Retrieving evaluations..</string>
+
+
+    <string name="retrieving_the_evaluation">Retrieving the evaluation..</string>
+
+    <string name="retrieving_the_evaluation_error">Sorry. Could not retrieve the evaluation..</string>
 </resources>

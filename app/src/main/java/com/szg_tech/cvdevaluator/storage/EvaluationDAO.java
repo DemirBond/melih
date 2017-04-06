@@ -3,6 +3,7 @@ package com.szg_tech.cvdevaluator.storage;
 import com.szg_tech.cvdevaluator.core.ConfigurationParams;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import io.realm.RealmResults;
 
@@ -100,5 +101,12 @@ public class EvaluationDAO extends AbstractDao<EvaluationObject> {
             hashMap = new HashMap<>();
         }
         hashMap.put(key, value);
+    }
+
+    public void addAllToHashMap(Map<String, Object> newMap) {
+        if (this.hashMap == null) {
+            this.hashMap = new HashMap<>();
+        }
+        this.hashMap.putAll(newMap);
     }
 }

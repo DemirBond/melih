@@ -15,15 +15,18 @@ import java.util.Map;
 
 public class EvaluationRequest {
 
+    private String name;
     private int age;
     private int gender = 1;
     private int SBP;
     private int DBP;
     private boolean isPAH;
     private String inputs;
+    private boolean isSave;
 
 
-    public EvaluationRequest(int age, int gender, int SBP, int DBP, boolean isPAH, String inputs) {
+    public EvaluationRequest(String name, int age, int gender, int SBP, int DBP, boolean isPAH, String inputs) {
+        this.name = name;
         this.age = age;
         this.gender = gender;
         this.SBP = SBP;
@@ -32,7 +35,8 @@ public class EvaluationRequest {
         this.inputs = inputs;
     }
 
-    public EvaluationRequest(HashMap<String, Object> evaluationValueMap) {
+    public EvaluationRequest(HashMap<String, Object> evaluationValueMap, boolean isSave) {
+        this.isSave = isSave;
         setVariablesFromMap(evaluationValueMap);
     }
 
@@ -52,12 +56,14 @@ public class EvaluationRequest {
             gender = 1;
         }
 
+        name = (String)evaluationValueMap.get(ConfigurationParams.NAME);
         gender = (Integer)evaluationValueMap.get(ConfigurationParams.GENDER);
         SBP = getIntVal(evaluationValueMap.get(ConfigurationParams.SBP));
         DBP = getIntVal(evaluationValueMap.get(ConfigurationParams.DBP));
         DBP = getIntVal(evaluationValueMap.get(ConfigurationParams.DBP));
         isPAH = getBoolVal(evaluationValueMap.get(ConfigurationParams.IS_PAH));
 
+        evaluationValueMap.remove(ConfigurationParams.NAME);
         evaluationValueMap.remove(ConfigurationParams.AGE);
         evaluationValueMap.remove(ConfigurationParams.SBP);
         evaluationValueMap.remove(ConfigurationParams.DBP);
@@ -112,12 +118,11 @@ public class EvaluationRequest {
         return false;
     }
 
-    public static EvaluationRequest mock() {
-        return new EvaluationRequest(25, 1, 125, 55, false, "abc|def");
-    }
-
     public Map<String, Object> toMap() {
         Map<String, Object> map = new HashMap<>();
+        if(isSave) {
+            map.put("name", name);
+        }
         map.put("age", age);
         map.put("gender", gender);
         map.put("SBP", SBP);

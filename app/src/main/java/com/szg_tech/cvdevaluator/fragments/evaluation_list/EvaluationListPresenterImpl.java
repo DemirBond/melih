@@ -59,55 +59,60 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
             recyclerView.setLayoutManager(new LinearLayoutManager(activity));
             Bundle arguments = getView().getArguments();
             if (arguments != null) {
-                evaluationItem = (EvaluationItem) arguments.getSerializable(ConfigurationParams.NEXT_SECTION);
-                evaluationItems = evaluationItem.getEvaluationItemList();
-                listRecyclerViewAdapter = new ListRecyclerViewAdapter(activity, evaluationItems, createValuesDump());
-                recyclerView.setAdapter(listRecyclerViewAdapter);
-                String actionBarTitle = evaluationItem.getName();
-                if (!activity.getResources().getString(R.string.evaluation).equals(actionBarTitle)) {
-                    listRecyclerViewAdapter.setParentTitle(actionBarTitle);
+                onNewEvaluationList(recyclerView, activity, arguments);
+            }
+        }
+    }
+
+    private void onNewEvaluationList(RecyclerView recyclerView, Activity activity, Bundle arguments) {
+
+        evaluationItem = (EvaluationItem) arguments.getSerializable(ConfigurationParams.NEXT_SECTION);
+        evaluationItems = evaluationItem.getEvaluationItemList();
+        listRecyclerViewAdapter = new ListRecyclerViewAdapter(activity, evaluationItems, createValuesDump());
+        recyclerView.setAdapter(listRecyclerViewAdapter);
+        String actionBarTitle = evaluationItem.getName();
+        if (!activity.getResources().getString(R.string.evaluation).equals(actionBarTitle)) {
+            listRecyclerViewAdapter.setParentTitle(actionBarTitle);
+        }
+        actionBarSubtitle = arguments.getString(ConfigurationParams.SUBTITLE);
+        if (arguments.getBoolean(ConfigurationParams.SHOULD_SHOW_ALERT)) {
+            AlertModalManager.createAndShowReferToHeartFailureSpecialistAlertDialog(activity, v -> {
+                popBackStack();
+                if (activity instanceof EvaluationActivity) {
+                    HeartSpecialistManagement heartSpecialistManagement = ((EvaluationActivity) activity).getHeartSpecialistManagement();
+                    EvaluationListFragment evaluationListFragment = new EvaluationListFragment();
+                    Bundle bundle = new Bundle();
+
+                    recursiveFillSection(heartSpecialistManagement, EvaluationDAO.getInstance().loadValues());
+
+                    bundle.putSerializable(ConfigurationParams.NEXT_SECTION, heartSpecialistManagement);
+                    bundle.putSerializable(ConfigurationParams.NEXT_SECTION_EVALUATION_ITEMS, new ArrayList<SectionEvaluationItem>() {{
+                        add(new SectionEvaluationItem(activity, ConfigurationParams.PAH_COMPUTE_EVALUATION, activity.getResources().getString(R.string.compute_evaluation), false, new ArrayList<>()));
+                    }});
+
+                    evaluationListFragment.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                            .replace(R.id.container, evaluationListFragment)
+                            .addToBackStack(getSupportFragmentManager().getClass().getSimpleName() + evaluationItem.getName())
+                            .commit();
                 }
-                actionBarSubtitle = arguments.getString(ConfigurationParams.SUBTITLE);
-                if (arguments.getBoolean(ConfigurationParams.SHOULD_SHOW_ALERT)) {
-                    AlertModalManager.createAndShowReferToHeartFailureSpecialistAlertDialog(activity, v -> {
-                        popBackStack();
-                        if (activity instanceof EvaluationActivity) {
-                            HeartSpecialistManagement heartSpecialistManagement = ((EvaluationActivity) activity).getHeartSpecialistManagement();
-                            EvaluationListFragment evaluationListFragment = new EvaluationListFragment();
-                            Bundle bundle = new Bundle();
+            }, v -> popBackStack());
+        }
 
-                            recursiveFillSection(heartSpecialistManagement, EvaluationDAO.getInstance().loadValues());
-
-                            bundle.putSerializable(ConfigurationParams.NEXT_SECTION, heartSpecialistManagement);
-                            bundle.putSerializable(ConfigurationParams.NEXT_SECTION_EVALUATION_ITEMS, new ArrayList<SectionEvaluationItem>() {{
-                                add(new SectionEvaluationItem(activity, ConfigurationParams.PAH_COMPUTE_EVALUATION, activity.getResources().getString(R.string.compute_evaluation), false, new ArrayList<>()));
-                            }});
-
-                            evaluationListFragment.setArguments(bundle);
-                            getSupportFragmentManager().beginTransaction()
-                                    .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                                    .replace(R.id.container, evaluationListFragment)
-                                    .addToBackStack(getSupportFragmentManager().getClass().getSimpleName() + evaluationItem.getName())
-                                    .commit();
-                        }
-                    }, v -> popBackStack());
-                }
-
-                nextSectionEvaluationItemArrayList = (ArrayList<SectionEvaluationItem>) arguments.getSerializable(ConfigurationParams.NEXT_SECTION_EVALUATION_ITEMS);
-                if ((nextSectionEvaluationItemArrayList != null && nextSectionEvaluationItemArrayList.size() >= 1)
-                        && !ConfigurationParams.PULMONARY_HYPERTENSION.equals(evaluationItem.getId())) {
-                    SectionEvaluationItem nextSectionEvaluationItem = nextSectionEvaluationItemArrayList.get(0);
-                    if (nextSectionEvaluationItem.getId().equals(ConfigurationParams.PULMONARY_HYPERTENSION)) {
-                        if (!ConfigurationParams.VALVULAR_HEART_DISEASE_SEC.equals(evaluationItem.getId())) {
-                            nextSectionEvaluationItemArrayList.remove(0);
-                        }
-                    }
-                    getView().getBottomButton().setText(nextSectionEvaluationItemArrayList.get(0).getName());
-                    listRecyclerViewAdapter.addNextSectionEvaluationItems(nextSectionEvaluationItemArrayList);
-                } else {
-                    getView().getBottomButton().setVisibility(View.GONE);
+        nextSectionEvaluationItemArrayList = (ArrayList<SectionEvaluationItem>) arguments.getSerializable(ConfigurationParams.NEXT_SECTION_EVALUATION_ITEMS);
+        if ((nextSectionEvaluationItemArrayList != null && nextSectionEvaluationItemArrayList.size() >= 1)
+                && !ConfigurationParams.PULMONARY_HYPERTENSION.equals(evaluationItem.getId())) {
+            SectionEvaluationItem nextSectionEvaluationItem = nextSectionEvaluationItemArrayList.get(0);
+            if (nextSectionEvaluationItem.getId().equals(ConfigurationParams.PULMONARY_HYPERTENSION)) {
+                if (!ConfigurationParams.VALVULAR_HEART_DISEASE_SEC.equals(evaluationItem.getId())) {
+                    nextSectionEvaluationItemArrayList.remove(0);
                 }
             }
+            getView().getBottomButton().setText(nextSectionEvaluationItemArrayList.get(0).getName());
+            listRecyclerViewAdapter.addNextSectionEvaluationItems(nextSectionEvaluationItemArrayList);
+        } else {
+            getView().getBottomButton().setVisibility(View.GONE);
         }
     }
 
@@ -283,6 +288,8 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                             OutputFragment outputFragment = new OutputFragment();
                             if(ConfigurationParams.PAH_COMPUTE_EVALUATION.equals(nextSectionEvaluationItem.getId())) {
                                 EvaluationDAO.getInstance().addToHashMap("isPAH", true);
+                            } else {
+                                EvaluationDAO.getInstance().addToHashMap("isPAH", false);
                             }
                             fragmentManager.beginTransaction()
                                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)

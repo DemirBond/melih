@@ -50,6 +50,7 @@ class EvaluationActivityPresenterImpl extends AbstractPresenter<EvaluationActivi
                 evaluation = new Evaluation(activity);
             }
             valueHashMap = EvaluationDAO.getInstance().loadValues();
+            System.out.println(valueHashMap);
             if (!valueHashMap.isEmpty()) {
                 recursiveFillSection(evaluation);
             }

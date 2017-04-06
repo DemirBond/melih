@@ -128,6 +128,8 @@
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_gravity">center_vertical|center_horizontal</item>
     </style>
 </resources>

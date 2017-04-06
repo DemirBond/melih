@@ -31,4 +31,12 @@ public class ProgressModalManager {
     public static ProgressDialog createAndShowComputeEvaluaitonProgressDialog(Activity activity) {
         return createAndShowSimpleProgressDialog(activity, activity.getResources().getString(R.string.compute_evaluation_progress_message));
     }
+
+    public static ProgressDialog createAndShowRetrieveSavedEvaluationProgressDialog(Activity activity) {
+        return createAndShowSimpleProgressDialog(activity, activity.getResources().getString(R.string.retrieving_saved_evaluations));
+    }
+
+    public static ProgressDialog createAndShowRetrieveEvaluationProgressDialog(Activity activity) {
+        return createAndShowSimpleProgressDialog(activity, activity.getResources().getString(R.string.retrieving_the_evaluation));
+    }
 }

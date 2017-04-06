@@ -82,6 +82,12 @@ public class AlertModalManager {
                 R.string.yes, R.string.not_now, onClickListener, onCancelClickListener, true);
     }
 
+    public static void createAndShowSaveEvaluationAlertDialog(Context context, View.OnClickListener onClickListener,
+                                                                             View.OnClickListener onCancelClickListener) {
+        createAndShowModalAlertDialog(context, R.string.warning, R.string.ask_if_user_wants_to_saved_evaluation,
+                R.string.yes, R.string.not_now, onClickListener, onCancelClickListener, true);
+    }
+
     public static void createAndShowDependsOnSectionAlertDialog(Context context, String sectionName, View.OnClickListener onClickListener) {
         Resources resources = context.getResources();
         String title = String.format(resources.getString(R.string.section_required_title), sectionName);

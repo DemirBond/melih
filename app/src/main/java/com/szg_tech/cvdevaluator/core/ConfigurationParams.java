@@ -5,6 +5,7 @@ public class ConfigurationParams {
     public static final String NAME = "secname";
     public static final String SUBTITLE = "secsubtitle";
     public static final String SHOULD_SHOW_ALERT = "secshould_show_alert";
+    public static final String IS_SAVED_EVALUATION_LIST = "sec_saved_evaluation_list";
     public static final String AGE = "age";
     public static final String GENDER = "gender";
     public static final String MALE = "male";

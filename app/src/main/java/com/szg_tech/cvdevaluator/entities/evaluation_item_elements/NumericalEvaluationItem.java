@@ -73,6 +73,8 @@ public class NumericalEvaluationItem extends EvaluationItem {
             setNumber((Double) value);
         } else if (value instanceof Float) {
             setNumber(((Float) value).doubleValue());
+        } else if (value instanceof Integer) {
+            setNumber(((Integer) value).doubleValue());
         } else {
             number = null;
         }

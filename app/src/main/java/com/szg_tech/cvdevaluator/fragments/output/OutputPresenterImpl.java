@@ -11,12 +11,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 
 import com.szg_tech.cvdevaluator.R;
 import com.szg_tech.cvdevaluator.core.AbstractPresenter;
 import com.szg_tech.cvdevaluator.core.ConfigurationParams;
 import com.szg_tech.cvdevaluator.core.OutputRecyclerViewAdapter;
+import com.szg_tech.cvdevaluator.core.views.modal.AlertModalManager;
 import com.szg_tech.cvdevaluator.core.views.modal.ProgressModalManager;
 import com.szg_tech.cvdevaluator.entities.EvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.BoldEvaluationItem;
@@ -72,19 +74,17 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
         ProgressDialog progressDialog = ProgressModalManager.createAndShowComputeEvaluaitonProgressDialog(getActivity());
         HashMap<String, Object> evaluationValueMap = EvaluationDAO.getInstance().loadValues();
 
-        EvaluationRequest request = new EvaluationRequest(evaluationValueMap);
+        EvaluationRequest request = new EvaluationRequest(evaluationValueMap, false);
         System.out.println(request.toMap());
 
         RestClientProvider.get().getApi().computeEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
             @Override
             public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
-                if(response.isSuccessful()){
-
+                if(response.isSuccessful()) {
                     if(response.body().isSuccessful()) {
                         List<EvaluationItem> evaluationItems = createEvaluationList(activity, response.body());
                         recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, evaluationItems));
                     } else {
-                        System.out.println(call.request().url());
                         showSnackbarBottomButtonError(activity);
                     }
                 }
@@ -109,8 +109,27 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
     public void onCompleteEvaluationButtonClick() {
         Activity activity = getActivity();
         if (activity != null) {
-            EvaluationDAO.getInstance().clearEvaluation();
-            activity.finish();
+
+            AlertModalManager.createAndShowSaveEvaluationAlertDialog(getActivity(), v -> {
+                HashMap<String, Object> evaluationValueMap = EvaluationDAO.getInstance().loadValues();
+                EvaluationRequest request = new EvaluationRequest(evaluationValueMap, true);
+                RestClientProvider.get().getApi().computeEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
+                    @Override
+                    public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<EvaluationResponse> call, Throwable t) {
+
+                    }
+                });
+                EvaluationDAO.getInstance().clearEvaluation();
+                activity.finish();
+            }, v -> {
+                EvaluationDAO.getInstance().clearEvaluation();
+                activity.finish();
+            });
         }
     }
 
