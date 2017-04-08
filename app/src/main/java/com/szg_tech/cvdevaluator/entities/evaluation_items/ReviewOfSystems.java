@@ -30,8 +30,8 @@ class ReviewOfSystems extends SectionEvaluationItem {
             add(new BooleanEvaluationItem(context, ConfigurationParams.LIVER_DISEASE, context.getString(R.string.liver_disease), false));
             add(new BooleanEvaluationItem(context, ConfigurationParams.TIA, context.getString(R.string.tia), false));
             add(new BooleanEvaluationItem(context, ConfigurationParams.BLEED_IN_THE_PAST_3_MONTHS, context.getString(R.string.bleed_in_the_past_3_months), false));
-
             add(new BooleanEvaluationItem(context, ConfigurationParams.ORTHOPNEA, context.getString(R.string.orthopnea), false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.LEGSWELLING, context.getString(R.string.leg_swelling), false));
         }};
     }
 }

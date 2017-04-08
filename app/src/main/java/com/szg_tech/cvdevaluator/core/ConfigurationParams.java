@@ -54,6 +54,7 @@ public class ConfigurationParams {
     public static final String BLEED_IN_THE_PAST_3_MONTHS = "chkbleedin3months";
 
 
+    public static final String LEGSWELLING = "chklegswelling";
     public static final String ORTHOPNEA = "chkORTHOPNEA";
 
     public static final String IN_HOSPITAL_THERAPIES = "secin_hospital_therapies";
