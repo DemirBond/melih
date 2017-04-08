@@ -71,6 +71,7 @@ public class CustomTextView extends AppCompatTextView {
     public void readAttributes(Context context, AttributeSet attrs) {
         if (textDelta == null) {
             textDelta = PreferenceHelper.getTextDelta(context);
+            setCorrectTextSize();
         }
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomTextView);
         int type = typedArray.getInt(R.styleable.CustomTextView_type, -1);

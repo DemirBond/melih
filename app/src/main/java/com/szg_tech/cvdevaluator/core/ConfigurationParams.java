@@ -58,7 +58,7 @@ public class ConfigurationParams {
     public static final String NEXT_SECTION = "secnext_section";
     public static final String TAB_SECTION_LIST = "sectab_section_list";
     public static final String ACTION_CHANGE_SIZE = "secaction_change_size";
-    public static final String SIZE = "secsize";
+    public static final String SIZE = "text_size";
     public static final String NEXT_SECTION_EVALUATION_ITEMS = "secnext_section_evaluation_items";
     public static final String OUTPATIENT = "chkD5";
     public static final String EMERGENCY_ROOM = "chkD4";

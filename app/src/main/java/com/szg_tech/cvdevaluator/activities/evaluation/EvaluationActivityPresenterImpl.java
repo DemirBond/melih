@@ -1,6 +1,7 @@
 package com.szg_tech.cvdevaluator.activities.evaluation;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -16,6 +17,7 @@ import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.SectionEvalua
 import com.szg_tech.cvdevaluator.entities.evaluation_items.Evaluation;
 import com.szg_tech.cvdevaluator.fragments.evaluation_list.EvaluationListFragment;
 import com.szg_tech.cvdevaluator.storage.EvaluationDAO;
+import com.szg_tech.cvdevaluator.storage.PreferenceHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -110,4 +112,5 @@ class EvaluationActivityPresenterImpl extends AbstractPresenter<EvaluationActivi
         }
         return false;
     }
+
 }

@@ -85,6 +85,8 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
                     } else {
                         showSnackbarBottomButtonError(activity);
                     }
+                } else {
+                    showSnackbarBottomButtonError(activity);
                 }
                 progressDialog.dismiss();
             }

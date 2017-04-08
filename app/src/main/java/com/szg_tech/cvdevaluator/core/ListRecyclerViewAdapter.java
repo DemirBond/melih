@@ -694,6 +694,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
         for (EvaluationItem evaluationItem : evaluationItemsList) {
             EvaluationDAO.getInstance().addToHashMap(evaluationItem.getId(), evaluationItem.getValue());
         }
+        EvaluationDAO.getInstance().saveValues();
     }
 
     public boolean isScreenValid() {

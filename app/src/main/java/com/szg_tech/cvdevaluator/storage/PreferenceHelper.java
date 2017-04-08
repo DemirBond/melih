@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.szg_tech.cvdevaluator.core.ConfigurationParams;
 import com.szg_tech.cvdevaluator.storage.entities.Credentials;
 
 public class PreferenceHelper {
@@ -42,6 +43,6 @@ public class PreferenceHelper {
         sharedPreferences.edit().remove(Credentials.TOKEN)
                 .remove(Credentials.EMAIL)
                 .remove(Credentials.PASSWORD)
-                .remove(Credentials.EXPIRE_DATE).commit();
+                .remove(Credentials.EXPIRE_DATE).apply();
     }
 }
