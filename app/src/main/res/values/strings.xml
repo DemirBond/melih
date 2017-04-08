@@ -868,6 +868,8 @@
     <string name="active_peptic_ulcer_disease">Active Peptic Ulcer Disease</string>
     <string name="tia">TIA</string>
     <string name="bleed_in_the_past_3_months">Bleed in the Past 3 Months</string>
+    <string name="orthopnea">Orthopnea</string>
+
     <string name="ckd">CKD</string>
     <string-array name="home_menu">
         <item>@string/home</item>

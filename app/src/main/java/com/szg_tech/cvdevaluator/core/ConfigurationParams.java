@@ -52,6 +52,10 @@ public class ConfigurationParams {
     public static final String ACTIVE_PEPTIC_ULCER_DISEASE = "chkactivepeptic";
     public static final String TIA = "chktia";
     public static final String BLEED_IN_THE_PAST_3_MONTHS = "chkbleedin3months";
+
+
+    public static final String ORTHOPNEA = "chkORTHOPNEA";
+
     public static final String IN_HOSPITAL_THERAPIES = "secin_hospital_therapies";
     public static final String HEART_SPECIALIST_MANAGEMENT = "secheart_specialist_management";
     public static final String PHYSICAL_EXAM = "secphysical_exam";
