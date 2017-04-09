@@ -29,13 +29,7 @@ class Symptoms extends SectionEvaluationItem {
             {
                 add(new SectionEvaluationItem(context, ConfigurationParams.DYSPNEA, context.getString(R.string.dyspnea), false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.OUTPATIENT, "Ambulatory / Outpatient", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.EMERGENCY_ROOM, "Escalating / Emergency room ", false));
-                        add(new BoldEvaluationItem(context, ConfigurationParams.IN_HOSPITAL, "Decompensated / Admitted ", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY1, context.getString(R.string.day1), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY2, context.getString(R.string.day2), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.DAY3, context.getString(R.string.day3), false));
-                        add(new EmptyCellEvaluationItem());
+
                         add(new BoldEvaluationItem(context, ConfigurationParams.PLEASE_SELECT_ONE, context.getString(R.string.please_select_one), true));
                         add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.CHRONIC_HF, context.getString(R.string.chronic_hf), ConfigurationParams.PLEASE_SELECT_ONE, false, false) {
                             {
@@ -47,8 +41,22 @@ class Symptoms extends SectionEvaluationItem {
                                 setBackgroundHighlighted(true);
                             }
                         });
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.OUTPATIENT, "Ambulatory / Outpatient", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.EMERGENCY_ROOM, "Worsening / Emergency room ", false));
+
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.IN_HOSPITAL, "Decompensated/ Hospitalized", false, new ArrayList<EvaluationItem>() {
+                            {
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DAY1, " Hospitalization,day 1", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DAY2, " Hospitalization,day 2", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DAY3, " Hospitalization,day 3", false));
+                            }
+                        }));
+
+
                         add(new EmptyCellEvaluationItem());
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.DYSPNEA_ON_EXERTION, context.getString(R.string.dyspnea_on_exertion), false, new ArrayList<EvaluationItem>() {
+
+
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.DYSPNEA_ON_EXERTION, "Dyspnea on exertion", false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.STRENUOUS_EXERTION, context.getString(R.string.strenuous_exertion), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.MORE_THAN_DAILY_ROUTINE, context.getString(R.string.more_than_daily_routine), false));
@@ -301,7 +309,8 @@ class Symptoms extends SectionEvaluationItem {
                         setBottomButtonReferenceSkipped(true);
                     }
                 });
-                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYNCOPE_PRESYNCOPE, context.getString(R.string.syncope_presyncope), false, new ArrayList<EvaluationItem>() {
+                add(new SectionEvaluationItem(context, ConfigurationParams.SYNCOPE_PRESYNCOPE, " Presyncope/Syncope", false, new ArrayList<EvaluationItem>() {
+
                     {
                         add(new BoldEvaluationItem(context, ConfigurationParams.CIRCUMSTANCE, context.getString(R.string.circumstance), false) {
                             {
@@ -346,7 +355,11 @@ class Symptoms extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PROLONGED_FATIGUE, context.getString(R.string.prolonged_fatigue), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.TRAUMATIC_INJURY, context.getString(R.string.traumatic_injury), false));
                     }
-                }));
+                }, SectionElementState.OPENED));{
+
+            };
+
+
             }
         };
     }

@@ -33,10 +33,10 @@ class Laboratories extends SectionEvaluationItem {
                 add(new NumericalDependantEvaluationItem(context, ConfigurationParams.URINE_OSMOLALITY, context.getString(R.string.urine_osmolality), context.getString(R.string.value), 200, 1000, false, true,
                         ConfigurationParams.NA_MEQ_L, 99, 130));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.K_MEQ_L, context.getString(R.string.k_meq_l), context.getString(R.string.value), 2, 9, false));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.CREATININE_MG_DL, context.getString(R.string.creatinine_mg_dl), context.getString(R.string.value), 0.4, 20, false));
+                add(new NumericalEvaluationItem(context, ConfigurationParams.CREATININE_MG_DL, "Creatinine", context.getString(R.string.value), 0.4, 20, false));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.BUN_MG_DL, context.getString(R.string.bun_mg_dl), context.getString(R.string.value), 6, 200, false, true));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.FASTING_PLASMA_GLUCOSE, context.getString(R.string.fasting_plasma_glucose), context.getString(R.string.value), 35, 1000, false, true));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.GFR_ML_MIN, context.getString(R.string.gfr_ml_min), context.getString(R.string.value), 5, 120, false, true) {
+                add(new NumericalEvaluationItem(context, ConfigurationParams.FASTING_PLASMA_GLUCOSE, "Glucose mg/dl", context.getString(R.string.value), 35, 1000, false, true));
+                add(new NumericalEvaluationItem(context, ConfigurationParams.GFR_ML_MIN, "GFR", context.getString(R.string.value), 5, 120, false, true) {
                     {
                         setNumber(120d);
                     }

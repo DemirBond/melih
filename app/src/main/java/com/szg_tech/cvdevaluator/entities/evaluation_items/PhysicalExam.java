@@ -36,7 +36,7 @@ class PhysicalExam extends SectionEvaluationItem {
                 add(new BooleanEvaluationItem(context, ConfigurationParams.DISTANT, "Distant heart sounds", false));
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.HEART_MURMUR, "Murmur, pathological heart sounds", false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BoldEvaluationItem(context, ConfigurationParams.FOCUS_ON_THE_MOST_ABNORMAL_AUSCULTATION_FOCI, "Please enter the area murmur is most prominent and charecteristics", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.FOCUS_ON_THE_MOST_ABNORMAL_AUSCULTATION_FOCI, "Please enter the area murmur is most prominent ", false));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SI_MITRAL, context.getString(R.string.si_mitral), false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD_S1_MITRAL, context.getString(R.string.loud), ConfigurationParams.SI_MITRAL, false, false));
@@ -65,7 +65,7 @@ class PhysicalExam extends SectionEvaluationItem {
                                 add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.SOFT_S1_TRICUSPID, context.getString(R.string.soft), ConfigurationParams.S1_TRICUSPID, false, false));
                             }
                         }));
-                        add(new SectionEvaluationItem(context, ConfigurationParams.MURMUR, context.getString(R.string.murmur), false, new ArrayList<EvaluationItem>() {
+                        add(new SectionEvaluationItem(context, ConfigurationParams.MURMUR, "Murmur characteristics", false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYSTOLIC_MURMUR, context.getString(R.string.systolic_murmur), false, new ArrayList<EvaluationItem>() {
                                     {

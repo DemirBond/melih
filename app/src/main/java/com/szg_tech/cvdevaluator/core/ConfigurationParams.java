@@ -13,8 +13,8 @@ public class ConfigurationParams {
     public static final String BMI = "txtBMI";
     public static final String WEIGHT = "txtweight";
     public static final String HEART_RATE = "txtHR";
-    public static final String SBP = "txtsbp";
-    public static final String DBP = "txtdbp";
+    public static final String SBP = "txtSBP";
+    public static final String DBP = "txtDBP";
     public static final String IS_PAH = "isPAH";
     public static final String ORTHOSTATIC_SBP = "txtOrthostaticSBP";
     public static final String ORTHOSTATIC_SYMPTOMPS = "chkSymptomatic";
@@ -40,7 +40,7 @@ public class ConfigurationParams {
     public static final String VALVULAR_HEART_DISEASE = "chkvalvular";
 
     public static final String VALVULAR_HEART_DISEASE_THROMBOEMBOLIC = "secvalvular_heart_disease_thromboembolic";
-    public static final String ATHEROSCLEROTIC_VASCULAR_DISEASE = "secatherosclerotic_vascular_disease";
+
     public static final String PULMONARY_HYPERTENSION = "secpulmonary_hypertension";
     public static final String VASCULAR_DISEASES = "secvascular_diseases";
     public static final String MAJOR_CV_RISK = "secmajor_cv_risk";
@@ -49,7 +49,7 @@ public class ConfigurationParams {
     public static final String PO_MEDS = "secpo_meds";
     public static final String REVIEW_OF_SYSTEMS = "secreview_of_systems";
     public static final String WEIGHT_CHANGE = "chkweightchange";
-    public static final String OSA_SYMPTOMS = "chkOSA";
+
     public static final String PREVIOUS_DVT_PE = "chkPVTE";
     public static final String PREVIOUS_DVTE = "chkDVTE";
     public static final String PND = "chkPND";
@@ -59,7 +59,7 @@ public class ConfigurationParams {
     public static final String BLEED_IN_THE_PAST_3_MONTHS = "chkbleed";
 
 
-    public static final String LEGSWELLING = "chklegswelling";
+
     public static final String ORTHOPNEA = "chkorthopnea";
     public static final String PALPITATIONS = "chkpalpitations";
     public static final String IN_HOSPITAL_THERAPIES = "secin_hospital_therapies";

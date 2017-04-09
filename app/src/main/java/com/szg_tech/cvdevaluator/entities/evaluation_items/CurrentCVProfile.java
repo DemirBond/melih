@@ -91,7 +91,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                 add(new SectionEvaluationItem(context, ConfigurationParams.HEART_FAILURE, context.getString(R.string.heart_failure), false, new ArrayList<EvaluationItem>() {
                     {
 
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.HF_DIAGNOSIS_DURATION_WEEK, context.getString(R.string.hf_diagnosis_duration_week), context.getString(R.string.value), 0, 999, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.HF_DIAGNOSIS_DURATION_WEEK, "Duration / week", context.getString(R.string.value), 0, 999, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PREVIOUS_HF_HOSPITALIZATION, context.getString(R.string.previous_hf_hospitalization), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_ICD, "Status post AICD", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CRT_ICD, "Status post CRT", false));
@@ -150,30 +150,13 @@ class CurrentCVProfile extends SectionEvaluationItem {
                 }, SectionEvaluationItem.SectionElementState.OPENED));
                 add(new SectionEvaluationItem(context, ConfigurationParams.ATRIAL_FIBRILATION, context.getString(R.string.atrial_fibrilation), false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYMPTOMATIC, context.getString(R.string.symptomatic), false, new ArrayList<EvaluationItem>() {
-                            {
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.ACUTELY, context.getString(R.string.acutely), false));
-                            }
-                        }));
 
                         add(new EmptyCellEvaluationItem());
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CHRONIC_AF, context.getString(R.string.chronic_af), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PERSISTENT_AF, context.getString(R.string.persistent_af), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PAROXYMAL_AF, context.getString(R.string.paroxymal_af), false));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.DURATION_DAYS, context.getString(R.string.duration_days), context.getString(R.string.value), 0, 999, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_SUCCESSFUL_ABLATION, context.getString(R.string.s_p_successful_ablation), false));
-
-                        add(new EmptyCellEvaluationItem());
                         add(new BoldEvaluationItem(context, ConfigurationParams.PLEASE_SELECT_ONE, context.getString(R.string.please_select_one), false));
-                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.VENTRICULAR_RATE_CONTROL, context.getString(R.string.ventricular_rate_control), "radio_section", false, false, new ArrayList<EvaluationItem>() {
-                            {
-                                add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_RATE_WITH_ACTIVITY, context.getString(R.string.heart_rate_with_activity), context.getString(R.string.value), 40, 300, false, true));
-                            }
-                        }) {
-                            {
-                                setBackgroundHighlighted(true);
-                            }
-                        });
                         add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.RHYTM_CONTROL, context.getString(R.string.rhytm_control), "radio_section", false, false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.CURRENT_ANIARRYTHMIC_THERAPY, context.getString(R.string.current_aniarrythmic_therapy), false, new ArrayList<EvaluationItem>() {
@@ -189,6 +172,25 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                 setBackgroundHighlighted(true);
                             }
                         });
+                        add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.VENTRICULAR_RATE_CONTROL, context.getString(R.string.ventricular_rate_control), "radio_section", false, false, new ArrayList<EvaluationItem>() {
+                            {
+                                add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_RATE_WITH_ACTIVITY, context.getString(R.string.heart_rate_with_activity), context.getString(R.string.value), 40, 300, false, true));
+                            }
+                        }) {
+                            {
+                                setBackgroundHighlighted(true);
+                            }
+                        });
+                        add(new EmptyCellEvaluationItem());
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYMPTOMATIC, context.getString(R.string.symptomatic), false, new ArrayList<EvaluationItem>() {
+                            {
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ACUTELY, context.getString(R.string.acutely), false));
+                            }
+                        }));
+
+
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.DURATION_DAYS, context.getString(R.string.duration_days), context.getString(R.string.value), 0, 999, false, true));
+
                         add(new EmptyCellEvaluationItem());
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PREVIOUS_TIA_CVA, context.getString(R.string.previous_tia_cva), false, new ArrayList<EvaluationItem>() {
                             {
@@ -200,10 +202,10 @@ class CurrentCVProfile extends SectionEvaluationItem {
                 }, SectionEvaluationItem.SectionElementState.OPENED));
                 add(new SectionEvaluationItem(context, ConfigurationParams.THROMBOEMBOLIC_VKA, context.getString(R.string.thromboembolic_vka), false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new SectionEvaluationItem(context, ConfigurationParams.THROMBOEMBOLIC_PREVENTION_VKA_THERAPY, context.getString(R.string.thromboembolic_prevention_vka_therapy), false, new ArrayList<EvaluationItem>() {
+                        add(new SectionEvaluationItem(context, ConfigurationParams.THROMBOEMBOLIC_PREVENTION_VKA_THERAPY, "Thromboembolism / VKA ", false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new NumericalEvaluationItem(context, ConfigurationParams.INR, context.getString(R.string.inr), context.getString(R.string.value), 0.5, 100, false));
-                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PATIENT_BLEED_RISK, context.getString(R.string.patient_bleed_risk), false, new ArrayList<EvaluationItem>() {
+                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PATIENT_BLEED_RISK, "Patient related bleeding risk", false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.ACTIVE_GASTRODUODENAL_ULCER, context.getString(R.string.active_gastroduodenal_ulcer), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.BLEED_IN_3_MO_BEFORE_ADMISSION, context.getString(R.string.bleed_in_3_mo_before_admission), false));
@@ -213,7 +215,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
 
                                     }
                                 }));
-                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PROCEDURAL_BLEED_RISK, context.getString(R.string.procedural_bleed_risk), false, new ArrayList<EvaluationItem>() {
+                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PROCEDURAL_BLEED_RISK, "Procedur related bleeding risk", false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.PRIOR_BLEED_DURING_BRIDGING_SIMILAR, context.getString(R.string.prior_bleed_during_bridging_similar), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.PRIOR_ASA_USE, context.getString(R.string.prior_asa_use), false));
@@ -261,7 +263,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                 }));
                             }
                         }, SectionElementState.OPENED));
-                        add(new SectionEvaluationItem(context, ConfigurationParams.VALVULAR_HEART_DISEASE_THROMBOEMBOLIC, context.getString(R.string.valvular_heart_disease_thromboembolic), false, new ArrayList<EvaluationItem>() {
+                        add(new SectionEvaluationItem(context, ConfigurationParams.VALVULAR_HEART_DISEASE_THROMBOEMBOLIC, "Valvular heart disease ", false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.MECHANICAL_CAGEBALL, context.getString(R.string.mechanical_cageball), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.MECHANICAL_DISK_BILEAFLET_MITRAL, context.getString(R.string.mechanical_disk_bileaflet_mitral), false));

@@ -41,22 +41,23 @@ class Diagnostics extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.NONSPECIFIC_ST_ABNORMALITY, "Nonspesific ST abnormality", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ST_DEVIATION_MORE_05_MM, context.getString(R.string.st_deviation_more_05_mm), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.T_WAVE_INVERSION_MORE_1MM, context.getString(R.string.t_wave_inversion_more_1mm), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.LVH, "LVH", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LOW_VOLTAGE_QRS, context.getString(R.string.low_voltage_qrs), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ABNORMAL_Q_WAVES, context.getString(R.string.abnormal_q_waves), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LBBB, "LBBB", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.BIFASCICULAR, context.getString(R.string.bifascicular), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LAHB, context.getString(R.string.lahb), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LPHB, context.getString(R.string.lphb), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.WPW, "WPW", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.VPACE, "Ventricular pacing", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.RBBB, "RBBB", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.INTRAVENTICULAR_BLOCK, "IVCD", false));
 
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.LVH, context.getString(R.string.lvh), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ATRIAL_PREMATURE_DEPOLARIZATION, context.getString(R.string.atrial_premature_depolarization), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.JUNCTIONAL_PREMATURE_DEPOLARIZATION, context.getString(R.string.junctional_premature_depolarization), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.FREQUENT_VENTRICULAR_PACING_OR_ECTOPY, "Frequent ventricular ectopy", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.INFREQUENT_VENTRICULAR_PACING_OR_ECTOPY, "Infrequent ventricular ectopy", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.WPW, context.getString(R.string.wpw), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.VPACE, "Ventricular pacing", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.RBBB, context.getString(R.string.rbbb), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.INTRAVENTICULAR_BLOCK, context.getString(R.string.intraventicular_block), false));
+
 
 
                         add(new BooleanEvaluationItem(context, ConfigurationParams.FIRST_DEGREE_AV_BLOCK, context.getString(R.string.first_degree_av_block), false));
