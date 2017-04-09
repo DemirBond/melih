@@ -81,6 +81,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
                 if(response.isSuccessful()) {
                     if(response.body().isSuccessful()) {
                         List<EvaluationItem> evaluationItems = createEvaluationList(activity, response.body());
+                        System.out.println(response.body());
                         recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, evaluationItems));
                     } else {
                         showSnackbarBottomButtonError(activity);
