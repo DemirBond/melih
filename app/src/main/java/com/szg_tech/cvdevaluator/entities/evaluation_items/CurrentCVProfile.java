@@ -90,6 +90,13 @@ class CurrentCVProfile extends SectionEvaluationItem {
                 }, SectionEvaluationItem.SectionElementState.OPENED));
                 add(new SectionEvaluationItem(context, ConfigurationParams.HEART_FAILURE, context.getString(R.string.heart_failure), false, new ArrayList<EvaluationItem>() {
                     {
+
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.HF_DIAGNOSIS_DURATION_WEEK, context.getString(R.string.hf_diagnosis_duration_week), context.getString(R.string.value), 0, 999, false, true));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PREVIOUS_HF_HOSPITALIZATION, context.getString(R.string.previous_hf_hospitalization), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_ICD, context.getString(R.string.s_p_icd), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CRT_ICD, "S/P CRT", false));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
+
                         add(new BooleanEvaluationItem(context, ConfigurationParams.IDIOPATHIC_DCM_NONISCHEMIC, context.getString(R.string.idiopathic_dcm_nonischemic), false));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.POST_MI_MORE_45, context.getString(R.string.post_mi_more_45), false, new ArrayList<EvaluationItem>() {
                             {
@@ -99,7 +106,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ISCHEMIC_POST_MI_LESS_45, context.getString(R.string.ischemic_post_mi_less_45), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CARDIOTOXINS, context.getString(R.string.cardiotoxins), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.FAMILIAL_CMP, context.getString(R.string.familial_cmp), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.MYOCARDITIS, context.getString(R.string.myocarditis), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.MYOCARDITIS,"Myocarditis", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.RV_DYSPLASIA, context.getString(R.string.rv_dysplasia), false));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.HOCM, context.getString(R.string.hocm), false, new ArrayList<EvaluationItem>() {
                             {
@@ -110,10 +117,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                             }
                         }));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PERIPARTUM_CMP, context.getString(R.string.peripartum_cmp), false));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.HF_DIAGNOSIS_DURATION_WEEK, context.getString(R.string.hf_diagnosis_duration_week), context.getString(R.string.value), 0, 999, false, true));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.PREVIOUS_HF_HOSPITALIZATION, context.getString(R.string.previous_hf_hospitalization), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_ICD, context.getString(R.string.s_p_icd), false));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
+
                         add(new EmptyCellEvaluationItem());
                         add(new SectionEvaluationItem(context, ConfigurationParams.NYHA_CLASS, context.getString(R.string.nyha_class), false, new ArrayList<EvaluationItem>() {{
                             add(new BooleanEvaluationItem(context, ConfigurationParams.AT_HIGH_RISK, context.getString(R.string.at_high_risk), false));
@@ -178,7 +182,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.SOTALOL_AMIODARONE_MULTAQ_DOFETILIDE, context.getString(R.string.sotalol_amiodarone_multaq_dofetilide), false));
                                     }
                                 }));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.LIVER_DISEASE, context.getString(R.string.liver_disease), false));
+
                             }
                         }) {
                             {
@@ -191,7 +195,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                 add(new NumericalEvaluationItem(context, ConfigurationParams.LAST_THROMBOEMBOLIC_EVENT_MONTHS_AGO, context.getString(R.string.last_thromboembolic_event_months_ago), context.getString(R.string.value), 0, 600, false, true));
                             }
                         }));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.THYROTOXICOSIS, context.getString(R.string.thyrotoxicosis), false));
+
                     }
                 }, SectionEvaluationItem.SectionElementState.OPENED));
                 add(new SectionEvaluationItem(context, ConfigurationParams.THROMBOEMBOLIC_VKA, context.getString(R.string.thromboembolic_vka), false, new ArrayList<EvaluationItem>() {
@@ -206,7 +210,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.PLATELET_COUNT_LESS_50, context.getString(R.string.platelet_count_less_50), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.ICU_OR_CCU_ADMISSION, context.getString(R.string.icu_or_ccu_admission), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.CENTRAL_VENOUS_CATHETER, context.getString(R.string.central_venous_catheter), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.RHEUMATIC_DISEASE, context.getString(R.string.rheumatic_disease), false));
+
                                     }
                                 }));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PROCEDURAL_BLEED_RISK, context.getString(R.string.procedural_bleed_risk), false, new ArrayList<EvaluationItem>() {
@@ -220,7 +224,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                 }));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DEEP_VENOUS_THROMBOSIS, context.getString(R.string.deep_venous_thrombosis), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.PULMONARY_EMBOLISM, context.getString(R.string.pulmonary_embolism), false));
-                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.DVY_PE_DIAGNOSIS_PREVENTION, context.getString(R.string.dvy_pe_diagnosis_prevention), false, new ArrayList<EvaluationItem>() {
+                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.DVY_PE_DIAGNOSIS_PREVENTION, "DVT diagnosis, prevention", false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.MAJOR_SURGERY_TRAUMA, context.getString(R.string.major_surgery_trauma), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.MAJOR_GYN_UROLOGY, context.getString(R.string.major_gyn_urology), false));
@@ -231,11 +235,11 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.SPINAL_CORD_INJURY, context.getString(R.string.spinal_cord_injury), false));
                                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.MEDICAL_ILLNESS, context.getString(R.string.medical_illness), false, new ArrayList<EvaluationItem>() {
                                             {
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.HEMOPTYSIS, context.getString(R.string.hemoptysis), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.UNILATERAL_LOWER_LIMB_PAIN, context.getString(R.string.unilateral_lower_limb_pain), false));
+
+
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.PAINFUL_DEEP_VENOUS_PALPATION_AND_EDEMA, context.getString(R.string.painful_deep_venous_palpation_and_edema), false));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.ACTIVE_CANCER, context.getString(R.string.active_cancer), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.PREVIOUS_VTE, context.getString(R.string.previous_vte), false));
+
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.RESPIRATORY_FAILURE, context.getString(R.string.respiratory_failure), false));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.ALREADY_KNOWN_THROMBOPHILIC_CONDITION, context.getString(R.string.already_known_thrombophilic_condition), false));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.RECENT_TRAUMA_SURGERY, context.getString(R.string.recent_trauma_surgery), false));
@@ -366,7 +370,8 @@ class CurrentCVProfile extends SectionEvaluationItem {
                     {
                         add(new SectionEvaluationItem(context, ConfigurationParams.SYMPTOMATIC_CAROTID_DISEASE, context.getString(R.string.symptomatic_carotid_disease), false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.NONCARDIOEMBOLIC_VCA_TIA, context.getString(R.string.noncardioembolic_vca_tia), false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.NONCARDIOEMBOLIC_VCA_TIA, "Noncardioembolic CVA associated with Carotid Plaque", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.NONCARDIOEMBOLIC_TIA, "Noncardioembolic TIA associated with Carotid Plaque", false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.MORE_50_CAROTID_STENOSIS, context.getString(R.string.more_50_carotid_stenosis), false));
                             }
                         }, SectionElementState.OPENED));
@@ -379,9 +384,11 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.PERIPHERAL_ARTERY_BYPASS_GRAFT, context.getString(R.string.peripheral_artery_bypass_graft), false));
                             }
                         }, SectionElementState.OPENED));
-                        add(new SectionEvaluationItem(context, ConfigurationParams.ABDOMINAL_AORTIC_ANEURYSM, context.getString(R.string.abdominal_aortic_aneurysm), false, new ArrayList<EvaluationItem>() {
+                        add(new SectionEvaluationItem(context, ConfigurationParams.ABDOMINAL_AORTIC_ANEURYSM, "Aortic Aneurysm", false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.AA_DIAMETER_MORE_5, context.getString(R.string.aa_diameter_more_5), false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.THORACIC, "Thoracic Aortic Aneurysm ", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.THORACIC_ABDOMINAL, "Thoracoabdominal Aortic Aneurysm", false));
                             }
                         }, SectionElementState.OPENED));
                     }

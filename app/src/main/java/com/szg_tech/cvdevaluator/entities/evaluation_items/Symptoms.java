@@ -29,9 +29,9 @@ class Symptoms extends SectionEvaluationItem {
             {
                 add(new SectionEvaluationItem(context, ConfigurationParams.DYSPNEA, context.getString(R.string.dyspnea), false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.OUTPATIENT, context.getString(R.string.outpatient), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.EMERGENCY_ROOM, context.getString(R.string.emergency_room), false));
-                        add(new BoldEvaluationItem(context, ConfigurationParams.IN_HOSPITAL, context.getString(R.string.in_hospital), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.OUTPATIENT, "Ambulatory / Outpatient", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.EMERGENCY_ROOM, "Escalating / Emergency room ", false));
+                        add(new BoldEvaluationItem(context, ConfigurationParams.IN_HOSPITAL, "Decompensated / Admitted ", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.DAY1, context.getString(R.string.day1), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.DAY2, context.getString(R.string.day2), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.DAY3, context.getString(R.string.day3), false));
@@ -55,7 +55,7 @@ class Symptoms extends SectionEvaluationItem {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DAILY_ROUTINE_MINIMAL_ACTIVITIES, context.getString(R.string.daily_routine_minimal_activities), false));
                             }
                         }));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_AT_REST, context.getString(R.string.dyspnea_at_rest), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_AT_REST, "Dyspnea at rest", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.WEIGHT_GAIN, context.getString(R.string.weight_gain), false));
                     }
                 }, SectionElementState.OPENED));
@@ -74,13 +74,20 @@ class Symptoms extends SectionEvaluationItem {
                                 }));
                             }
                         }));
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.TYPICAL_ANGINA_NEW, context.getString(R.string.typical_angina_new), false, new ArrayList<EvaluationItem>() {
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.TYPICAL_ANGINA_NEW, "Typical angina", false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.ESCALATING_IN_FREQUENCY, context.getString(R.string.escalating_in_frequency), false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ESCALATING_IN_FREQUENCY, "Escalating in frequency, duration oer severity", false));
                             }
                         }));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.PROBABLY_ANGINA_NEW, context.getString(R.string.probably_angina_new), false));
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.UNDETERMINED_CP_NEW, context.getString(R.string.undetermined_cp_new), false, new ArrayList<EvaluationItem>() {
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PROBABLY_ANGINA_NEW, "Probable angina", false, new ArrayList<EvaluationItem>() {
+                            {
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ESCALATING_IN_FREQUENCY, "Escalating in frequency, duration oer severity", false));
+                            }
+                        }));
+
+
+
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.UNDETERMINED_CP_NEW, "Undetermined chest pain", false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SIDE_HEMITHORAX, context.getString(R.string.side_hemithorax), false, new ArrayList<EvaluationItem>() {
                                     {
@@ -126,7 +133,7 @@ class Symptoms extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.BACK, context.getString(R.string.back), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.ARM, context.getString(R.string.arm), false));
 
-                                        add(new BoldEvaluationItem(context, ConfigurationParams.ASSOCIATED_WITH, context.getString(R.string.associated_with), false) {
+                                        add(new BoldEvaluationItem(context, ConfigurationParams.ASSOCIATED_WITH, "Associated with", false) {
                                             {
                                                 setBackgroundHighlighted(true);
                                             }
@@ -135,6 +142,19 @@ class Symptoms extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA, context.getString(R.string.nausea), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DIAPHORESIS, context.getString(R.string.diaphoresis), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.FAINTNESS, context.getString(R.string.faintness), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPPALPITATIONS, "CPPalpitations", false));
+
+                                        add(new BoldEvaluationItem(context, ConfigurationParams.LASTING, "Lasting", false) {
+                                            {
+                                                setBackgroundHighlighted(true);
+                                            }
+                                        });
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPSECONDS, "Seconds", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPMINUTES, "Minutes", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPHOURS, "Hours", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPCONSTANT, "Constant", false));
+
+
                                     }
                                 }));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.INTERCOSTAL_CP, context.getString(R.string.intercostal_cp), false, new ArrayList<EvaluationItem>() {
@@ -190,6 +210,18 @@ class Symptoms extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA, context.getString(R.string.nausea), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DIAPHORESIS, context.getString(R.string.diaphoresis), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.FAINTNESS, context.getString(R.string.faintness), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPPALPITATIONS, "CPPalpitations", false));
+
+                                        add(new BoldEvaluationItem(context, ConfigurationParams.LASTING, "Lasting", false) {
+                                            {
+                                                setBackgroundHighlighted(true);
+                                            }
+                                        });
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPSECONDS, "Seconds", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPMINUTES, "Minutes", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPHOURS, "Hours", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPCONSTANT, "Constant", false));
+
                                     }
                                 }));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.CENTRAL_PRECORDIAL_CP, context.getString(R.string.central_precordial_cp), false, new ArrayList<EvaluationItem>() {
@@ -245,6 +277,18 @@ class Symptoms extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA, context.getString(R.string.nausea), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DIAPHORESIS, context.getString(R.string.diaphoresis), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.FAINTNESS, context.getString(R.string.faintness), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPPALPITATIONS, "CPPalpitations", false));
+
+                                        add(new BoldEvaluationItem(context, ConfigurationParams.LASTING, "Lasting", false) {
+                                            {
+                                                setBackgroundHighlighted(true);
+                                            }
+                                        });
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPSECONDS, "Seconds", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPMINUTES, "Minutes", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPHOURS, "Hours", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CPCONSTANT, "Constant", false));
+
                                     }
                                 }));
                             }
@@ -268,6 +312,7 @@ class Symptoms extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.SUDDEN_NOISE, context.getString(R.string.sudden_noise), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.NECK_MOVEMENT_MANIPULATION, context.getString(R.string.neck_movement_manipulation), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.EXERTIONAL, context.getString(R.string.exertional), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.SPORADIC, "Sporadic", false));
 
                         add(new BoldEvaluationItem(context, ConfigurationParams.PRODROMAL_SYMPTOMS, context.getString(R.string.prodromal_symptoms), false) {
                             {
@@ -277,7 +322,7 @@ class Symptoms extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA_SYN, context.getString(R.string.nausea), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.DIZZINESS, context.getString(R.string.dizziness), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PALPITATIONS, context.getString(R.string.palpitations), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHEST_PAIN, context.getString(R.string.chest_pain), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.SYNCHEST_PAIN, context.getString(R.string.chest_pain), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.AURA, context.getString(R.string.aura), false));
 
                         add(new BoldEvaluationItem(context, ConfigurationParams.SYNCOPE_DURATION_DURING_SYNCOPE, context.getString(R.string.syncope_duration_during_syncope), false) {

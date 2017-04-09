@@ -41,7 +41,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                         add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.FEMALE, context.getString(R.string.female), ConfigurationParams.GENDER, false, false));
                                     }
                                 }));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.HEIGHT, context.getString(R.string.height), context.getString(R.string.height_hint), 100, 220, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.BMI, "BMI", "Enter BMI", 100, 220, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.WEIGHT, context.getString(R.string.weight), context.getString(R.string.weight_hint), 40, 400, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_RATE, context.getString(R.string.heart_rate), context.getString(R.string.heart_rate_hint), 30, 300, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.SBP, context.getString(R.string.sbp), context.getString(R.string.sbp_hint), 60, 300, true, true));
@@ -274,12 +274,12 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.O2SAT, context.getString(R.string.o2sat), context.getString(R.string.value), 50, 100, false, true));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.NT_PROBNP_PG_ML, context.getString(R.string.nt_probnp_pg_ml), context.getString(R.string.value), 50, 100000, false, true));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.PULMONARY_EDEMA, context.getString(R.string.pulmonary_edema), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_SIDED_S3_OR_S4_GALLOP, context.getString(R.string.left_sided_s3_or_s4_gallop), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_SIDED_S3, "Left sided S3", false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.CARDIO_SHOCK, context.getString(R.string.cardio_shock), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_ON_EXERTION, context.getString(R.string.dyspnea_on_exertion), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_AT_REST_MORE_2_HRS_AFTER_RX, context.getString(R.string.dyspnea_at_rest_more_2_hrs_after_rx), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NEW_RALES, context.getString(R.string.new_rales), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.HEPATOJULUAR_REFLUX, context.getString(R.string.hepatojuluar_reflux), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.HJR, context.getString(R.string.hepatojuluar_reflux), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.JUGULAR_VENOUS_DISTENTION, context.getString(R.string.jugular_venous_distention), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.WEIGHT_GAIN, context.getString(R.string.weight_gain), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.ANY_CNS_SYMPTOMS, context.getString(R.string.any_cns_symptoms), false));

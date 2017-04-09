@@ -6,26 +6,28 @@ public class ConfigurationParams {
     public static final String SUBTITLE = "secsubtitle";
     public static final String SHOULD_SHOW_ALERT = "secshould_show_alert";
     public static final String IS_SAVED_EVALUATION_LIST = "sec_saved_evaluation_list";
-    public static final String AGE = "age";
+    public static final String AGE = "txtage";
     public static final String GENDER = "gender";
     public static final String MALE = "male";
     public static final String FEMALE = "female";
-    public static final String HEIGHT = "height";
-    public static final String WEIGHT = "weight";
-    public static final String HEART_RATE = "HR";
-    public static final String SBP = "sbp";
-    public static final String DBP = "dbp";
+    public static final String BMI = "txtBMI";
+    public static final String WEIGHT = "txtweight";
+    public static final String HEART_RATE = "txtHR";
+    public static final String SBP = "txtsbp";
+    public static final String DBP = "txtdbp";
     public static final String IS_PAH = "isPAH";
-    public static final String ORTHOSTATIC_SBP = "OrthostaticSBP";
+    public static final String ORTHOSTATIC_SBP = "txtOrthostaticSBP";
     public static final String ORTHOSTATIC_SYMPTOMPS = "chkSymptomatic";
-    public static final String WAIST_CIRC = "waist";
+    public static final String WAIST_CIRC = "txtwaist";
     public static final String AA = "chkAsianCode";
     public static final String PREGNANCY = "chkpreg";
     public static final String O2SAT = "txtO2sat";
     public static final String SYMPTOMS = "secsymptoms";
     public static final String DYSPNEA = "secdyspnea";
-    public static final String CHEST_PAIN = "chkSynProCP";
-    public static final String SYNCOPE_PRESYNCOPE = "chktestsyncope";
+
+    public static final String SYNCHEST_PAIN = "chkSynProCP";
+    public static final String SYNCOPE_PRESYNCOPE = "secTestSyncope";
+    public static final String CHEST_PAIN = "sectionCP";
     public static final String CURRENT_PAST_CV_PROFILE = "seccurrent_past_cv_profile";
     public static final String HEART_FAILURE = "chkHF";
     public static final String CORONARY_HEART_DISEASE = "seccoronary_heart_disease";
@@ -47,16 +49,19 @@ public class ConfigurationParams {
     public static final String PO_MEDS = "secpo_meds";
     public static final String REVIEW_OF_SYSTEMS = "secreview_of_systems";
     public static final String WEIGHT_CHANGE = "chkweightchange";
-    public static final String OSA_SYMPTOMS = "chkosasymp";
-    public static final String PREVIOUS_DVT_PE = "chkpreviousdvt";
-    public static final String ACTIVE_PEPTIC_ULCER_DISEASE = "chkactivepeptic";
+    public static final String OSA_SYMPTOMS = "chkOSA";
+    public static final String PREVIOUS_DVT_PE = "chkPVTE";
+    public static final String PREVIOUS_DVTE = "chkDVTE";
+    public static final String PND = "chkPND";
+
+    public static final String ACTIVE_PEPTIC_ULCER_DISEASE = "chkPUD";
     public static final String TIA = "chktia";
-    public static final String BLEED_IN_THE_PAST_3_MONTHS = "chkbleedin3months";
+    public static final String BLEED_IN_THE_PAST_3_MONTHS = "chkbleed";
 
 
     public static final String LEGSWELLING = "chklegswelling";
-    public static final String ORTHOPNEA = "chkORTHOPNEA";
-
+    public static final String ORTHOPNEA = "chkorthopnea";
+    public static final String PALPITATIONS = "chkpalpitations";
     public static final String IN_HOSPITAL_THERAPIES = "secin_hospital_therapies";
     public static final String HEART_SPECIALIST_MANAGEMENT = "secheart_specialist_management";
     public static final String PHYSICAL_EXAM = "secphysical_exam";
@@ -85,6 +90,7 @@ public class ConfigurationParams {
     public static final String WEIGHT_GAIN = "chkWeight";
     public static final String PREVIOUS_HF_HOSPITALIZATION = "chkfoutpt";
     public static final String S_P_ICD = "chkICD";
+
     public static final String NYHA_CLASS = "secnyha_class";
     public static final String AT_HIGH_RISK = "chkA";
     public static final String NO_SIGNS_OF_HF = "chkB";
@@ -133,6 +139,11 @@ public class ConfigurationParams {
     public static final String NAUSEA = "chkCPNausea";
     public static final String DIAPHORESIS = "chkCPDiaph";
     public static final String FAINTNESS = "chkCPFaint";
+    public static final String CPPALPITATIONS = "chkCPPalpitations";
+    public static final String CPSECONDS = "chkCPseconds";
+    public static final String CPMINUTES = "chkCPminutes";
+    public static final String CPCONSTANT = "chkCPconstant";
+    public static final String CPHOURS = "chkCPhours";
     public static final String INTERCOSTAL_CP = "chkCPbreath";
     public static final String CENTRAL_PRECORDIAL_CP = "chkPrecordial";
     public static final String UNABLE_TO_EXERCISE = "chkunable";
@@ -141,10 +152,11 @@ public class ConfigurationParams {
     public static final String SUDDEN_NOISE = "chkSynOther";
     public static final String NECK_MOVEMENT_MANIPULATION = "chkSynneck";
     public static final String EXERTIONAL = "chkSynProSitting";
+    public static final String SPORADIC = "chkSynsporadic";
     public static final String PRODROMAL_SYMPTOMS = "secprodromal_symptoms";
     public static final String NAUSEA_SYN = "chkSynNausea";
     public static final String DIZZINESS = "chkSynDizziness";
-    public static final String PALPITATIONS = "chkSynPalpitations";
+    public static final String SYNPALPITATIONS = "chkSynPalpitations";
     public static final String AURA = "chkSynaura";
     public static final String SYNCOPE_DURATION_DURING_SYNCOPE = "secsyncope_duration_during_syncope";
     public static final String MINUTES_SYN_DUR = "txtSynMin";               // This is not in code yet, probably should
@@ -161,12 +173,15 @@ public class ConfigurationParams {
     public static final String HF_DIAGNOSIS_DURATION_WEEK = "txtdur";
     public static final String LVEF = "txtCHF";
     public static final String LVEF_PAH = "txtLVEF";
-    public static final String HEPATOJULUAR_REFLUX = "chkhepato";
+    public static final String NECK_VEINS = "chkhepato";
     public static final String JUGULAR_VENOUS_DISTENTION = "chkJVD";
+    public static final String CAROTID_BRUIT = "chkbruit";
     public static final String DISPLACED_PMI = "chkPMI";
-    public static final String LEFT_SIDED_S3_OR_S4_GALLOP = "chkS3";
+    public static final String LEFT_SIDED_S3 = "chkS3";
+    public static final String LEFT_SIDED_S4 = "chkS4";
     public static final String FRICTION_RUB = "chkrub";
     public static final String HEART_MURMUR = "chkHeartMurmur";
+    public static final String DISTANT = "chkdistant";
     public static final String FOCUS_ON_THE_MOST_ABNORMAL_AUSCULTATION_FOCI = "secfocus_on_the_most_abnormal_auscultation_foci";
     public static final String SI_MITRAL = "chkS1Mitral";
     public static final String LOUD_S1_MITRAL = "chkS1MitralLoud";
@@ -194,6 +209,8 @@ public class ConfigurationParams {
     public static final String PANSYSTOLIC = "chkPansystolic";
     public static final String MIDSYSTOLIC = "chkMidsystolic";
     public static final String SOFTER_WITH_SQUAT = "chksquat";
+    public static final String EJECTION_SOUND = "chkejectionsound";
+    public static final String SYSTOLIC_CLICK = "chksystolicclick";
     public static final String DIASTOLIC_MURMUR = "chkDiastolicMurmur";
     public static final String DECRESCENDO = "chkDecrescendo";
     public static final String RUMBLE = "chkRumble";
@@ -202,6 +219,8 @@ public class ConfigurationParams {
     public static final String PULMONARY_EDEMA = "chkPEd";
     public static final String DIMINISHED_BREATH_SOUNDS = "chkbreath";
     public static final String ABDOMINAL_TENDERNESS = "chkabdominal";
+    public static final String HJR = "chkHJR";
+    public static final String ASCITES = "chkascites";
     public static final String ANY_CNS_SYMPTOMS = "chkAMS";
     public static final String COLD_CLAMMY_EXTERMITIES = "chkshock";
     public static final String EDEMA = "chkedema";
@@ -225,6 +244,24 @@ public class ConfigurationParams {
     public static final String NO_SIGNIFICANT_COMORBIDITIES = "chkcom";
     public static final String CALCULATE_HFSS = "secCalculate_HFSS";
     public static final String ESCALATING_IN_FREQUENCY = "chkescTA";
+    public static final String DMNP = "chkDMNP";
+    public static final String DMCKD = "chkDMCKD";
+    public static final String DMOTHER = "chkDMother";
+    public static final String DMARTHRO = "chkDMarthro";
+    public static final String DMSKIN = "chkDMskin";
+    public static final String DMORAL = "chkDMoral";
+    public static final String DMHYPO = "chkDMhypo";
+    public static final String DMHYPOCOMA = "chkDMhypocoma";
+    public static final String DMHYPER = "chkDMhyper";
+    public static final String DMMONO = "chkDMmono";
+    public static final String DMPOLY = "chkDMpoly";
+    public static final String DMAUTONOM = "chkDMautonom";
+    public static final String DMANGIO = "chkDMangio";
+    public static final String DMOTHERCIRC = "chkDMothercirc";
+    public static final String DMGANGRENE = "chkDMgangrene";
+    public static final String DMOTHERCOMP= "chkDMothercomp";
+    public static final String DMUNSPEC = "chkDMunspec";
+    public static final String DMWITHOUT = "chkDMwithout";
     public static final String DIABETES = "secdiabetes";
     public static final String TYPE_2_DM = "chkDM";
     public static final String TYPE_1_DM = "chkDM1";
@@ -346,6 +383,7 @@ public class ConfigurationParams {
     public static final String QRS_DURATION = "txtQRS";
     public static final String ST_DEVIATION_MORE_05_MM = "chkST";
     public static final String STRESS_TESTING = "chkDTS";
+    public static final String NSR = "chkNSR";
     public static final String T_WAVE_INVERSION_MORE_1MM = "chkTWI";
     public static final String LOW_VOLTAGE_QRS = "chklowv";
     public static final String ABNORMAL_Q_WAVES = "chkabnormq";
@@ -359,6 +397,7 @@ public class ConfigurationParams {
     public static final String FREQUENT_VENTRICULAR_PACING_OR_ECTOPY = "chkFreqVentPac";
     public static final String INFREQUENT_VENTRICULAR_PACING_OR_ECTOPY = "chkinfreqvent";
     public static final String WPW = "chkWPW";
+    public static final String VPACE= "chkVPace";
     public static final String SVT = "chkPSVT";
     public static final String RBBB = "chkRBBB";
     public static final String INTRAVENTICULAR_BLOCK = "chkIVCD";
@@ -485,6 +524,8 @@ public class ConfigurationParams {
     public static final String PREVIOUS_TIA_CVA = "chkPrevious";
     public static final String LAST_THROMBOEMBOLIC_EVENT_MONTHS_AGO = "TxtPrevious";
     public static final String THYROTOXICOSIS = "chkThyro";
+    public static final String HYPOTHYRO = "chkHypoThyro";
+
     public static final String THROMBOEMBOLIC_PREVENTION_VKA_THERAPY = "secthromboembolic_prevention_vka_therapy";
     public static final String INR = "txtINR";
     public static final String INR_PAH = "txtPTINR";
@@ -559,15 +600,19 @@ public class ConfigurationParams {
     public static final String IDIOPATHIC_VT = "chkidioVT";
     public static final String SYMPTOMATIC_CAROTID_DISEASE = "secsymptomatic_carotid_disease";
     public static final String NONCARDIOEMBOLIC_VCA_TIA = "chkNoncardioCVA";
+    public static final String NONCARDIOEMBOLIC_TIA = "chkNoncardioTIA";
     public static final String MORE_50_CAROTID_STENOSIS = "chkCEA";
     public static final String PERIPHERIC_VASCULAR_DISEASE = "secperipheric_vascular_disease";
     public static final String ABI_LESS_09 = "chkABI";
     public static final String CLAUDICATION = "chkclaudication";
+    public static final String ULCER = "chkulcer";
     public static final String CRITICAL_LIMB_ISCHEMIA = "chkcritical";
     public static final String ENDOVASCULAR_REVASCULARIZATION = "chkbypass";
     public static final String PERIPHERAL_ARTERY_BYPASS_GRAFT = "chkBKbypass";
     public static final String ABDOMINAL_AORTIC_ANEURYSM = "secabdominal_aortic_aneurysm";
     public static final String AA_DIAMETER_MORE_5 = "chkAADiameter";
+    public static final String THORACIC = "chkthoracic";
+    public static final String THORACIC_ABDOMINAL = "chkthoracoabdominal";
     public static final String COMPUTE_EVALUATION = "seccompute_evaluation";
     public static final String PAH_COMPUTE_EVALUATION = "sec_pah_compute_evaluation";
     public static final String OVERVIEW = "secoverview";
@@ -598,6 +643,7 @@ public class ConfigurationParams {
     public static final String METS = "TxtMETS";
     public static final String DUKE_ACTIVITY_SCORE_INDEX = "TxtDASI";
     public static final String ASSOCIATED_WITH = "secassociated_with";
+    public static final String LASTING = "seclasting";
     public static final String BIO_PAH_MAIN = "secbio_pah_main";
     public static final String PAH = "secpah";
     public static final String SVR_WU = "txtSVR";

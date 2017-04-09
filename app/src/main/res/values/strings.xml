@@ -209,6 +209,8 @@
     <string name="diabetes">Diabetes</string>
     <string name="type_1_dm">Type I DM</string>
     <string name="type_2_dm">Type II DM</string>
+    <string name="dmnp">Diabetic nepphropathy</string>
+    <string name="dmckd">Diabetic CKD</string>
     <string name="gestational_dm">Gestational DM</string>
     <string name="retinopathy">Retinopathy</string>
     <string name="tobacco_use">Tobacco Use</string>

@@ -26,14 +26,17 @@ class PhysicalExam extends SectionEvaluationItem {
     private ArrayList<EvaluationItem> createEvaluationItemElementsList() {
         return new ArrayList<EvaluationItem>() {
             {
-                add(new BooleanEvaluationItem(context, ConfigurationParams.HEPATOJULUAR_REFLUX, context.getString(R.string.hepatojuluar_reflux), false));
+                add(new BooleanEvaluationItem(context, ConfigurationParams.NECK_VEINS, "Neck veins not assessable", false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.JUGULAR_VENOUS_DISTENTION, context.getString(R.string.jugular_venous_distention), false));
+                add(new BooleanEvaluationItem(context, ConfigurationParams.CAROTID_BRUIT, "Carotid bruit", false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.DISPLACED_PMI, context.getString(R.string.displaced_pmi), false));
-                add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_SIDED_S3_OR_S4_GALLOP, context.getString(R.string.left_sided_s3_or_s4_gallop), false));
+                add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_SIDED_S3, "Left sided S3 gallop", false));
+                add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_SIDED_S4, "Left sided S4 gallop", false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.FRICTION_RUB, context.getString(R.string.friction_rub), false));
-                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.HEART_MURMUR, context.getString(R.string.heart_murmur), false, new ArrayList<EvaluationItem>() {
+                add(new BooleanEvaluationItem(context, ConfigurationParams.DISTANT, "Distant heart sounds", false));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.HEART_MURMUR, "Murmur, pathological heart sounds", false, new ArrayList<EvaluationItem>() {
                     {
-                        add(new BoldEvaluationItem(context, ConfigurationParams.FOCUS_ON_THE_MOST_ABNORMAL_AUSCULTATION_FOCI, context.getString(R.string.focus_on_the_most_abnormal_auscultation_foci), false));
+                        add(new BoldEvaluationItem(context, ConfigurationParams.FOCUS_ON_THE_MOST_ABNORMAL_AUSCULTATION_FOCI, "Please enter the area murmur is most prominent and charecteristics", false));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SI_MITRAL, context.getString(R.string.si_mitral), false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.LOUD_S1_MITRAL, context.getString(R.string.loud), ConfigurationParams.SI_MITRAL, false, false));
@@ -80,6 +83,8 @@ class PhysicalExam extends SectionEvaluationItem {
                                             }
                                         }));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.SOFTER_WITH_SQUAT, context.getString(R.string.softer_with_squat), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.EJECTION_SOUND, "Ejection sound", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.SYSTOLIC_CLICK, "Systolic click", false));
                                     }
                                 }));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.DIASTOLIC_MURMUR, context.getString(R.string.diastolic_murmur), false, new ArrayList<EvaluationItem>() {
@@ -102,6 +107,8 @@ class PhysicalExam extends SectionEvaluationItem {
                 add(new BooleanEvaluationItem(context, ConfigurationParams.PULMONARY_EDEMA, context.getString(R.string.pulmonary_edema), false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.DIMINISHED_BREATH_SOUNDS, context.getString(R.string.diminished_breath_sounds), false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.ABDOMINAL_TENDERNESS, context.getString(R.string.abdominal_tenderness), false));
+                add(new BooleanEvaluationItem(context, ConfigurationParams.HJR, "Hepato jugular reflux", false));
+                add(new BooleanEvaluationItem(context, ConfigurationParams.ASCITES, "Ascites", false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.ANY_CNS_SYMPTOMS, context.getString(R.string.any_cns_symptoms), false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.COLD_CLAMMY_EXTERMITIES, context.getString(R.string.cold_clammy_extermities), false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.EDEMA, context.getString(R.string.edema), false));

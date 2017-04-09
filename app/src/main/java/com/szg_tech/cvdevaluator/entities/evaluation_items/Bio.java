@@ -35,7 +35,7 @@ class Bio extends SectionEvaluationItem {
                                 add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.FEMALE, context.getString(R.string.female), ConfigurationParams.GENDER, false, false));
                             }
                         }));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.HEIGHT, context.getString(R.string.height), context.getString(R.string.height_hint), 100, 220, false, true));
+                add(new NumericalEvaluationItem(context, ConfigurationParams.BMI, "BMI", "Enter BMI value", 100, 220, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.WEIGHT, context.getString(R.string.weight), context.getString(R.string.weight_hint), 40, 400, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_RATE, context.getString(R.string.heart_rate), context.getString(R.string.heart_rate_hint), 30, 300, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.SBP, context.getString(R.string.sbp), context.getString(R.string.sbp_hint), 60, 300, true, true));

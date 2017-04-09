@@ -21,17 +21,29 @@ class ReviewOfSystems extends SectionEvaluationItem {
 
     private ArrayList<EvaluationItem> createEvaluationItemElementsList() {
         return new ArrayList<EvaluationItem>() {{
-            add(new BooleanEvaluationItem(context, ConfigurationParams.WEIGHT_CHANGE, context.getString(R.string.weight_change), false));
-            add(new BooleanEvaluationItem(context, ConfigurationParams.THYROTOXICOSIS, context.getString(R.string.thyrotoxicosis), false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.WEIGHT_CHANGE, "Weight gain", false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.THYROTOXICOSIS, "Thyrotoxicosis", false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.HYPOTHYRO, "Hypothyroidism", false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.OSA , "Obstructive sleep apnea", false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.HEMOPTYSIS, "Hemoptysis" ,false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.PREVIOUS_DVTE, "Previous pulmonary embolism" ,false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.PND, "Paroxysmal nocturnal dyspnea", false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.ORTHOPNEA, "Orthopnea", false));
             add(new BooleanEvaluationItem(context, ConfigurationParams.PALPITATIONS, context.getString(R.string.palpitations), false));
-            add(new BooleanEvaluationItem(context, ConfigurationParams.OSA_SYMPTOMS, context.getString(R.string.osa_symptoms), false));
-            add(new BooleanEvaluationItem(context, ConfigurationParams.PREVIOUS_DVT_PE, context.getString(R.string.previous_dvt_pe), false));
+
+
+
             add(new BooleanEvaluationItem(context, ConfigurationParams.ACTIVE_PEPTIC_ULCER_DISEASE, context.getString(R.string.active_peptic_ulcer_disease), false));
             add(new BooleanEvaluationItem(context, ConfigurationParams.LIVER_DISEASE, context.getString(R.string.liver_disease), false));
-            add(new BooleanEvaluationItem(context, ConfigurationParams.TIA, context.getString(R.string.tia), false));
-            add(new BooleanEvaluationItem(context, ConfigurationParams.BLEED_IN_THE_PAST_3_MONTHS, context.getString(R.string.bleed_in_the_past_3_months), false));
-            add(new BooleanEvaluationItem(context, ConfigurationParams.ORTHOPNEA, context.getString(R.string.orthopnea), false));
-            add(new BooleanEvaluationItem(context, ConfigurationParams.LEGSWELLING, context.getString(R.string.leg_swelling), false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.BLEED_IN_THE_PAST_3_MONTHS, "Bleeding in the past 3 months", false));
+
+            add(new BooleanEvaluationItem(context, ConfigurationParams.TIA, "Transient ischemic attack", false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.CLAUDICATION, "Claudication", false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.ULCER, "Lower extremity ulceration", false));
+
+            add(new BooleanEvaluationItem(context, ConfigurationParams.UNILATERAL_LOWER_LIMB_PAIN, "Unilateral lower limb pain", false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.PREVIOUS_DVT_PE, "Previous DVT", false));
+            add(new BooleanEvaluationItem(context, ConfigurationParams.RHEUMATIC_DISEASE, "Rheumatic disease", false));
         }};
     }
 }
