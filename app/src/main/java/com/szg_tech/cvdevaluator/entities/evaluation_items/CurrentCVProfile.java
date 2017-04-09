@@ -93,8 +93,8 @@ class CurrentCVProfile extends SectionEvaluationItem {
 
                         add(new NumericalEvaluationItem(context, ConfigurationParams.HF_DIAGNOSIS_DURATION_WEEK, context.getString(R.string.hf_diagnosis_duration_week), context.getString(R.string.value), 0, 999, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PREVIOUS_HF_HOSPITALIZATION, context.getString(R.string.previous_hf_hospitalization), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_ICD, context.getString(R.string.s_p_icd), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.CRT_ICD, "S/P CRT", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.S_P_ICD, "Status post AICD", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CRT_ICD, "Status post CRT", false));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
 
                         add(new BooleanEvaluationItem(context, ConfigurationParams.IDIOPATHIC_DCM_NONISCHEMIC, context.getString(R.string.idiopathic_dcm_nonischemic), false));

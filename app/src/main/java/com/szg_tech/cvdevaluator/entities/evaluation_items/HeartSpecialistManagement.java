@@ -271,7 +271,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                 add(new SectionEvaluationItem(context, ConfigurationParams.CLINICS, context.getString(R.string.clinics), false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
-                                        add(new NumericalEvaluationItem(context, ConfigurationParams.O2SAT, context.getString(R.string.o2sat), context.getString(R.string.value), 50, 100, false, true));
+                                        add(new NumericalEvaluationItem(context, ConfigurationParams.RASAT, "RA O2 sat","", 50, 100, false, true));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.NT_PROBNP_PG_ML, context.getString(R.string.nt_probnp_pg_ml), context.getString(R.string.value), 50, 100000, false, true));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.PULMONARY_EDEMA, context.getString(R.string.pulmonary_edema), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_SIDED_S3, "Left sided S3", false));

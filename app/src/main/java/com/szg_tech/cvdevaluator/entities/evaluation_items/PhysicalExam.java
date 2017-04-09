@@ -27,7 +27,7 @@ class PhysicalExam extends SectionEvaluationItem {
         return new ArrayList<EvaluationItem>() {
             {
                 add(new BooleanEvaluationItem(context, ConfigurationParams.NECK_VEINS, "Neck veins not assessable", false));
-                add(new BooleanEvaluationItem(context, ConfigurationParams.JUGULAR_VENOUS_DISTENTION, context.getString(R.string.jugular_venous_distention), false));
+                add(new BooleanEvaluationItem(context, ConfigurationParams.JUGULAR_VENOUS_DISTENTION, "Jugular venous distention", false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.CAROTID_BRUIT, "Carotid bruit", false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.DISPLACED_PMI, context.getString(R.string.displaced_pmi), false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.LEFT_SIDED_S3, "Left sided S3 gallop", false));

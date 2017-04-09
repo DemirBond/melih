@@ -91,7 +91,7 @@ class MajorCVRisk extends SectionEvaluationItem {
                         });
                         add(new BooleanEvaluationItem(context, ConfigurationParams.SBP_TREATED, context.getString(R.string.sbp_treated), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.AFRICAN_AMERICAN, context.getString(R.string.african_american), false));
-                        add(new BoldEvaluationItem(context, ConfigurationParams.SECONDARY_HYPERTENSION, context.getString(R.string.secondary_hypertension), false) {
+                        add(new BoldEvaluationItem(context, ConfigurationParams.SECONDARY_HYPERTENSION, "Secondary hypertension", false) {
                             {
                                 setBackgroundHighlighted(true);
                             }

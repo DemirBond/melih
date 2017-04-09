@@ -21,7 +21,7 @@ public class ConfigurationParams {
     public static final String WAIST_CIRC = "txtwaist";
     public static final String AA = "chkAsianCode";
     public static final String PREGNANCY = "chkpreg";
-    public static final String O2SAT = "txtO2sat";
+    public static final String RASAT = "txtO2sat";
     public static final String SYMPTOMS = "secsymptoms";
     public static final String DYSPNEA = "secdyspnea";
 

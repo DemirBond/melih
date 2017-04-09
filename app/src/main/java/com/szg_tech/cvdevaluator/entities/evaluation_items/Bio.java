@@ -35,7 +35,7 @@ class Bio extends SectionEvaluationItem {
                                 add(new RadioButtonGroupEvaluationItem(context, ConfigurationParams.FEMALE, context.getString(R.string.female), ConfigurationParams.GENDER, false, false));
                             }
                         }));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.BMI, "BMI", "Enter BMI value", 100, 220, false, true));
+                add(new NumericalEvaluationItem(context, ConfigurationParams.BMI, "BMI", "Enter BMI value", 10, 50, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.WEIGHT, context.getString(R.string.weight), context.getString(R.string.weight_hint), 40, 400, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_RATE, context.getString(R.string.heart_rate), context.getString(R.string.heart_rate_hint), 30, 300, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.SBP, context.getString(R.string.sbp), context.getString(R.string.sbp_hint), 60, 300, true, true));
@@ -45,7 +45,8 @@ class Bio extends SectionEvaluationItem {
                 add(new NumericalEvaluationItem(context, ConfigurationParams.WAIST_CIRC, context.getString(R.string.waist_circ), context.getString(R.string.value), 20, 60, false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.AA, context.getString(R.string.aa), false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.PREGNANCY, context.getString(R.string.pregnancy), false));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.O2SAT, context.getString(R.string.o2sat), context.getString(R.string.value), 50, 100, false));
+                add(new NumericalEvaluationItem(context, ConfigurationParams.RASAT, "RA O2 sat", "", 50, 100, false, true));
+
             }
         };
     }

@@ -63,13 +63,13 @@ class Symptoms extends SectionEvaluationItem {
                     {
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.EMERGENCY_ROOM_CP, context.getString(R.string.emergency_room), false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.TWO_TYPICAL_OR_PROBABLE_ANGINA, context.getString(R.string.two_typical_or_probable_angina), false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.TYPICAL_OR_PROBABLE_ANGINA_MORE_20_MIN, context.getString(R.string.typical_or_probable_angina_more_20_min), false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.ASA_USE_IN_PAST_1_WEEK, context.getString(R.string.asa_use_in_past_1_week), false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.TWO_TYPICAL_OR_PROBABLE_ANGINA, "More than 2 typical or probable angina episodes", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.TYPICAL_OR_PROBABLE_ANGINA_MORE_20_MIN, "Typical or probable angina lasting more than 20min", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ASA_USE_IN_PAST_1_WEEK, "ASA use in the past 1 week", false));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.POSITIVE_TROPONIN, context.getString(R.string.positive_troponin), false, new ArrayList<EvaluationItem>() {
                                     {
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.TROPONIN_X_MORE_3_ABOVE_NORMAL, context.getString(R.string.troponin_x_more_3_above_normal), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.TROPONIN_1_3_ABOVE_NORMAL, context.getString(R.string.troponin_1_3_above_normal), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.TROPONIN_X_MORE_3_ABOVE_NORMAL, "Troponin 3 times above normal", false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.TROPONIN_1_3_ABOVE_NORMAL, "Troponin 1 to 3 times above normal", false));
                                     }
                                 }));
                             }
