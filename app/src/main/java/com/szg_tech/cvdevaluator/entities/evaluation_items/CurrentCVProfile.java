@@ -53,13 +53,13 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                 add(new NumericalEvaluationItem(context, ConfigurationParams.LAST_PROCEDURE, context.getString(R.string.last_procedure), context.getString(R.string.value), 0, 50, false, true));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.BMS, context.getString(R.string.bms), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DES, context.getString(R.string.des), false));
-                                new SectionCheckboxEvaluationItem(context, ConfigurationParams.CABG, context.getString(R.string.cabg), false, new ArrayList<EvaluationItem>() {
+                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.CABG, context.getString(R.string.cabg), false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.AUTO_VEIN, context.getString(R.string.auto_vein), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.AUTO_ARTERY, context.getString(R.string.auto_artery), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NON_AUTO, context.getString(R.string.non_auto), false));
                                     }
-                                });
+                                }));
                             }
                         }));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.STABLE_ANG, context.getString(R.string.stable_ang), false, new ArrayList<EvaluationItem>() {

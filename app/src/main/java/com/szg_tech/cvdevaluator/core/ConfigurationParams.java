@@ -13,15 +13,15 @@ public class ConfigurationParams {
     public static final String BMI = "txtBMI";
     public static final String WEIGHT = "txtweight";
     public static final String HEART_RATE = "txtHR";
-    public static final String SBP = "txtSBP";
-    public static final String DBP = "txtDBP";
+    public static final String SBP = "txtsbp";
+    public static final String DBP = "txtdbp";
     public static final String IS_PAH = "isPAH";
     public static final String ORTHOSTATIC_SBP = "txtOrthostaticSBP";
     public static final String ORTHOSTATIC_SYMPTOMPS = "chkSymptomatic";
     public static final String WAIST_CIRC = "txtwaist";
     public static final String AA = "chkAsianCode";
     public static final String PREGNANCY = "chkpreg";
-    public static final String RASAT = "txtO2sat";
+    public static final String RASAT = "txto2sat";
     public static final String SYMPTOMS = "secsymptoms";
     public static final String DYSPNEA = "secdyspnea";
 

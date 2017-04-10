@@ -31,7 +31,7 @@ class MajorCVRisk extends SectionEvaluationItem {
                             {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DMNP, "Diabetic Nephropathy", false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DMCKD, "Diabetic CKD", false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.DMCKD,"Other kidney complications", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DMOTHER,"Other kidney complications", false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DMMONO, "Diabetic mononeuropathy", false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DMPOLY, "Diabetic polyneuropathy", false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DMAUTONOM, "Diabetic autonom neuropathy", false));

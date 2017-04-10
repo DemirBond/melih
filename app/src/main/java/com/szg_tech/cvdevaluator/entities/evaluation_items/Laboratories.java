@@ -37,9 +37,7 @@ class Laboratories extends SectionEvaluationItem {
                 add(new NumericalEvaluationItem(context, ConfigurationParams.BUN_MG_DL, context.getString(R.string.bun_mg_dl), context.getString(R.string.value), 6, 200, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.FASTING_PLASMA_GLUCOSE, "Glucose mg/dl", context.getString(R.string.value), 35, 1000, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.GFR_ML_MIN, "GFR", context.getString(R.string.value), 5, 120, false, true) {
-                    {
-                        setNumber(120d);
-                    }
+
                 });
                 add(new BooleanEvaluationItem(context, ConfigurationParams.WORSENING_RENAL_FX, context.getString(R.string.worsening_renal_fx), false));
                 add(new BoldEvaluationItem(context, ConfigurationParams.LIPID_PROFILE, context.getString(R.string.lipid_profile), false));

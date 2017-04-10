@@ -46,9 +46,9 @@ class Symptoms extends SectionEvaluationItem {
 
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.IN_HOSPITAL, "Decompensated/ Hospitalized", false, new ArrayList<EvaluationItem>() {
                             {
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.DAY1, " Hospitalization,day 1", false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.DAY2, " Hospitalization,day 2", false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.DAY3, " Hospitalization,day 3", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DAY1, " Day 1", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DAY2, " Day 2", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DAY3, " Day 3", false));
                             }
                         }));
 
@@ -330,7 +330,7 @@ class Symptoms extends SectionEvaluationItem {
                         });
                         add(new BooleanEvaluationItem(context, ConfigurationParams.NAUSEA_SYN, context.getString(R.string.nausea), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.DIZZINESS, context.getString(R.string.dizziness), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.PALPITATIONS, context.getString(R.string.palpitations), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.SYNPALPITATIONS, context.getString(R.string.palpitations), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.SYNCHEST_PAIN, context.getString(R.string.chest_pain), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.AURA, context.getString(R.string.aura), false));
 
