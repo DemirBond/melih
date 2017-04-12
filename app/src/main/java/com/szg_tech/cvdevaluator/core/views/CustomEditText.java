@@ -8,6 +8,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -57,6 +58,8 @@ public class CustomEditText extends android.support.v7.widget.AppCompatEditText 
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         getContext().registerReceiver(broadcastReceiver, new IntentFilter(ConfigurationParams.ACTION_CHANGE_SIZE));
+        textDelta = PreferenceHelper.getTextDelta(getContext());
+        setCorrectTextSize();
     }
 
     @Override
