@@ -62,4 +62,5 @@ public class OutputFragment extends ConfigurableFragment implements OutputView {
     public RecyclerView getRecyclerView() {
         return recyclerView;
     }
+
 }

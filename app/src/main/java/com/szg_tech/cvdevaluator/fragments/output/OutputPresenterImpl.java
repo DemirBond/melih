@@ -2,6 +2,7 @@ package com.szg_tech.cvdevaluator.fragments.output;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.Window;
 
 import com.szg_tech.cvdevaluator.R;
+import com.szg_tech.cvdevaluator.activities.evaluation.EvaluationActivity;
 import com.szg_tech.cvdevaluator.core.AbstractPresenter;
 import com.szg_tech.cvdevaluator.core.ConfigurationParams;
 import com.szg_tech.cvdevaluator.core.OutputRecyclerViewAdapter;
@@ -59,9 +61,17 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
         }
     }
 
-    private void showSnackbarBottomButtonError(Activity activity) {
+    private void showSnackbarBottomButtonGenericError(Activity activity) {
         if (activity != null) {
-            Snackbar snackbar = Snackbar.make(getView().getRecyclerView(), R.string.unexpected_error_in_compute_evaluation, Snackbar.LENGTH_LONG);
+            Snackbar snackbar = Snackbar.make(getView().getRecyclerView(), R.string.snackbar_bottom_button_unexpected_error_in_compute_evaluation, Snackbar.LENGTH_LONG);
+            snackbar.getView().setBackgroundColor(ContextCompat.getColor(activity, R.color.snackbar_red));
+            snackbar.show();
+        }
+    }
+
+    private void showSnackbarBottomButtonUnAuthorizedError(Activity activity) {
+        if (activity != null) {
+            Snackbar snackbar = Snackbar.make(getView().getRecyclerView(), R.string.snackbar_bottom_button_session_expire_error, Snackbar.LENGTH_LONG);
             snackbar.getView().setBackgroundColor(ContextCompat.getColor(activity, R.color.snackbar_red));
             snackbar.show();
         }
@@ -78,16 +88,26 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
         RestClientProvider.get().getApi().computeEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
             @Override
             public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
+
                 if(response.isSuccessful()) {
                     if(response.body().isSuccessful()) {
                         List<EvaluationItem> evaluationItems = createEvaluationList(activity, response.body());
                         System.out.println(response.body());
                         recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, evaluationItems));
                     } else {
-                        showSnackbarBottomButtonError(activity);
+                        showSnackbarBottomButtonGenericError(activity);
                     }
                 } else {
-                    showSnackbarBottomButtonError(activity);
+                    if(response.code() == 401) {
+                        showSnackbarBottomButtonUnAuthorizedError(activity);
+
+                        if(activity instanceof EvaluationActivity) {
+                            ((EvaluationActivity)activity).onSessionExpired();
+                        }
+
+                    } else {
+                        showSnackbarBottomButtonGenericError(activity);
+                    }
                 }
                 progressDialog.dismiss();
             }
@@ -96,7 +116,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
             public void onFailure(Call<EvaluationResponse> call, Throwable t) {
                 progressDialog.dismiss();
                 t.printStackTrace();
-                showSnackbarBottomButtonError(activity);
+                showSnackbarBottomButtonGenericError(activity);
             }
         });
     }

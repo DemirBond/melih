@@ -37,6 +37,14 @@ public class AuthenticationActivity extends AppCompatActivity implements Authent
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        if(presenter != null) {
+            presenter.onResume();
+        }
+    }
+
+    @Override
     public Activity getActivity() {
         return this;
     }

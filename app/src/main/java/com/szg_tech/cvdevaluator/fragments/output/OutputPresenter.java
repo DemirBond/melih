@@ -19,4 +19,6 @@ interface OutputPresenter extends Presenter {
 
     void onPrepareOptionsMenu(Menu menu);
 
+
+
 }

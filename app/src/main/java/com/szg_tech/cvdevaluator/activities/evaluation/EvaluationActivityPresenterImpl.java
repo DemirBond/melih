@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.szg_tech.cvdevaluator.R;
+import com.szg_tech.cvdevaluator.activities.authentication.AuthenticationActivity;
 import com.szg_tech.cvdevaluator.core.AbstractPresenter;
 import com.szg_tech.cvdevaluator.core.ConfigurationParams;
 import com.szg_tech.cvdevaluator.core.views.modal.AlertModalManager;
@@ -112,5 +113,7 @@ class EvaluationActivityPresenterImpl extends AbstractPresenter<EvaluationActivi
         }
         return false;
     }
+
+
 
 }

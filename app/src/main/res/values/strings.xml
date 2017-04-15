@@ -536,7 +536,8 @@
     <string name="snackbar_bottom_button_login_error">Authentication is not successful. Email or password is not valid.</string>
     <string name="snackbar_bottom_button_register_error">Sorry! Register is not successful.</string>
     <string name="snackbar_bottom_button_register_succeed">Register is successful!</string>
-    <string name="unexpected_error_in_compute_evaluation">Sorry :(. We encountered an unexpected error while computing evaluations.</string>
+    <string name="snackbar_bottom_button_unexpected_error_in_compute_evaluation">Sorry :(. We encountered an unexpected error while computing evaluations.</string>
+    <string name="snackbar_bottom_button_session_expire_error">Session expired. Please login to continue.</string>
     <string name="cancel_screen_alert_message">Screen, you\'re trying to leave, is not correctly completed.</string>
     <string name="cancel_screen_alert_cancel_all">Reset all changes and go back</string>
     <string name="atherosclerotic_vascular_disease">Atherosclerotic Vascular Disease</string>
@@ -884,13 +885,12 @@
     <string name="authenticating_progress_message">Authenticating..</string>
     <string name="registering_progress_message">Registering..</string>
     <string name="compute_evaluation_progress_message">Computing Evaluations..</string>
-
     <string name="retrieving_saved_evaluations_error">Sorry. We could not fetch saved evaluations.</string>
-
     <string name="retrieving_saved_evaluations">Retrieving evaluations..</string>
-
-
     <string name="retrieving_the_evaluation">Retrieving the evaluation..</string>
-
     <string name="retrieving_the_evaluation_error">Sorry. Could not retrieve the evaluation..</string>
+    <string name="no_internet_connection_alert">We could not connect to the internet. Would you like to quit the app?</string>
+    <string name="exit_app">We could not connect to the internet. Would you like to quit the app?</string>
+
+    <string name="no_saved_evaluations">There is not saved evaluations.</string>
 </resources>

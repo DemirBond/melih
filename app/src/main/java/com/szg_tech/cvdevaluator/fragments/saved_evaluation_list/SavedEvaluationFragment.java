@@ -18,6 +18,7 @@ public class SavedEvaluationFragment extends ConfigurableFragment implements Sav
 
     private RecyclerView recyclerView;
     private SavedEvaluationPresenter presenter = createPresenter();
+    View noDataTextView;
 
 
     @Override
@@ -29,6 +30,7 @@ public class SavedEvaluationFragment extends ConfigurableFragment implements Sav
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        noDataTextView = view.findViewById(R.id.no_data_message);
         presenter.onCreate();
     }
 
@@ -46,5 +48,10 @@ public class SavedEvaluationFragment extends ConfigurableFragment implements Sav
     @Override
     public SavedEvaluationPresenter createPresenter() {
         return new SavedEvaluationPresenterImpl(this);
+    }
+
+    @Override
+    public View getNoDataView() {
+        return noDataTextView;
     }
 }

@@ -69,6 +69,13 @@ public class SavedEvaluationPresenterImpl extends AbstractPresenter<SavedEvaluat
                 if(response.isSuccessful()) {
                     SavedEvaluationSummaryResponse savedEvaluationSummaryResponse = response.body();
                     if(savedEvaluationSummaryResponse.isSuccessful()) {
+                        if(savedEvaluationSummaryResponse.getEvals().isEmpty()) {
+                            getView().getNoDataView().setVisibility(View.VISIBLE);
+                            getView().getRecyclerView().setVisibility(View.GONE);
+                        } else {
+                            getView().getNoDataView().setVisibility(View.GONE);
+                            getView().getRecyclerView().setVisibility(View.VISIBLE);
+                        }
                         getView().getRecyclerView().setAdapter(new SavedEvaluationListRecyclerViewAdapter(getActivity(), savedEvaluationSummaryResponse.getEvals()));
                     } else {
                         showSnackbarBottomButtonError(getActivity(), savedEvaluationSummaryResponse.getMessage());

@@ -160,4 +160,9 @@ public class AlertModalManager {
         TextSizeDialog textSizeDialog = new TextSizeDialog();
         textSizeDialog.show(activity.getFragmentManager(), TextSizeDialog.class.getSimpleName());
     }
+
+    public static void createAndShowNoInternetConnectionAlertDialog(Context context, View.OnClickListener onClickListener) {
+        createAndShowModalAlertDialog(context, R.string.warning, R.string.cancel_evaluation_popup_description,
+                R.string.exit_app, onClickListener, false);
+    }
 }

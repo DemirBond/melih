@@ -9,4 +9,6 @@ import com.szg_tech.cvdevaluator.core.Presenter;
 public interface AuthenticationActivityPresenter extends Presenter{
 
     void onCreate();
+
+    void onResume();
 }

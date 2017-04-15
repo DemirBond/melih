@@ -5,4 +5,6 @@ import com.szg_tech.cvdevaluator.entities.evaluation_items.HeartSpecialistManage
 
 interface EvaluationActivityView extends MVPView {
     HeartSpecialistManagement getHeartSpecialistManagement();
+
+    void onSessionExpired();
 }

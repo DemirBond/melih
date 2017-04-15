@@ -9,9 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.szg_tech.cvdevaluator.R;
+import com.szg_tech.cvdevaluator.activities.authentication.AuthenticationActivity;
 import com.szg_tech.cvdevaluator.core.views.modal.AlertModalManager;
 import com.szg_tech.cvdevaluator.entities.evaluation_items.HeartSpecialistManagement;
 import com.szg_tech.cvdevaluator.storage.EvaluationDAO;
+import com.szg_tech.cvdevaluator.storage.PreferenceHelper;
 import com.szg_tech.cvdevaluator.storage.RealmHelper;
 
 public class EvaluationActivity extends AppCompatActivity implements EvaluationActivityView {
@@ -75,5 +77,15 @@ public class EvaluationActivity extends AppCompatActivity implements EvaluationA
     @Override
     public HeartSpecialistManagement getHeartSpecialistManagement() {
         return heartSpecialistManagement;
+    }
+
+    @Override
+    public void onSessionExpired() {
+        if(getActivity() != null) {
+            Intent a = new Intent(getActivity(), AuthenticationActivity.class);
+            a.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            getActivity().startActivity(a);
+            getActivity().finish();
+        }
     }
 }
