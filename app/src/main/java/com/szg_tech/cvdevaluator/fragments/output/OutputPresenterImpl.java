@@ -85,14 +85,13 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
         EvaluationRequest request = new EvaluationRequest(evaluationValueMap, false);
         System.out.println(request.toMap());
 
-        RestClientProvider.get().getApi().computeEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
+        RestClientProvider.get().getApi().computeOrSaveEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
             @Override
             public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
 
                 if(response.isSuccessful()) {
                     if(response.body().isSuccessful()) {
                         List<EvaluationItem> evaluationItems = createEvaluationList(activity, response.body());
-                        System.out.println(response.body());
                         recyclerView.setAdapter(new OutputRecyclerViewAdapter(activity, evaluationItems));
                     } else {
                         showSnackbarBottomButtonGenericError(activity);
@@ -134,7 +133,7 @@ class OutputPresenterImpl extends AbstractPresenter<OutputView> implements Outpu
             AlertModalManager.createAndShowSaveEvaluationAlertDialog(getActivity(), v -> {
                 HashMap<String, Object> evaluationValueMap = EvaluationDAO.getInstance().loadValues();
                 EvaluationRequest request = new EvaluationRequest(evaluationValueMap, true);
-                RestClientProvider.get().getApi().computeEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
+                RestClientProvider.get().getApi().computeOrSaveEvaluation(request.toMap()).enqueue(new Callback<EvaluationResponse>() {
                     @Override
                     public void onResponse(Call<EvaluationResponse> call, Response<EvaluationResponse> response) {
 

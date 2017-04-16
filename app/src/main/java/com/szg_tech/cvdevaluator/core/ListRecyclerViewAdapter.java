@@ -216,11 +216,8 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                         EvaluationItem item = evaluationItemsList.get(i);
                         if ((item.getId().equals(ConfigurationParams.CURRENT_PAST_CV_PROFILE) &&
                                 ((SectionEvaluationItem) item).getSectionElementState() == SectionEvaluationItem.SectionElementState.VIEWED)
-//                                && ((SectionEvaluationItem) item).getSectionElementState() == SectionEvaluationItem.SectionElementState.FILLED)
                                 || (item.getId().equals(ConfigurationParams.MAJOR_CV_RISK) &&
-                                ((SectionEvaluationItem) item).getSectionElementState() == SectionEvaluationItem.SectionElementState.VIEWED)
-//                                && ((SectionEvaluationItem) item).getSectionElementState() == SectionEvaluationItem.SectionElementState.FILLED)
-                                ) {
+                                ((SectionEvaluationItem) item).getSectionElementState() == SectionEvaluationItem.SectionElementState.VIEWED)) {
                             ((SectionEvaluationItem) evaluationItem).setSectionElementState(SectionEvaluationItem.SectionElementState.OPENED);
                             ((SectionCell) holder.view).setOpened();
                         }
@@ -231,9 +228,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                 ((SectionCell) holder.view).setOnClickListener(v -> {
                     if (((SectionEvaluationItem) evaluationItem).getSectionElementState() == SectionEvaluationItem.SectionElementState.LOCKED) {
                         if (evaluationItem.getId().equals(ConfigurationParams.LABORATORIES)
-                                || evaluationItem.getId().equals(ConfigurationParams.DIAGNOSTICS)
-                                || evaluationItem.getId().equals(ConfigurationParams.CURRENT_THERAPIES)
-                                || evaluationItem.getId().equals(ConfigurationParams.NONCARDIAC_SURGICAL_RISK)) {
+                                || evaluationItem.getId().equals(ConfigurationParams.DIAGNOSTICS)) {
                             SectionEvaluationItem bioEvaluationItem = null;
                             int bioPosition = 0;
                             SectionEvaluationItem currentCVEvaluationItem = null;
@@ -242,6 +237,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                             int majorCVRiskPosition = 0;
 
                             SectionEvaluationItem laboratoriesEvaluationItem = null;
+                            SectionEvaluationItem diagnosticEvaluationItem = null;
 
                             for (int i = 0; i < evaluationItemsList.size(); i++) {
                                 EvaluationItem item = evaluationItemsList.get(i);
@@ -261,6 +257,9 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                                     case ConfigurationParams.LABORATORIES:
                                         laboratoriesEvaluationItem = (SectionEvaluationItem) item;
                                         break;
+                                    case ConfigurationParams.DIAGNOSTICS:
+                                        diagnosticEvaluationItem = (SectionEvaluationItem) item;
+                                        break;
                                 }
                             }
                             if (bioEvaluationItem != null && bioEvaluationItem.getSectionElementState() == SectionEvaluationItem.SectionElementState.OPENED) {
@@ -276,19 +275,24 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                                 int finalCurrentCVPosition = currentCVPosition;
                                 int finalMajorCVRiskPosition = majorCVRiskPosition;
                                 SectionEvaluationItem finalLaboratoriesEvaluationItem = laboratoriesEvaluationItem;
+                                SectionEvaluationItem finalDiagnosticEvaluationItem = diagnosticEvaluationItem;
                                 AlertModalManager.createAndShowThreeButtonDependsOnDialog(activity, v1 -> {
                                     if (finalLaboratoriesEvaluationItem != null) {
                                         finalLaboratoriesEvaluationItem.setSectionElementState(SectionEvaluationItem.SectionElementState.OPENED);
+                                    }
+                                    if(finalDiagnosticEvaluationItem != null) {
+                                        finalDiagnosticEvaluationItem.setSectionElementState(SectionEvaluationItem.SectionElementState.OPENED);
                                     }
                                     goToNextScreen(finalCurrentCVPosition, finalCurrentCVEvaluationItem);
                                 }, v2 -> {
                                     if (finalLaboratoriesEvaluationItem != null) {
                                         finalLaboratoriesEvaluationItem.setSectionElementState(SectionEvaluationItem.SectionElementState.OPENED);
                                     }
+                                    if(finalDiagnosticEvaluationItem != null) {
+                                        finalDiagnosticEvaluationItem.setSectionElementState(SectionEvaluationItem.SectionElementState.OPENED);
+                                    }
                                     goToNextScreen(finalMajorCVRiskPosition, finalMajorCVRiskEvaluationItem);
                                 });
-                            } else if (finalMainEvaluationItem != null) {
-                                goToMandatorySection(activity, finalMainEvaluationItem);
                             }
                         } else if (finalMainEvaluationItem != null) {
                             goToMandatorySection(activity, finalMainEvaluationItem);
@@ -298,12 +302,12 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                             goToNextScreen(position, (SectionEvaluationItem) evaluationItem);
                             if (evaluationItem.getId().equals(ConfigurationParams.CURRENT_PAST_CV_PROFILE) ||
                                     evaluationItem.getId().equals(ConfigurationParams.MAJOR_CV_RISK)) {
-                                SectionEvaluationItem laboratories = null;
+
                                 for (EvaluationItem tempEvaluationItem : evaluationItemsList) {
-                                    if (tempEvaluationItem.getId().equals(ConfigurationParams.LABORATORIES)) {
-                                        laboratories = (SectionEvaluationItem) tempEvaluationItem;
-                                        if (laboratories.getSectionElementState() == SectionEvaluationItem.SectionElementState.LOCKED) {
-                                            laboratories.setSectionElementState(SectionEvaluationItem.SectionElementState.OPENED);
+                                    if (tempEvaluationItem.getId().equals(ConfigurationParams.LABORATORIES) || tempEvaluationItem.getId().equals(ConfigurationParams.DIAGNOSTICS)) {
+                                        SectionEvaluationItem tempLabOrDiagnosticEvaluationItem = (SectionEvaluationItem) tempEvaluationItem;
+                                        if (tempLabOrDiagnosticEvaluationItem.getSectionElementState() == SectionEvaluationItem.SectionElementState.LOCKED) {
+                                            tempLabOrDiagnosticEvaluationItem.setSectionElementState(SectionEvaluationItem.SectionElementState.OPENED);
                                         }
                                     }
                                 }

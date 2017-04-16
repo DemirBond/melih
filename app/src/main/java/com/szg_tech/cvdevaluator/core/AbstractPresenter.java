@@ -47,6 +47,23 @@ public abstract class AbstractPresenter<T extends MVPView> implements Presenter 
         }
     }
 
+    //TODO this is not optimal way to deal with this issue. Look for better implementation
+    public int PAHpositionInBackStack() {
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if (activity != null) {
+            FragmentManager fragmentManager = activity.getSupportFragmentManager();
+            int c = fragmentManager.getBackStackEntryCount();
+            for (int i = c-1; i >= 0; i--) {
+                String fName = fragmentManager.getBackStackEntryAt(i).getName();
+                //TODO This comparison should not be hard coded
+                if(fName.equalsIgnoreCase("FragmentManagerImplHeart Specialist Management")) {
+                    return (c - i) - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
     protected void runOnUiThread(Runnable action) {
         Activity activity = getActivity();
         if (activity != null) {

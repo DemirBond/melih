@@ -103,6 +103,24 @@ public class EvaluationDAO extends AbstractDao<EvaluationObject> {
         hashMap.put(key, value);
     }
 
+    public void removeItem(String key) {
+        if (hashMap != null) {
+            hashMap.remove(key);
+        }
+        init();
+        try {
+            beginTransaction();
+            helper.realm.where(EvaluationObject.class).equalTo("key", key).findAll().deleteAllFromRealm();
+            try {
+                commitTransaction();
+            } catch (Exception e) {
+                cancelTransaction();
+            }
+        } finally {
+            close();
+        }
+    }
+
     public void addAllToHashMap(Map<String, Object> newMap) {
         if (this.hashMap == null) {
             this.hashMap = new HashMap<>();

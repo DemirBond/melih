@@ -39,6 +39,20 @@ public class SavedEvaluationResponse extends BaseResponse {
     private String rest;
 
 
+    /**
+     *
+     * This method parse "inputs" value coming from server
+     * It apply some arranged rules.
+     * E.g. Boolean values only appears
+     * E.g. Male mapped to 1 Female mapped to 2
+     *
+     *
+     * Since we cannot enforce changes in server side
+     * we need to live this these boilerplate codes.
+     *
+     *
+     * @return evaluation item key by value
+     */
     public Map<String, Object> parseEvaluationInputs() {
         Map<String, Object> map = new HashMap<>();
 

@@ -110,6 +110,11 @@ class EvaluationActivityPresenterImpl extends AbstractPresenter<EvaluationActivi
                     AlertModalManager.createAndShowChangeFontDialog(activity);
                 }
                 break;
+            case R.id.exit_evaluation:
+                if (getActivity() != null) {
+                    getActivity().finish();
+                }
+                break;
         }
         return false;
     }

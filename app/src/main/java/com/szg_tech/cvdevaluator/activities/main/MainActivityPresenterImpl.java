@@ -35,10 +35,6 @@ class MainActivityPresenterImpl extends AbstractPresenter<MainActivityView> impl
         String backStackName = null;
         Activity activity = getActivity();
         switch (item.getItemId()) {
-            case R.id.home:
-                fragment = new HomeFragment();
-                backStackName = HomeFragment.class.getSimpleName();
-                break;
             case R.id.about:
                 fragment = new EvaluationListFragment();
                 Bundle bundle = new Bundle();

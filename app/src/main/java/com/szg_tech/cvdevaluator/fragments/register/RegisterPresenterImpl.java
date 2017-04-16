@@ -86,11 +86,6 @@ public class RegisterPresenterImpl extends AbstractPresenter<RegisterView> imple
                             showSnackbarBottomButtonRegisterSucceed(activity);
                             getSupportFragmentManager().popBackStack();
                         } else {
-                            try {
-                                System.out.println(response.errorBody().string());
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
                             showSnackbarBottomButtonRegisterError(activity);
                         }
                     }

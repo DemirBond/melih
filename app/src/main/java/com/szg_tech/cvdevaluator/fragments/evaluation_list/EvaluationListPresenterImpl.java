@@ -95,7 +95,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                     getSupportFragmentManager().beginTransaction()
                             .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                             .replace(R.id.container, evaluationListFragment)
-                            .addToBackStack(getSupportFragmentManager().getClass().getSimpleName() + evaluationItem.getName())
+                            .addToBackStack(getSupportFragmentManager().getClass().getSimpleName() + heartSpecialistManagement.getName())
                             .commit();
                 }
             }, v ->  {
@@ -221,15 +221,49 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                 if (listRecyclerViewAdapter.isScreenValid()) {
                     listRecyclerViewAdapter.saveAllValues();
                     if (activity instanceof EvaluationActivity) {
-                        ((EvaluationActivity) activity).createHomeScreen(false);
+                        int pahPosition = PAHpositionInBackStack();
+                        if(pahPosition > 0) {
+                            popBackStack(pahPosition);
+                        } else {
+                            ((EvaluationActivity) activity).createHomeScreen(false);
+                        }
                     }
                 } else {
                     showSnackbarBottomButtonError(activity);
                 }
                 break;
+            case R.id.reset_field:
+                //TODO Implement reset fields
+//                if (listRecyclerViewAdapter.isScreenValid()) {
+//                    resetValuesForEvaluationItem();
+//                }
+                break;
         }
         return true;
     }
+
+
+    private void resetValuesForEvaluationItem() {
+        if(evaluationItems != null) {
+
+            for (int i = 0; i < evaluationItems.size(); i++) {
+                evaluationItems.get(i).setValue(valuesDump.get(i));
+            }
+            setListRecyclerViewAdapter();
+        }
+    }
+
+    private void setListRecyclerViewAdapter() {
+        Activity activity = getActivity();
+        if (activity != null) {
+            RecyclerView recyclerView = getView().getRecyclerView();
+            if(recyclerView != null) {
+                listRecyclerViewAdapter = new ListRecyclerViewAdapter(getActivity(), evaluationItems, createValuesDump());
+                getView().getRecyclerView().setAdapter(listRecyclerViewAdapter);
+            }
+        }
+    }
+
 
     private void showAlertToClearInputs(Activity activity) {
         AlertModalManager.createAndShowCancelScreenInputDialog(activity, v -> {

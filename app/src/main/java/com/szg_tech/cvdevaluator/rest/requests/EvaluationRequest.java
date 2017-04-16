@@ -40,7 +40,19 @@ public class EvaluationRequest {
         setVariablesFromMap(evaluationValueMap);
     }
 
-
+    /**
+     *
+     * This method create "inputs" value for server
+     * It apply some arranged rules.
+     * E.g. Boolean values only appears
+     * E.g. Male mapped to 1 Female mapped to 2
+     *
+     *
+     * Since we cannot enforce changes in server side
+     * we need to live this these boilerplate codes.
+     *
+     * TODO add more checks or ask for improvement on server side
+     */
     private void setVariablesFromMap(Map<String, Object> evaluationValueMap) {
 
         age = getIntVal(evaluationValueMap.get(ConfigurationParams.AGE));

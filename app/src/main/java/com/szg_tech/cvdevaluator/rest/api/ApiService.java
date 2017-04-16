@@ -14,21 +14,20 @@ import retrofit2.http.QueryMap;
 
 /**
  * Created by ahmetkucuk on 3/16/17.
+ *
+ * Provided API should be revised!!
  */
 
 public interface ApiService {
 
-//    @GET("/api/api/values")
-//    public void computeEvaluation(Callback<EvaluationResponse> callback);
-
+    /**
+     * Somehow compute evaluation and saveEvaluation has same api query
+     * Only difference is that save evaluation passes an extra parameter called name.
+     * Therefore, in this query is joined
+     *
+     */
     @GET("/api/api/values")
-    public Call<String> computeEvaluation();
-
-    @GET("/api/api/values")
-    public Call<EvaluationResponse> computeEvaluation(@QueryMap(encoded = true) Map<String, Object> options);
-
-    @GET("/api/api/values")
-    public Call<BaseResponse> saveEvaluation(@QueryMap(encoded = true) Map<String, Object> options);
+    public Call<EvaluationResponse> computeOrSaveEvaluation(@QueryMap(encoded = true) Map<String, Object> options);
 
 
     @GET("/api/api/values")

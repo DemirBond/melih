@@ -17,7 +17,7 @@ class NonCardiacSurgicalRisk extends SectionEvaluationItem {
         name = context.getString(R.string.noncardiac_surgical_risk);
         this.evaluationItemList = createEvaluationItemElementsList();
         sectionElementState = SectionEvaluationItem.SectionElementState.LOCKED;
-        this.dependsOn = ConfigurationParams.CURRENT_THERAPIES;
+        this.dependsOn = ConfigurationParams.BIO;
     }
 
     private ArrayList<EvaluationItem> createEvaluationItemElementsList() {

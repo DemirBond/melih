@@ -19,7 +19,6 @@ class Diagnostics extends SectionEvaluationItem {
         name = context.getString(R.string.diagnostics);
         this.evaluationItemList = createEvaluationItemElementsList();
         sectionElementState = SectionEvaluationItem.SectionElementState.LOCKED;
-        this.dependsOn = ConfigurationParams.LABORATORIES;
     }
 
     private ArrayList<EvaluationItem> createEvaluationItemElementsList() {

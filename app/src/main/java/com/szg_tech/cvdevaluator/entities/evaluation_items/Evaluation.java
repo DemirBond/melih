@@ -8,8 +8,11 @@ import com.szg_tech.cvdevaluator.entities.EvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.SectionEvaluationItem;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 public class Evaluation extends SectionEvaluationItem {
+
     public Evaluation(Context context) {
         super(context, ConfigurationParams.EVALUATION, null, false);
         name = context.getString(R.string.evaluation);
@@ -31,7 +34,7 @@ public class Evaluation extends SectionEvaluationItem {
                 add(new SectionEvaluationItem(context, ConfigurationParams.CURRENT_THERAPIES, context.getString(R.string.current_therapies), false, new ArrayList<EvaluationItem>() {{
                     add(new POMeds(context));
                     add(new InHospitalTherapies(context));
-                }}, SectionElementState.LOCKED, ConfigurationParams.DIAGNOSTICS));
+                }}, SectionElementState.LOCKED, ConfigurationParams.BIO));
                 add(new NonCardiacSurgicalRisk(context));
             }
         };

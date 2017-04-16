@@ -5,6 +5,8 @@ import android.content.Context;
 import com.szg_tech.cvdevaluator.entities.EvaluationItem;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 public class SectionEvaluationItem extends EvaluationItem {
     protected SectionElementState sectionElementState;
@@ -14,6 +16,9 @@ public class SectionEvaluationItem extends EvaluationItem {
     private transient OnSectionElementStateChangeListener onSectionElementStateChangeListener;
     private boolean hasStateIcon = true;
     private boolean isBottomButtonReferenceSkipped = false;
+
+
+//    private Map<Class<EvaluationItem>, Set<String>> evaluationItemByKeys
 
     public SectionEvaluationItem(Context context, String id, String name, boolean isMandatory) {
         this(context, id, name, isMandatory, null, SectionElementState.LOCKED);
