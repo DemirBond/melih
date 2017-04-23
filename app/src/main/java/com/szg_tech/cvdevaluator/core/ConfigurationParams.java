@@ -12,11 +12,11 @@ public class ConfigurationParams {
     public static final String FEMALE = "female";
     public static final String BMI = "txtBMI";
     public static final String WEIGHT = "txtweight";
-    public static final String HEART_RATE = "txtHR";
+    public static final String HEART_RATE = "HR";
     public static final String SBP = "txtsbp";
     public static final String DBP = "txtdbp";
     public static final String IS_PAH = "isPAH";
-    public static final String ORTHOSTATIC_SBP = "txtOrthostaticSBP";
+    public static final String ORTHOSTATIC_SBP = "OrthostaticSBP";
     public static final String ORTHOSTATIC_SYMPTOMPS = "chkSymptomatic";
     public static final String WAIST_CIRC = "txtwaist";
     public static final String AA = "chkAsianCode";

@@ -89,10 +89,10 @@ public class EvaluationRequest {
             Object value = entry.getValue();
 
             //TODO why is this coming null, Check
-            if(key == null || key.length() < 3 || key.substring(0, 3).equalsIgnoreCase("sec")) continue;
+            if(key == null || key.length() < 2 || (key.length() > 3 && key.substring(0, 3).equalsIgnoreCase("sec"))) continue;
             if(value == null) continue;
 
-            if(key.substring(0, 3).equalsIgnoreCase("chk")) {
+            if(key.length() > 3 && key.substring(0, 3).equalsIgnoreCase("chk")) {
                 if(value instanceof Boolean && ((Boolean)value) == true) {
                     builder.append(key);
                     builder.append('|');
