@@ -97,29 +97,11 @@ class CurrentCVProfile extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CRT_ICD, "Status post CRT", false));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.LVEF, context.getString(R.string.lvef), context.getString(R.string.value), 10, 80, false, true));
 
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.IDIOPATHIC_DCM_NONISCHEMIC, context.getString(R.string.idiopathic_dcm_nonischemic), false));
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.POST_MI_MORE_45, context.getString(R.string.post_mi_more_45), false, new ArrayList<EvaluationItem>() {
-                            {
-                                new BooleanEvaluationItem(context, ConfigurationParams.LV_ANEURYSM, context.getString(R.string.lv_aneurysm), false);
-                            }
-                        }));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.ISCHEMIC_POST_MI_LESS_45, context.getString(R.string.ischemic_post_mi_less_45), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.CARDIOTOXINS, context.getString(R.string.cardiotoxins), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.FAMILIAL_CMP, context.getString(R.string.familial_cmp), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.MYOCARDITIS,"Myocarditis", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.RV_DYSPLASIA, context.getString(R.string.rv_dysplasia), false));
-                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.HOCM, context.getString(R.string.hocm), false, new ArrayList<EvaluationItem>() {
-                            {
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.LVH_MORE_30, context.getString(R.string.lvh_more_30), false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.ABNORMAL_BP_RESPONSE_TO_EXERCISE, context.getString(R.string.abnormal_bp_response_to_exercise), false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.HISTORY_OF_SUDDEN_DEATH, context.getString(R.string.history_of_sudden_death), false));
-                                add(new BooleanEvaluationItem(context, ConfigurationParams.REST_DYNAMIC_PEAK, context.getString(R.string.rest_dynamic_peak), false));
-                            }
-                        }));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.PERIPARTUM_CMP, context.getString(R.string.peripartum_cmp), false));
 
-                        add(new EmptyCellEvaluationItem());
+
+
                         add(new SectionEvaluationItem(context, ConfigurationParams.NYHA_CLASS, context.getString(R.string.nyha_class), false, new ArrayList<EvaluationItem>() {{
+
                             add(new BooleanEvaluationItem(context, ConfigurationParams.AT_HIGH_RISK, context.getString(R.string.at_high_risk), false));
                             add(new BooleanEvaluationItem(context, ConfigurationParams.NO_SIGNS_OF_HF, context.getString(R.string.no_signs_of_hf), false));
                             add(new BooleanEvaluationItem(context, ConfigurationParams.SYMPTOMS_OF_HF, context.getString(R.string.symptoms_of_hf), false));
@@ -137,15 +119,34 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                     add(new NumericalEvaluationItem(context, ConfigurationParams.VO_MAX_KG, context.getString(R.string.vo_max_kg), context.getString(R.string.value), 6, 40, false, true));
                                 }
                             }));
-                            add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, context.getString(R.string.nyha_ccvs_class_1), false));
-                            add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, context.getString(R.string.nyha_ccvs_class_2), false));
-                            add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, context.getString(R.string.nyha_ccvs_class_3), false));
-                            add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, context.getString(R.string.nyha_ccvs_class_4), false));
+
                         }}, SectionElementState.OPENED) {
                             {
                                 setHasStateIcon(false);
                             }
                         });
+                        add(new EmptyCellEvaluationItem());
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.IDIOPATHIC_DCM_NONISCHEMIC, context.getString(R.string.idiopathic_dcm_nonischemic), false));
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.POST_MI_MORE_45, context.getString(R.string.post_mi_more_45), false, new ArrayList<EvaluationItem>() {
+                            {
+                                new BooleanEvaluationItem(context, ConfigurationParams.LV_ANEURYSM, context.getString(R.string.lv_aneurysm), false);
+                            }
+                        }));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.ISCHEMIC_POST_MI_LESS_45, context.getString(R.string.ischemic_post_mi_less_45), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CARDIOTOXINS, context.getString(R.string.cardiotoxins), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.FAMILIAL_CMP, context.getString(R.string.familial_cmp), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.MYOCARDITIS,"Myocarditis", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.RV_DYSPLASIA, context.getString(R.string.rv_dysplasia), false));
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.HOCM, context.getString(R.string.hocm), false, new ArrayList<EvaluationItem>() {
+                                {
+                                    add(new BooleanEvaluationItem(context, ConfigurationParams.LVH_MORE_30, context.getString(R.string.lvh_more_30), false));
+                                    add(new BooleanEvaluationItem(context, ConfigurationParams.ABNORMAL_BP_RESPONSE_TO_EXERCISE, context.getString(R.string.abnormal_bp_response_to_exercise), false));
+                                    add(new BooleanEvaluationItem(context, ConfigurationParams.HISTORY_OF_SUDDEN_DEATH, context.getString(R.string.history_of_sudden_death), false));
+                                    add(new BooleanEvaluationItem(context, ConfigurationParams.REST_DYNAMIC_PEAK, context.getString(R.string.rest_dynamic_peak), false));
+                                }
+                            }));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PERIPARTUM_CMP, context.getString(R.string.peripartum_cmp), false));
+
                     }
                 }, SectionEvaluationItem.SectionElementState.OPENED));
                 add(new SectionEvaluationItem(context, ConfigurationParams.ATRIAL_FIBRILATION, context.getString(R.string.atrial_fibrilation), false, new ArrayList<EvaluationItem>() {

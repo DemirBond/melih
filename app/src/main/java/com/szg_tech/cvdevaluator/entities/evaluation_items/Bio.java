@@ -40,12 +40,12 @@ class Bio extends SectionEvaluationItem {
                 add(new NumericalEvaluationItem(context, ConfigurationParams.HEART_RATE, context.getString(R.string.heart_rate), context.getString(R.string.heart_rate_hint), 30, 300, false, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.SBP, context.getString(R.string.sbp), context.getString(R.string.sbp_hint), 60, 300, true, true));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.DBP, context.getString(R.string.dbp), context.getString(R.string.dbp_hint), 30, 160, true, true));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.ORTHOSTATIC_SBP, "Orthostatic SBP", "", 0, 240, false,true));
+                add(new NumericalEvaluationItem(context, ConfigurationParams.ORTHOSTATIC_SBP, "Orthostatic SBP", "Value", 0, 240, false,true));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.ORTHOSTATIC_SYMPTOMPS, context.getString(R.string.orthostatic_symptomps), false));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.WAIST_CIRC, context.getString(R.string.waist_circ), context.getString(R.string.value), 20, 60, false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.AA, context.getString(R.string.aa), false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.PREGNANCY, context.getString(R.string.pregnancy), false));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.RASAT, "RA O2 sat", "", 50, 100, false, true));
+                add(new NumericalEvaluationItem(context, ConfigurationParams.RASAT, "RA O2 sat", "Value", 50, 100, false, true));
 
             }
         };

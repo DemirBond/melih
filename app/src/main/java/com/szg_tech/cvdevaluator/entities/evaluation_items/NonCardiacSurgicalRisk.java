@@ -29,7 +29,7 @@ class NonCardiacSurgicalRisk extends SectionEvaluationItem {
                 add(new BooleanEvaluationItem(context, ConfigurationParams.LOW_RISK_SURGERY_CATARACT_PLASTIC, context.getString(R.string.low_risk_surgery_cataract_plastic), false));
                 add(new BooleanEvaluationItem(context, ConfigurationParams.UNABLE_TO_EXERCISE_PHYSICALLY_INACTIVE, context.getString(R.string.unable_to_exercise_physically_inactive), false));
                 add(new NumericalEvaluationItem(context, ConfigurationParams.METS, context.getString(R.string.mets), context.getString(R.string.value), 0, 21, false, true));
-                add(new NumericalEvaluationItem(context, ConfigurationParams.DUKE_ACTIVITY_SCORE_INDEX, context.getString(R.string.duke_activity_score_index), context.getString(R.string.value), 0, 99, false, true));
+                add(new NumericalEvaluationItem(context, ConfigurationParams.DUKE_ACTIVITY_SCORE_INDEX, "Duke Activity Status Index", context.getString(R.string.value), 0, 99, false, true));
             }
         };
     }

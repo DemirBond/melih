@@ -72,12 +72,13 @@ class Diagnostics extends SectionEvaluationItem {
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.STRESS_TESTING, context.getString(R.string.stress_testing), false, new ArrayList<EvaluationItem>() {
                     {
                         //TODO duke treadmill fix - count automatically after clarification
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.DUKE_TREADMILL_SCORE, context.getString(R.string.duke_treadmill_score), context.getString(R.string.value), -25, 25, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.SERUM_STRESS_SUMMED_SCORE, context.getString(R.string.serum_stress_summed_score), context.getString(R.string.value), 0, 99, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.DSE_ISCHEMIC_THRESHOLD, context.getString(R.string.dse_ischemic_threshold), context.getString(R.string.value), 0, 200, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.DSE_OR_STRESS_MRI, context.getString(R.string.dse_or_stress_mri), context.getString(R.string.value), 0, 24, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.STRESS_DIFFERENCE_SCORE, context.getString(R.string.stress_difference_score), context.getString(R.string.value), 0, 99, false, true));
-                        add(new NumericalEvaluationItem(context, ConfigurationParams.ISCHEMIC_MYOCARDIUM_ON_MPS, context.getString(R.string.ischemic_myocardium_on_mps), context.getString(R.string.value), 0, 100, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.DUKE_TREADMILL_SCORE, "DTS "," Value" ,-25, 25, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.SERUM_STRESS_SUMMED_SCORE, "SSS", " Value", 0, 99, false, true));
+
+
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.STRESS_DIFFERENCE_SCORE, "SDS", context.getString(R.string.value), 0, 99, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.ISCHEMIC_MYOCARDIUM_ON_MPS, "% Ischemic myocardium", context.getString(R.string.value), 0, 100, false, true));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.TID_OR_SIGNIFICANT_STRESS_INDUCED_LV_DISFUNCTION, "TID or stress induced LV dysfunction", false));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.EX_TIME_MIN, context.getString(R.string.ex_time_min), context.getString(R.string.value), 1, 21, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.MAX_ST_MM, context.getString(R.string.max_st_mm), context.getString(R.string.value), 0, 8, false, true));
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.ANGINA_INDEX, context.getString(R.string.angina_index), false, new ArrayList<EvaluationItem>() {
@@ -91,12 +92,14 @@ class Diagnostics extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ABNORMAL_BP_RESPONSE, context.getString(R.string.abnormal_bp_response), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.VENTRICULAR_TACHYCARDIA, context.getString(R.string.ventricular_tachycardia), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PROLONG_ST_DEPRESSION, context.getString(R.string.prolong_st_depression), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.TID_OR_SIGNIFICANT_STRESS_INDUCED_LV_DISFUNCTION, context.getString(R.string.tid_or_significant_stress_induced_lv_disfunction), false));
+
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.FIXED_PERFUSION_DEFECTS_OR_AKINETIC_DYSKINETIC, context.getString(R.string.fixed_perfusion_defects_or_akinetic_dyskinetic), false, new ArrayList<EvaluationItem>() {
                             {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.VIABILITY_PRESENT, context.getString(R.string.viability_present), false));
                             }
                         }));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.DSE_ISCHEMIC_THRESHOLD, "DSE,ischemic threshold", "Value", 0, 200, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.DSE_OR_STRESS_MRI, "DSE or stress MRI, # of RWMA segments", "Value", 0, 24, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ARTIFACTURAL_UNINTERPRETABLE_IMAGES, context.getString(R.string.artifactural_uninterpretable_images), false));
                     }
                 }));

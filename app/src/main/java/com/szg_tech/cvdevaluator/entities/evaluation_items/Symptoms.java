@@ -9,6 +9,7 @@ import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.BoldEvaluatio
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.BooleanEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.EmptyCellEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.MinutesSecondsEvaluationItem;
+import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.NumericalEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.RadioButtonGroupEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.SectionCheckboxEvaluationItem;
 import com.szg_tech.cvdevaluator.entities.evaluation_item_elements.SectionEvaluationItem;
@@ -27,7 +28,7 @@ class Symptoms extends SectionEvaluationItem {
     private ArrayList<EvaluationItem> createEvaluationItemElementsList() {
         return new ArrayList<EvaluationItem>() {
             {
-                add(new SectionEvaluationItem(context, ConfigurationParams.DYSPNEA, context.getString(R.string.dyspnea), false, new ArrayList<EvaluationItem>() {
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.DYSPNEA, context.getString(R.string.dyspnea), false, new ArrayList<EvaluationItem>() {
                     {
 
                         add(new BoldEvaluationItem(context, ConfigurationParams.PLEASE_SELECT_ONE, context.getString(R.string.please_select_one), true));
@@ -62,12 +63,24 @@ class Symptoms extends SectionEvaluationItem {
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.MORE_THAN_DAILY_ROUTINE, context.getString(R.string.more_than_daily_routine), false));
                                 add(new BooleanEvaluationItem(context, ConfigurationParams.DAILY_ROUTINE_MINIMAL_ACTIVITIES, context.getString(R.string.daily_routine_minimal_activities), false));
                             }
+
                         }));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.DYSPNEA_AT_REST, "Dyspnea at rest", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.WEIGHT_GAIN, context.getString(R.string.weight_gain), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, "NYHA class 1", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, "NYHA class 2", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, "NYHA class 3 ", false));
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.DYSPNEA_AT_REST, "Dyspnea at rest", false, new ArrayList<EvaluationItem>() {
+
+                        }));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, "NYHA class 4", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.WEIGHT_GAIN, "WEIGHT GAIN", false));
+
+
                     }
-                }, SectionElementState.OPENED));
-                add(new SectionEvaluationItem(context, ConfigurationParams.CHEST_PAIN, context.getString(R.string.chest_pain), false, new ArrayList<EvaluationItem>() {
+
+
+
+                }));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.CHEST_PAIN, context.getString(R.string.chest_pain), false, new ArrayList<EvaluationItem>() {
                     {
                         add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.EMERGENCY_ROOM_CP, context.getString(R.string.emergency_room), false, new ArrayList<EvaluationItem>() {
                             {
@@ -304,12 +317,9 @@ class Symptoms extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.UNABLE_TO_EXERCISE, context.getString(R.string.unable_to_exercise), false));
 
                     }
-                }, SectionElementState.OPENED) {
-                    {
-                        setBottomButtonReferenceSkipped(true);
-                    }
-                });
-                add(new SectionEvaluationItem(context, ConfigurationParams.SYNCOPE_PRESYNCOPE, " Presyncope/Syncope", false, new ArrayList<EvaluationItem>() {
+
+                }));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYNCOPE_PRESYNCOPE, " Presyncope / Syncope", false, new ArrayList<EvaluationItem>() {
 
                     {
                         add(new BoldEvaluationItem(context, ConfigurationParams.CIRCUMSTANCE, context.getString(R.string.circumstance), false) {
@@ -339,7 +349,11 @@ class Symptoms extends SectionEvaluationItem {
                                 setBackgroundHighlighted(true);
                             }
                         });
+
+
                         add(new MinutesSecondsEvaluationItem(context, ConfigurationParams.DURATION));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.MINUTES_SYN_DUR,"Minutes", "Value", 0, 10, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.SECONDS_SYN_DUR,"Seconds", "Value", 0, 300, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CYANOSIS, context.getString(R.string.cyanosis), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PALLOR_DIAPHORESIS, context.getString(R.string.pallor_diaphoresis), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.UNUSUAL_POSTURE, context.getString(R.string.unusual_posture), false));
@@ -355,9 +369,9 @@ class Symptoms extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.PROLONGED_FATIGUE, context.getString(R.string.prolonged_fatigue), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.TRAUMATIC_INJURY, context.getString(R.string.traumatic_injury), false));
                     }
-                }, SectionElementState.OPENED));{
 
-            };
+
+            }));
 
 
             }

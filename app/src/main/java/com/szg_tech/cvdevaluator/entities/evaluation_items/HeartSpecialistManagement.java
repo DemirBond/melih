@@ -29,7 +29,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
     private ArrayList<EvaluationItem> createEvaluationItemElementsList() {
         return new ArrayList<EvaluationItem>() {
             {
-                add(new SectionEvaluationItem(context, ConfigurationParams.BIO_PAH_MAIN, context.getString(R.string.bio_pah_main), false, new ArrayList<EvaluationItem>() {
+                add(new SectionEvaluationItem(context, ConfigurationParams.BIO_PAH_MAIN, "Bio, 6MWT, CPET ", false, new ArrayList<EvaluationItem>() {
                     {
                         //TODO make expanding control
                         add(new StringEvaluationItem(context, ConfigurationParams.NAME, context.getString(R.string.name), context.getString(R.string.name_hint), true, null));
@@ -48,16 +48,13 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                         add(new NumericalEvaluationItem(context, ConfigurationParams.DBP, context.getString(R.string.dbp), context.getString(R.string.dbp_hint), 30, 160, true, true));
 
                         add(new BooleanEvaluationItem(context, ConfigurationParams.ORTHOSTATIC_SYMPTOMPS, context.getString(R.string.orthostatic_symptomps), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, context.getString(R.string.nyha_ccvs_class_1), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, context.getString(R.string.nyha_ccvs_class_2), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, context.getString(R.string.nyha_ccvs_class_3), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, context.getString(R.string.nyha_ccvs_class_4), false));
+
                         add(new NumericalEvaluationItem(context, ConfigurationParams.SIX_MW_DISTANCE, context.getString(R.string.six_mw_distance), context.getString(R.string.value), 50, 600, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.MAX_VO_MG_KG_MIN, context.getString(R.string.max_vo_mg_kg_min), context.getString(R.string.value), 6, 40, false, true));
 
                     }
                 }, SectionElementState.OPENED));
-                add(new SectionEvaluationItem(context, ConfigurationParams.PAH, context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
+                add(new SectionEvaluationItem(context, ConfigurationParams.PAH, "PAH clinics", false, new ArrayList<EvaluationItem>() {
                     {
                         add(new TabEvaluationItem(context, "heart_rate_tab", "tab", new ArrayList<SectionEvaluationItem>() {
                             {
@@ -112,26 +109,8 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.DM, context.getString(R.string.dm), false));
                                     }
                                 }));
+
                                 add(new SectionEvaluationItem(context, "tab_pg3", context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
-                                    {
-                                        add(new NumericalEvaluationItem(context, ConfigurationParams.TR_JET_VELOCITY, context.getString(R.string.tr_jet_velocity), context.getString(R.string.value), 1, 6, false));
-                                        add(new NumericalEvaluationItem(context, ConfigurationParams.EXERCISE_RSVP, context.getString(R.string.exercise_rsvp), context.getString(R.string.value), 16, 144, false, true));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.ADVANCED_ECHOCARDIOGRAPHY, context.getString(R.string.advanced_echocardiography), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_LV_TD_DONE, context.getString(R.string.check_if_lv_td_done), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_RVOT_PW_DONE, context.getString(R.string.check_if_rvot_pw_done), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_TAPSE_DONE, context.getString(R.string.check_if_tapse_done), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_LESS_8, context.getString(R.string.e_e_less_8), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.SHORT_PAAT, context.getString(R.string.short_paat), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.TAPSE_LESS_2, context.getString(R.string.tapse_less_2), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_8_16, context.getString(R.string.e_e_8_16), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.MIDSYS_NOTCH, context.getString(R.string.midsys_notch), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_RA, context.getString(R.string.enlarged_ra), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_MORE_16, context.getString(R.string.e_e_more_16), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_RV, context.getString(R.string.enlarged_rv), false));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.PERICARDIAL_EFFUSION, context.getString(R.string.pericardial_effusion), false));
-                                    }
-                                }));
-                                add(new SectionEvaluationItem(context, "tab_pg4", context.getString(R.string.pah), false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.DLCO, context.getString(R.string.dlco), context.getString(R.string.value), 1, 6, false));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.FEV1_LT, context.getString(R.string.fev_lt), context.getString(R.string.value), 16, 144, false, true));
@@ -143,6 +122,26 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                         }));
                     }
                 }, SectionElementState.OPENED));
+                add(new SectionEvaluationItem(context, ConfigurationParams.ECHOCARDIOGRAPHY, "PAH echocardiography", false, new ArrayList<EvaluationItem>() {
+                    {
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.TR_JET_VELOCITY, context.getString(R.string.tr_jet_velocity), context.getString(R.string.value), 1, 6, false));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.EXERCISE_RSVP, context.getString(R.string.exercise_rsvp), context.getString(R.string.value), 16, 144, false, true));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.ADVANCED_ECHOCARDIOGRAPHY, context.getString(R.string.advanced_echocardiography), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_LV_TD_DONE, context.getString(R.string.check_if_lv_td_done), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_RVOT_PW_DONE, context.getString(R.string.check_if_rvot_pw_done), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CHECK_IF_TAPSE_DONE, context.getString(R.string.check_if_tapse_done), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_LESS_8, context.getString(R.string.e_e_less_8), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.SHORT_PAAT, context.getString(R.string.short_paat), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.TAPSE_LESS_2, context.getString(R.string.tapse_less_2), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_8_16, context.getString(R.string.e_e_8_16), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.MIDSYS_NOTCH, context.getString(R.string.midsys_notch), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_RA, context.getString(R.string.enlarged_ra), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.E_E_MORE_16, context.getString(R.string.e_e_more_16), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.ENLARGED_RV, context.getString(R.string.enlarged_rv), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PERICARDIAL_EFFUSION, context.getString(R.string.pericardial_effusion), false));
+                    }
+                }, SectionElementState.OPENED));
+
                 add(new SectionEvaluationItem(context, ConfigurationParams.VALVULAR, context.getString(R.string.valvular), false, new ArrayList<EvaluationItem>() {
                     {
                         add(new SectionEvaluationItem(context, ConfigurationParams.VALVULAR, context.getString(R.string.valvular), false, new ArrayList<EvaluationItem>() {
@@ -432,7 +431,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                     }
                 }, SectionElementState.OPENED));
 
-                add(new SectionEvaluationItem(context, ConfigurationParams.ECHOCARDIOGRAPHY, context.getString(R.string.echocardiography), false, new ArrayList<EvaluationItem>() {
+                add(new SectionEvaluationItem(context, ConfigurationParams.ECHOCARDIOGRAPHY, "Left heart echocardiography", false, new ArrayList<EvaluationItem>() {
                     {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.E_A_LESS_05_AND_DT_MORE_280MS, context.getString(R.string.e_a_less_05_and_dt_more_280ms), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.GRADE_MORE_2_DIASTOLIC_DYSFUNCTION, context.getString(R.string.grade_more_2_diastolic_dysfunction), false));

@@ -25,7 +25,7 @@ class POMeds extends SectionEvaluationItem {
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.B_BLOCKER, context.getString(R.string.b_blocker), false, new ArrayList<EvaluationItem>() {
                     {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CARVEDILOL_3125BID, context.getString(R.string.carvedilol_3125bid), false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.CARVEDILOL_625BID, context.getString(R.string.carvedilol_625bid), false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CARVEDILOL_625BID, "chkCarvedilol625", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CARVEDILOL_125BID, context.getString(R.string.carvedilol_125bid), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CARVEDILOL_25BID, context.getString(R.string.carvedilol_25bid), false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.METOPROLOLER_25_QD, context.getString(R.string.metoprololer_25_qd), false));
