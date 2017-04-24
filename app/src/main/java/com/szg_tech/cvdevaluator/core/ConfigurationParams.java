@@ -26,7 +26,7 @@ public class ConfigurationParams {
     public static final String DYSPNEA = "secdyspnea";
 
     public static final String SYNCHEST_PAIN = "chkSynProCP";
-    public static final String SYNCOPE_PRESYNCOPE = "secTestSyncope";
+    public static final String SYNCOPE_PRESYNCOPE = "chkTestSyncope";
     public static final String CHEST_PAIN = "sectionCP";
     public static final String CURRENT_PAST_CV_PROFILE = "seccurrent_past_cv_profile";
     public static final String HEART_FAILURE = "chkHF";
@@ -380,7 +380,8 @@ public class ConfigurationParams {
     public static final String TORSEMIDE_50_PLUS = "chktorsemide50";
     public static final String EKG = "chkEKG";
     public static final String PR_DURATION = "txtPRduration";
-    public static final String QRS_DURATION = "txtQRS";
+    public static final String
+            QRS_DURATION = "txtQRS";
     public static final String ST_DEVIATION_MORE_05_MM = "chkST";
     public static final String STRESS_TESTING = "chkDTS";
     public static final String NSR = "chkNSR";
