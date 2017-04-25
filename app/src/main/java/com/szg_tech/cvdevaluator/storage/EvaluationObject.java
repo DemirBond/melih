@@ -25,6 +25,12 @@ public class EvaluationObject extends RealmObject {
             longValue = (Long) value;
         } else if (value instanceof String) {
             stringValue = (String) value;
+        } else if (value == null) {
+            booleanValue = null;
+            intValue = null;
+            doubleValue = null;
+            longValue = null;
+            stringValue = null;
         }
 //        else if (value instanceof RealmList) {
 //            evaluationObject = (RealmList<EvaluationObject>) value;
