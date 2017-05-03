@@ -11,7 +11,7 @@ public class ConfigurationParams {
     public static final String MALE = "male";
     public static final String FEMALE = "female";
     public static final String BMI = "txtBMI";
-    public static final String WEIGHT = "txtweight";
+    public static final String WEIGHT = "weight";
     public static final String HEART_RATE = "HR";
     public static final String SBP = "txtsbp";
     public static final String DBP = "txtdbp";
@@ -383,7 +383,8 @@ public class ConfigurationParams {
     public static final String
             QRS_DURATION = "txtQRS";
     public static final String ST_DEVIATION_MORE_05_MM = "chkST";
-    public static final String STRESS_TESTING = "chkDTS";
+    public static final String
+            STRESS_TESTING = "chkDTS";
     public static final String NSR = "chkNSR";
     public static final String T_WAVE_INVERSION_MORE_1MM = "chkTWI";
     public static final String LOW_VOLTAGE_QRS = "chklowv";
