@@ -295,7 +295,7 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.FREQUENT_HOSPITAL_ADMISSIONS, context.getString(R.string.frequent_hospital_admissions), false));
                                             }
                                         }));
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, context.getString(R.string.nyha_ccvs_class_1), false));
+                                        add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_1, "NYHA/CCVS Class 1", false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_2, context.getString(R.string.nyha_ccvs_class_2), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_3, context.getString(R.string.nyha_ccvs_class_3), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.NYHA_CCVS_CLASS_4, context.getString(R.string.nyha_ccvs_class_4), false));

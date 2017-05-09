@@ -248,7 +248,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.RECENT_TRAUMA_SURGERY, context.getString(R.string.recent_trauma_surgery), false));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.REDUCED_MOBILITY, context.getString(R.string.reduced_mobility), false));
                                                 add(new BooleanEvaluationItem(context, ConfigurationParams.ONGOING_HORMONAL_TREATMENT, context.getString(R.string.ongoing_hormonal_treatment), false));
-                                                add(new BooleanEvaluationItem(context, ConfigurationParams.ACUTE_INFECTION_RHEUMATOLOGIC_DISORDER, context.getString(R.string.acute_infection_rheumatologic_disorder), false));
+                                                add(new BooleanEvaluationItem(context, ConfigurationParams.ACUTE_INFECTION_RHEUMATOLOGIC_DISORDER, "Active infection, rheumatologic disorder", false));
                                             }
                                         }));
                                     }

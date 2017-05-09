@@ -42,6 +42,8 @@ class Symptoms extends SectionEvaluationItem {
                                 setBackgroundHighlighted(true);
                             }
                         });
+
+                        add(new EmptyCellEvaluationItem());
                         add(new BooleanEvaluationItem(context, ConfigurationParams.OUTPATIENT, "Ambulatory / Outpatient", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.EMERGENCY_ROOM, "Worsening / Emergency room ", false));
 

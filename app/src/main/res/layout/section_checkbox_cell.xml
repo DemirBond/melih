@@ -16,9 +16,6 @@
         android:minHeight="@dimen/checkbox_cell_height"
         android:orientation="horizontal"
 
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp"
-
         android:paddingEnd="@dimen/cell_padding_right"
         android:paddingStart="@dimen/cell_padding_left">
 
