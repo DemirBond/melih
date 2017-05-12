@@ -58,5 +58,8 @@ public class StringEvaluationItem extends EvaluationItem {
         if (value instanceof String) {
             setText((String) value);
         }
+        if (value == null) {
+            setText(null);
+        }
     }
 }

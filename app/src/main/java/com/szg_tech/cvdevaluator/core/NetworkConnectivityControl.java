@@ -36,7 +36,7 @@ public class NetworkConnectivityControl extends AsyncTask<Void, Void, Boolean>{
     @Override
     protected void onPostExecute(Boolean isConnected) {
         super.onPostExecute(isConnected);
-        if(!isConnected) {
+        if(!isConnected && listener != null) {
             listener.onNetworkConnectionFailed();
         }
     }
@@ -62,11 +62,15 @@ public class NetworkConnectivityControl extends AsyncTask<Void, Void, Boolean>{
     }
 
     private boolean networkConnectivity() {
-        ConnectivityManager cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            return true;
+        if(context != null) {
+            ConnectivityManager cm = (ConnectivityManager) context
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            if(cm != null) {
+                NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    return true;
+                }
+            }
         }
         return false;
     }
