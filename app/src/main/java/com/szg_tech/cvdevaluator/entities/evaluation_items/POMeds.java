@@ -35,7 +35,15 @@ class POMeds extends SectionEvaluationItem {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.METOPROLOLER_200_QD, context.getString(R.string.metoprololer_200_qd), false));
                     }
                 }));
-                add(new BooleanEvaluationItem(context, ConfigurationParams.ACEL_ARB, context.getString(R.string.acel_arb), false));
+
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.ACEL_ARB, "Ace I/ ARB", false, new ArrayList<EvaluationItem>() {
+                    {
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.LISINOPRIL_5QD, "Lisinopril 5 qd", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.LISINOPRIL_10QD, "Lisinopril 10-20 qd", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.LISINOPRIL_20QD, "Lisinopril 30-40qd", false));
+
+                    }
+                }));
                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PO_DIURETIC, context.getString(R.string.po_diuretic), false, new ArrayList<EvaluationItem>() {
                     {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.FUROSEMIDE_40, context.getString(R.string.furosemide_40), false));

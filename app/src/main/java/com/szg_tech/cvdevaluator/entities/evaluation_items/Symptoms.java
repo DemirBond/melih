@@ -352,8 +352,6 @@ class Symptoms extends SectionEvaluationItem {
                             }
                         });
 
-
-                        add(new MinutesSecondsEvaluationItem(context, ConfigurationParams.DURATION));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.MINUTES_SYN_DUR,"Minutes", "Value", 0, 10, false, true));
                         add(new NumericalEvaluationItem(context, ConfigurationParams.SECONDS_SYN_DUR,"Seconds", "Value", 0, 300, false, true));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.CYANOSIS, context.getString(R.string.cyanosis), false));

@@ -378,6 +378,9 @@ public class ConfigurationParams {
     public static final String TORSEMIDE_20 = "chktorsemide20";
     public static final String TORSEMIDE_40 = "chktorsemide40";
     public static final String TORSEMIDE_50_PLUS = "chktorsemide50";
+    public static final String LISINOPRIL_5QD = "chkMetoprololER100";
+    public static final String LISINOPRIL_10QD = "chkBisoprolol10";
+    public static final String LISINOPRIL_20QD = "chkMetoprololER200";
     public static final String EKG = "chkEKG";
     public static final String PR_DURATION = "txtPRduration";
     public static final String

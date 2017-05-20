@@ -216,7 +216,7 @@ class CurrentCVProfile extends SectionEvaluationItem {
 
                                     }
                                 }));
-                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PROCEDURAL_BLEED_RISK, "Procedur related bleeding risk", false, new ArrayList<EvaluationItem>() {
+                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PROCEDURAL_BLEED_RISK, "Procedure related bleeding risk", false, new ArrayList<EvaluationItem>() {
                                     {
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.PRIOR_BLEED_DURING_BRIDGING_SIMILAR, context.getString(R.string.prior_bleed_during_bridging_similar), false));
                                         add(new BooleanEvaluationItem(context, ConfigurationParams.PRIOR_ASA_USE, context.getString(R.string.prior_asa_use), false));

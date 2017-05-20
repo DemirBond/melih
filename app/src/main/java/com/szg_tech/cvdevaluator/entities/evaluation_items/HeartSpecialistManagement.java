@@ -178,14 +178,14 @@ public class HeartSpecialistManagement extends SectionEvaluationItem {
                                 }));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.PRIMARY_MITRAL_REGURGITATION, context.getString(R.string.primary_mitral_regurgitation), false, new ArrayList<EvaluationItem>() {
                                     {
-                                        add(new BooleanEvaluationItem(context, ConfigurationParams.HOLODIASTOLIC_FLOW_REVERSAL, context.getString(R.string.holodiastolic_flow_reversal), false));
+
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.VENA_CONTRACTA_WIDTH, context.getString(R.string.vena_contracta_width), context.getString(R.string.value), 0.1, 9, false));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.REGURGITANT_VOLUME_ML_BEAT, context.getString(R.string.regurgitant_volume_ml_beat), context.getString(R.string.value), 0, 99, false, true));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.REGURGITANT_FRACTION, context.getString(R.string.regurgitant_fraction), context.getString(R.string.value), 0, 61, false, true));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.ERO, context.getString(R.string.ero), context.getString(R.string.value), 0.1, 9, false));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.LVEDD_MM, context.getString(R.string.lvedd_mm), context.getString(R.string.value), 10, 90, false, true));
                                         add(new NumericalEvaluationItem(context, ConfigurationParams.LVESD_MM, context.getString(R.string.lvesd_mm), context.getString(R.string.value), 10, 60, false, true));
-                                        add(new NumericalEvaluationItem(context, ConfigurationParams.AORTIC_ROOT_DIAMETER, context.getString(R.string.aortic_root_diameter), context.getString(R.string.value), 2, 9, false, true));
+
                                     }
                                 }));
                                 add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.TRICUSPID_REGURGITATION, context.getString(R.string.tricuspid_regurgitation), false, new ArrayList<EvaluationItem>() {
