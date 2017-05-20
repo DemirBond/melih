@@ -12,23 +12,23 @@ public class EmptyCell extends CardView implements CellItem {
 
     public EmptyCell(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init();
+        init(Color.TRANSPARENT);
     }
 
     public EmptyCell(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(Color.TRANSPARENT);
     }
 
-    public EmptyCell(Context context) {
+    public EmptyCell(Context context, int color) {
         super(context);
-        init();
+        init(color);
     }
 
-    public void init() {
+    public void init(int color) {
         ViewGroup.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (10 * density));
         setLayoutParams(layoutParams);
-        setBackgroundColor(Color.TRANSPARENT);
+        setBackgroundColor(color);
         setCardElevation(0.5f * density);
     }
 

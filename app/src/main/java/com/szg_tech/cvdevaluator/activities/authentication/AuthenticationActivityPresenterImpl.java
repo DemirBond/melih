@@ -32,7 +32,10 @@ public class AuthenticationActivityPresenterImpl extends AbstractPresenter<Authe
     }
 
     private void checkInternet() {
-        new NetworkConnectivityControl(getActivity(), this).execute();
+        Activity activity = getActivity();
+        if(activity != null) {
+            new NetworkConnectivityControl(getActivity(), this).execute();
+        }
     }
 
 

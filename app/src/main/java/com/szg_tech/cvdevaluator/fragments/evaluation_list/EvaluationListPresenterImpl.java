@@ -234,9 +234,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
                 break;
             case R.id.reset_field:
                 //TODO Implement reset fields
-//                if (listRecyclerViewAdapter.isScreenValid()) {
-//                    resetValuesForEvaluationItem();
-//                }
+                resetValuesForEvaluationItem();
                 break;
         }
         return true;
@@ -247,6 +245,8 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
         if(evaluationItems != null) {
 
             for (int i = 0; i < evaluationItems.size(); i++) {
+                System.out.println(evaluationItems.get(i).getId() + " " + valuesDump.get(i));
+                System.out.println(valuesDump.get(i));
                 evaluationItems.get(i).setValue(valuesDump.get(i));
             }
             setListRecyclerViewAdapter();
@@ -258,7 +258,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
         if (activity != null) {
             RecyclerView recyclerView = getView().getRecyclerView();
             if(recyclerView != null) {
-                listRecyclerViewAdapter = new ListRecyclerViewAdapter(getActivity(), evaluationItems, createValuesDump());
+                listRecyclerViewAdapter = new ListRecyclerViewAdapter(getActivity(), evaluationItems, valuesDump);
                 getView().getRecyclerView().setAdapter(listRecyclerViewAdapter);
             }
         }

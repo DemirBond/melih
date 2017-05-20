@@ -150,7 +150,7 @@ public class ListRecyclerViewAdapter extends RecyclerView.Adapter<ListRecyclerVi
                 sectionCheckboxCell.setLayoutParams(layoutParams);
                 return new ListRecyclerViewAdapter.ViewHolder(sectionCheckboxCell);
             case 10:
-                EmptyCell emptyCell = new EmptyCell(activity);
+                EmptyCell emptyCell = new EmptyCell(activity, ContextCompat.getColor(activity, R.color.lighter_purple));
                 return new ListRecyclerViewAdapter.ViewHolder(emptyCell);
             case 11:
                 DatePickerCell datePickerCell = new DatePickerCell(activity);
