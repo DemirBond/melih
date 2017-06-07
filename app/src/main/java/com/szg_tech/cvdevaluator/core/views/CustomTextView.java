@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v7.widget.AppCompatTextView;
@@ -66,6 +67,17 @@ public class CustomTextView extends AppCompatTextView {
     protected void onDetachedFromWindow() {
         getContext().unregisterReceiver(broadcastReceiver);
         super.onDetachedFromWindow();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        setCorrectSizeFromPref();
+    }
+
+    private void setCorrectSizeFromPref() {
+        textDelta = PreferenceHelper.getTextDelta(getContext());
+        setCorrectTextSize();
     }
 
     public void readAttributes(Context context, AttributeSet attrs) {
