@@ -40,7 +40,8 @@ class POMeds extends SectionEvaluationItem {
                     {
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LISINOPRIL_5QD, "Lisinopril 5 qd", false));
                         add(new BooleanEvaluationItem(context, ConfigurationParams.LISINOPRIL_10QD, "Lisinopril 10-20 qd", false));
-                        add(new BooleanEvaluationItem(context, ConfigurationParams.LISINOPRIL_20QD, "Lisinopril 30-40qd", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.LISINOPRIL_20QD, "Lisinopril 3" +
+                                "0-40qd", false));
 
                     }
                 }));

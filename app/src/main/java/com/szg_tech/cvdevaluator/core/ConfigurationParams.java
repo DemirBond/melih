@@ -28,6 +28,12 @@ public class ConfigurationParams {
     public static final String SYNCHEST_PAIN = "chkSynProCP";
     public static final String SYNCOPE_PRESYNCOPE = "chkTestSyncope";
     public static final String CHEST_PAIN = "sectionCP";
+    public static final String COMA = "sectioncoma";
+    public static final String SHOCK = "sectionshock";
+    public static final String SEIZURE = "sectionseizure";
+    public static final String ABDOMINAL = "sectionabdominalpain";
+    public static final String BACKPAIN = "sectionbackpain";
+
     public static final String CURRENT_PAST_CV_PROFILE = "seccurrent_past_cv_profile";
     public static final String HEART_FAILURE = "chkHF";
     public static final String CORONARY_HEART_DISEASE = "seccoronary_heart_disease";
@@ -521,6 +527,7 @@ public class ConfigurationParams {
     public static final String S_P_SUCCESSFUL_ABLATION = "chkablation";
     public static final String VENTRICULAR_RATE_CONTROL = "chkpharm";
     public static final String HEART_RATE_WITH_ACTIVITY = "TxtCMP";
+    
     public static final String RHYTM_CONTROL = "chkCV";
     public static final String CURRENT_ANIARRYTHMIC_THERAPY = "chkCAA";
     public static final String SOTALOL_AMIODARONE_MULTAQ_DOFETILIDE = "chkclass3AA";

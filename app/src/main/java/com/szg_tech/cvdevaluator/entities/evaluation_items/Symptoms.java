@@ -371,9 +371,20 @@ class Symptoms extends SectionEvaluationItem {
                     }
 
 
-            }));
 
 
+                 }));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.COMA, "Coma", false, new ArrayList<EvaluationItem>() {
+                }));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SEIZURE, "Seizure", false, new ArrayList<EvaluationItem>() {
+                }));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SHOCK, "Shock", false, new ArrayList<EvaluationItem>() {
+                }));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.ABDOMINAL, "Abdominal pain", false, new ArrayList<EvaluationItem>() {
+
+                }));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.BACKPAIN, "Back pain", false, new ArrayList<EvaluationItem>() {
+                }));
             }
         };
     }
