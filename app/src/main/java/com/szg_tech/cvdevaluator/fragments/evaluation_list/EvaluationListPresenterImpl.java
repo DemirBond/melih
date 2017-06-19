@@ -243,10 +243,7 @@ class EvaluationListPresenterImpl extends AbstractPresenter<EvaluationListView> 
 
     private void resetValuesForEvaluationItem() {
         if(evaluationItems != null) {
-
             for (int i = 0; i < evaluationItems.size(); i++) {
-                System.out.println(evaluationItems.get(i).getId() + " " + valuesDump.get(i));
-                System.out.println(valuesDump.get(i));
                 evaluationItems.get(i).setValue(valuesDump.get(i));
             }
             setListRecyclerViewAdapter();

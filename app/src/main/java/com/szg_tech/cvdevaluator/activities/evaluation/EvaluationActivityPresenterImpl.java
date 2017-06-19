@@ -118,7 +118,4 @@ class EvaluationActivityPresenterImpl extends AbstractPresenter<EvaluationActivi
         }
         return false;
     }
-
-
-
 }

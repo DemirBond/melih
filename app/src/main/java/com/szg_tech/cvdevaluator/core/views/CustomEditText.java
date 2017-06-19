@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.text.Editable;
@@ -43,6 +45,7 @@ public class CustomEditText extends android.support.v7.widget.AppCompatEditText 
     public CustomEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         readAttributes(context, attrs);
+        setCorrectSizeFromPref();
     }
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -58,14 +61,23 @@ public class CustomEditText extends android.support.v7.widget.AppCompatEditText 
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         getContext().registerReceiver(broadcastReceiver, new IntentFilter(ConfigurationParams.ACTION_CHANGE_SIZE));
-        textDelta = PreferenceHelper.getTextDelta(getContext());
-        setCorrectTextSize();
     }
 
     @Override
     protected void onDetachedFromWindow() {
         getContext().unregisterReceiver(broadcastReceiver);
         super.onDetachedFromWindow();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        setCorrectSizeFromPref();
+    }
+
+    private void setCorrectSizeFromPref() {
+        textDelta = PreferenceHelper.getTextDelta(getContext());
+        setCorrectTextSize();
     }
 
     private void setCorrectTextSize() {

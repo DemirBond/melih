@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -29,6 +30,9 @@ public class RestClient
         // Add the interceptor to OkHttpClient
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.interceptors().add(new AuthenticationInterceptor(token));
+        builder.connectTimeout(120, TimeUnit.SECONDS)
+                .writeTimeout(120, TimeUnit.SECONDS)
+                .readTimeout(120, TimeUnit.SECONDS);
         OkHttpClient client = builder.build();
 
         Retrofit restAdapter = new Retrofit.Builder()
