@@ -321,7 +321,7 @@ class Symptoms extends SectionEvaluationItem {
                     }
 
                 }));
-                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYNCOPE_PRESYNCOPE, " Presyncope / Syncope", false, new ArrayList<EvaluationItem>() {
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYNCOPE_PRESYNCOPE, " Presyncope / Syncope / Seizure", false, new ArrayList<EvaluationItem>() {
 
                     {
                         add(new BoldEvaluationItem(context, ConfigurationParams.CIRCUMSTANCE, context.getString(R.string.circumstance), false) {
@@ -374,16 +374,216 @@ class Symptoms extends SectionEvaluationItem {
 
 
                  }));
-                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.COMA, "Coma", false, new ArrayList<EvaluationItem>() {
-                }));
-                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SEIZURE, "Seizure", false, new ArrayList<EvaluationItem>() {
-                }));
-                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SHOCK, "Shock", false, new ArrayList<EvaluationItem>() {
-                }));
-                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.ABDOMINAL, "Abdominal pain", false, new ArrayList<EvaluationItem>() {
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYMCYANOSIS, "Cyanosis", false, new ArrayList<EvaluationItem>() {
+                    {
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.CENTRAL, "Central cyanosis", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PERIPHERAL, "Peripheral cyanosis", false));
+
+                    }
+
 
                 }));
-                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.BACKPAIN, "Back pain", false, new ArrayList<EvaluationItem>() {
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYMEDEMA, "Edema", false, new ArrayList<EvaluationItem>() {
+
+                    {
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PITTING, " Pitting", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.NONPITTING, " Nonpitting", false));
+
+                    }
+                    {add(new EmptyCellEvaluationItem());}
+                    {
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.LOCALIZED, " Localized", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.DIFFUSE, " Diffuse", false));
+
+                    }
+
+                }));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.WEAKNESS, "Weakness", false, new ArrayList<EvaluationItem>() {
+
+                    {add(new BooleanEvaluationItem(context, ConfigurationParams.MALAISE, "Malaise / Fatigue", false));}
+                }));
+
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SYMPALPITATIONS, "Palpitations", false, new ArrayList<EvaluationItem>() {
+
+                    {
+                        add(new BoldEvaluationItem(context, ConfigurationParams.PAL_FREQUENCY, "Frequency", false) {
+                            {
+                                setBackgroundHighlighted(true);
+                            }
+                        });
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PALDAY, "Daily", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PALWEEK, "Weekly", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PALMONTH, "Monthly", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PALYEAR, "Yearly", false));
+
+                        add(new BoldEvaluationItem(context, ConfigurationParams.PAL_TYPE, "Type", false) {
+                            {
+                                setBackgroundHighlighted(true);
+                            }
+                        });
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.EXTRASYSTOLIC, "Extrasystolic", false));
+                        add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.TACHYCARDIC, "Tachycardic", false, new ArrayList<EvaluationItem>() {
+
+
+                            {
+                                add(new BoldEvaluationItem(context, ConfigurationParams.VAGAL, "Reaction to vagal manuever", false) {
+                                    {
+                                        setBackgroundHighlighted(true);
+                                    }
+                                });
+
+
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.VAGAL_ABRUPT, "Abrupt termination", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.VAGAL_GRADUAL, "Gradual termination", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.VAGAL_NORESPONSE, "No response", false));
+                            }
+
+                        }));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.ANXIETY, "Anxiety", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PULSATION, "Strong pulsation ", false));
+
+
+                        add(new BoldEvaluationItem(context, ConfigurationParams.SYMPTOM_DURATION, "Symptom duration", false) {
+                            {
+                                setBackgroundHighlighted(true);
+                            }
+                        });
+
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.SECONDS_PAL_DUR,"Seconds", "Value", 0, 60, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.MINUTES_PAL_DUR,"Minutes", "Value", 0, 60, false, true));
+                        add(new NumericalEvaluationItem(context, ConfigurationParams.HOURS_PAL_DUR,"Hours", "Value", 0, 300, false, true));
+
+
+                        add(new BoldEvaluationItem(context, ConfigurationParams.PAL_SYMPTOMS, "Associated symptoms", false) {
+                            {
+                                setBackgroundHighlighted(true);
+                            }
+                        });
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_SYNCOPE, "Syncope", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_ANGINA, "Angina", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_POLYURIA, "Polyuria", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_NECK, "Pulsations in neck", false));
+
+                        add(new BoldEvaluationItem(context, ConfigurationParams.PAL_EKG, "EKG during symptoms", false) {
+                            {
+                                setBackgroundHighlighted(true);
+                            }
+                        });
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_NSR, "Normal sinus rhtym", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_REGRR, "Regular RR, other than sinus ", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_IRREGRR, "Irregular RR, other than sinus", false));
+
+
+                        add(new BoldEvaluationItem(context, ConfigurationParams.PAL_ONSET, "Onset, trigger", false) {
+                            {
+                                setBackgroundHighlighted(true);
+                            }
+                        });
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_SUDDEN, "Normal sinus rhtym", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_POSITION, "Regular RR, other than sinus ", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_EXERTION, "Irregular RR, other than sinus", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PAL_POSTEXERTION, "Irregular RR, other than sinus", false));
+                    }
+
+
+
+
+                }));
+
+
+
+
+
+
+
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.ABDOMINAL, "Abdominal pain", false, new ArrayList<EvaluationItem>() {
+                    {
+
+                                add(new BoldEvaluationItem(context, ConfigurationParams.PAIN_QUALITY, "Quality", false) {
+                                    {
+                                     setBackgroundHighlighted(true);
+                                    }
+                                 });
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ABSHARP, "Sharp", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ABCOLIC, "Colicky", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ABACHING, "Aching or muscle spasm", false));
+                                //add(new BooleanEvaluationItem(context, ConfigurationParams.SORENESS, context.getString(R.string.soreness), false));
+                                //add(new BooleanEvaluationItem(context, ConfigurationParams.HEAVINESS, context.getString(R.string.heaviness), false));
+
+                                add(new BoldEvaluationItem(context, ConfigurationParams.PAIN_LOCATION, "Location ", false) {
+                                    {
+                                        setBackgroundHighlighted(true);
+                                    }
+                                });
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.PERIUMBILICAL, "Periumbilical", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.EPIGASTRIC, "Epigastric", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.SUPRAPUBIC, "Suprapubic", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ABSPASM," Referred ", false));
+                                //add(new BooleanEvaluationItem(context, ConfigurationParams.PALPATION, context.getString(R.string.palpation), false));
+
+                                add(new BoldEvaluationItem(context, ConfigurationParams.ASSOCIATED_FINDINGS, "Associated findings", false) {
+                                    {
+                                        setBackgroundHighlighted(true);
+                                    }
+                                });
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.DISTENTION, "Distention", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.REBOUND, "Rebound tenderness", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.PULSATILE, "Pulsatile mass", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.BOWELSOUNDS, "Abnormal bowel sounds", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.MCBURNEY, "McBurney sign", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.MURPHY, "Murphy sign", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.PSAOS, "Psaos sign", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ROVSING, "Rovsing sign", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.OBTURATOR, "Obturator sign", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.CARNETT, "Carnett sign", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.COSTOVERTEBRAL, "Costovertebral tendernesss", false));
+                                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SKIN, "Skin findings", false, new ArrayList<EvaluationItem>() {
+                                      {
+                                          add(new BooleanEvaluationItem(context, ConfigurationParams.HERPES, "Herpes", false));
+                                          add(new BooleanEvaluationItem(context, ConfigurationParams.CELULITIS, "Celulitis", false));
+                                          add(new BooleanEvaluationItem(context, ConfigurationParams.ECHYMOSIS, "Flank or periumbilical echymosis", false));
+                                          add(new BooleanEvaluationItem(context, ConfigurationParams.CAPUT, "Caput medusa", false));
+                                          add(new BooleanEvaluationItem(context, ConfigurationParams.ICTERUS, "Icterus", false));
+                                          add(new BooleanEvaluationItem(context, ConfigurationParams.HENOCH, "Purpura ", false));
+                                      }
+                                 }));
+                                add(new BoldEvaluationItem(context, ConfigurationParams.ASSOCIATED_SYMPTOMS, "Associated symptoms", false) {
+                                    {
+                                        setBackgroundHighlighted(true);
+                                    }
+                                });
+
+
+
+                               add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.VOMITING, "Vomiting", false, new ArrayList<EvaluationItem>() {
+                                  {
+                                  add(new BooleanEvaluationItem(context, ConfigurationParams.VOMITING_FIRST, "Vomiting precedes pain", false));
+                                  add(new BooleanEvaluationItem(context, ConfigurationParams.PAIN_FIRST, "Pain precedes vomiting", false));
+
+                                   }
+                                 }));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.ANOREXIA, "Anorexia", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.BOWEL, "Change in bowel habits", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.POSTOPERATIVE, "Post operative status", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.FAMILY_HISTORYAA, "Family history of AAA", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.OBGYN, "Ob gyn history", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.HEMATURIA, "Hematuria", false));
+                                add(new BooleanEvaluationItem(context, ConfigurationParams.URINARY, "Change in urinary habit", false));
+
+
+
+
+                    }
+                }));
+                add(new SectionCheckboxEvaluationItem(context, ConfigurationParams.SHOCK, "Shock", false, new ArrayList<EvaluationItem>() {
+                    {
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.HYPOVOLEMIA, "Hypovolemia", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.INFECTIOUS, "Infectious", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.SPINALCORD, "Spinal cord", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.ALLERGIC, "Allergic", false));
+                        add(new BooleanEvaluationItem(context, ConfigurationParams.PHARMACOLOGIC, "Pharmacologic", false));
+
+                    }
                 }));
             }
         };
