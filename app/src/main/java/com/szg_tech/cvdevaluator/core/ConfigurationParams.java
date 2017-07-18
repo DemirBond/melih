@@ -91,6 +91,7 @@ public class ConfigurationParams {
     public static final String VENTRICULAR_TACHYARRTHYMIAS = "secventricular_tachyarrthymias";
     public static final String BRADYARRTHYMIA_SYNCOPE = "secbradyarrthymia_syncope";
 
+
     public static final String VALVULAR_HEART_DISEASE_SEC = "chkvalvularHD";
     public static final String VALVULAR_HEART_DISEASE = "chkvalvular";
 
