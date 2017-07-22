@@ -21,10 +21,12 @@ public class AuthenticationActivity extends AppCompatActivity implements Authent
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentication);
+
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, new LoginFragment())
                 .addToBackStack(LoginFragment.class.getSimpleName())
                 .commit();
+
         presenter.onCreate();
     }
 

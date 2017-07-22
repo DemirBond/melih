@@ -36,9 +36,9 @@ public class NetworkConnectivityControl extends AsyncTask<Void, Void, Boolean>{
     @Override
     protected void onPostExecute(Boolean isConnected) {
         super.onPostExecute(isConnected);
-        if(!isConnected && listener != null) {
-            listener.onNetworkConnectionFailed();
-        }
+//        if(!isConnected && listener != null) {
+//            listener.onNetworkConnectionFailed();
+//        }
     }
 
     private boolean isConnectingToInternet() {

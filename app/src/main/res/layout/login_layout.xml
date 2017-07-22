@@ -25,12 +25,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
+
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="Email" />
+
         </android.support.design.widget.TextInputLayout>
 
         <!--  Password Label -->
@@ -39,12 +41,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
+
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="Password"/>
+
         </android.support.design.widget.TextInputLayout>
 
         <com.szg_tech.cvdevaluator.core.views.CustomTextView
@@ -70,4 +74,5 @@
             android:textSize="16dip"/>
 
     </LinearLayout>
+
 </ScrollView>

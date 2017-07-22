@@ -14,13 +14,25 @@
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </RelativeLayout>
 
-    <com.szg_tech.cvdevaluator.core.views.ButtonWithChevron
-        android:id="@+id/bottom_button"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:minHeight="@dimen/icon_cell_height"
-        app:text="@string/compute_evaluation" />
+        android:orientation="vertical"
+        android:background="@drawable/custom_bottom_bg">
+
+        <com.szg_tech.cvdevaluator.core.views.ButtonWithChevron
+            android:id="@+id/bottom_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:elevation="5dp"
+            android:minHeight="@dimen/icon_cell_height"
+            app:text="@string/compute_evaluation" />
+
+    </LinearLayout>
+
+
 </LinearLayout>
